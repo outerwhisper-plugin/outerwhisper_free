@@ -568,11 +568,10 @@ class FormDataSanitizer
 				'emailConfirmation' => 'bool'
 			]);
 		}
-		if (in_array($type, ['rating', 'thumbs', 'smileys', 'nps'], true)) {
+		if (in_array($type, ['rating'], true)) {
 			return array_merge($common, [
 				'step2Enabled' => 'bool',
 				'stars'        => 'positive',
-				'smileyLegend' => 'bool'
 			]);
 		}
 

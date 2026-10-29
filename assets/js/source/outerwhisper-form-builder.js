@@ -762,7 +762,7 @@ const OUTERWHISPERFormBuilder = (function() {
             if (element) {
                 callback(element);
                 engine.renderStepCanvas(stepNum);
-                if (['rating', 'thumbs', 'smileys', 'nps', 'button', 'dropdown'].includes(element.type)) {
+                if (['rating', 'button', 'dropdown'].includes(element.type)) {
                     engine.renderStepCanvas(stepNum);
                 }
                 api.saveStateToLocalStorage();
@@ -1387,22 +1387,6 @@ const OUTERWHISPERFormBuilder = (function() {
                     defaultHoverBg = "#f8fafc";
                     defaultHoverText = state.settings.styles.secondaryColor || '#0b3363';
                     defaultHoverBorder = "#cbd5e1";
-                } else if (element.type === 'thumbs') {
-                    defaultBg = '#ffffff';
-                    defaultText = "#000000";
-                    defaultBorder = '#000000';
-
-                    defaultHoverBg = state.settings.styles.secondaryColor || '#0b3363';
-                    defaultHoverText = "#ffffff";
-                    defaultHoverBorder = state.settings.styles.secondaryColor || '#0b3363';
-                } else if (element.type === 'nps') {
-                    defaultBg = '#ffffff';
-                    defaultText = "#475569";
-                    defaultBorder = '#cbd5e1';
-
-                    defaultHoverBg = state.settings.styles.secondaryColor || '#0b3363';
-                    defaultHoverText = "#ffffff";
-                    defaultHoverBorder = state.settings.styles.secondaryColor || '#0b3363';
                 } else {
                     // For headline or description, standard defaults
                     defaultBg = "#ffffff";

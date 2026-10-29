@@ -199,6 +199,10 @@
     border: 1px solid var(--outerwhisper-border, #cbd5e1);
     border-radius: 4px;
     background-color: #ffffff;
+    background-image: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(135deg, rgba(0, 0, 0, 0.25) 50%, transparent 50%);
+    background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
     font-size: 14px;
     color: var(--outerwhisper-text-main, #222222);
     appearance: none;
@@ -608,7 +612,6 @@
 
 .outerwhisper-fd-group.outerwhisper-fd-invalid .outerwhisper-fd-stars-row {
     outline: 1px dashed #ef4444;
-    outline-offset: 4px;
     border-radius: 4px;
 }
 
