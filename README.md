@@ -1,6 +1,6 @@
 # OuterWhisper – User Feedback & Surveys
 
-OuterWhisper (Feedback Loop for WordPress) is a WordPress plugin for collecting, managing, and analyzing user feedback directly on your website.
+OuterWhisper is a WordPress plugin for collecting, managing, and analyzing user feedback directly on your website.
 
 Build feedback forms with a visual form builder, display them using flexible triggers and targeting rules, and manage submissions in the WordPress admin area.
 
