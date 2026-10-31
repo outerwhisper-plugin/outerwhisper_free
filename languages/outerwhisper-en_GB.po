@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-18T09:20:05+02:00\n"
-"PO-Revision-Date: 2026-10-30T17:04:13+00:00\n"
+"PO-Revision-Date: 2026-10-31T10:28:47+00:00\n"
 "Language: en_GB\n"
 "X-Generator: Poedit 3.9\n"
 
@@ -177,10 +177,10 @@ msgstr "Learn more about updating PHP"
 #: includes/Helper/ConfigHelper.php:279
 #: includes/Helper/ConfigHelper.php:313
 #: templates/frontend/outerwhisper-form-footer.php:39
-#: assets/js/dist/outerwhisper-form-builder.js:4386
-#: assets/js/dist/outerwhisper-form-builder.js:4403
-#: assets/js/dist/outerwhisper-form-frontend.js:2441
-#: assets/js/dist/outerwhisper-form-frontend.js:2514
+#: assets/js/dist/outerwhisper-form-builder.js:4412
+#: assets/js/dist/outerwhisper-form-builder.js:4429
+#: assets/js/dist/outerwhisper-form-frontend.js:2472
+#: assets/js/dist/outerwhisper-form-frontend.js:2545
 msgid "admin.frontend.default_footer_text"
 msgstr "We appreciate your honest feedback!"
 
@@ -263,12 +263,12 @@ msgstr "Radio Button"
 
 #: includes/Helper/ConfigHelper.php:109
 #: templates/admin/form-builder/fields.php:84
-#: assets/js/dist/outerwhisper-form-builder.js:1519
-#: assets/js/dist/outerwhisper-form-builder.js:1567
-#: assets/js/dist/outerwhisper-form-builder.js:4818
-#: assets/js/dist/outerwhisper-form-builder.js:4821
-#: assets/js/dist/outerwhisper-form-frontend.js:1646
-#: assets/js/dist/outerwhisper-form-frontend.js:1694
+#: assets/js/dist/outerwhisper-form-builder.js:1529
+#: assets/js/dist/outerwhisper-form-builder.js:1577
+#: assets/js/dist/outerwhisper-form-builder.js:4844
+#: assets/js/dist/outerwhisper-form-builder.js:4847
+#: assets/js/dist/outerwhisper-form-frontend.js:1677
+#: assets/js/dist/outerwhisper-form-frontend.js:1725
 msgid "fields.name.name"
 msgstr "Name"
 
@@ -298,9 +298,9 @@ msgid "admin.config.default_email"
 msgstr "Email address"
 
 #: includes/Helper/ConfigHelper.php:329
-#: assets/js/dist/outerwhisper-form-frontend.js:2936
-#: assets/js/dist/outerwhisper-form-frontend.js:3078
-#: assets/js/dist/outerwhisper-form-frontend.js:3094
+#: assets/js/dist/outerwhisper-form-frontend.js:2976
+#: assets/js/dist/outerwhisper-form-frontend.js:3123
+#: assets/js/dist/outerwhisper-form-frontend.js:3139
 msgid "confirmation.message.default"
 msgstr "<p>Thank you for your feedback! It helps us to improve continuously.</p>"
 
@@ -630,19 +630,19 @@ msgstr "Updated"
 
 #: includes/Lists/FormFeedbackListTable.php:79
 #: includes/Lists/FormFeedbackListTable.php:165
-#: assets/js/dist/outerwhisper-admin.js:388
+#: assets/js/dist/outerwhisper-admin.js:394
 msgid "admin.form_list.filter.status.read"
 msgstr "Read"
 
 #: includes/Lists/FormFeedbackListTable.php:82
 #: includes/Lists/FormFeedbackListTable.php:166
-#: assets/js/dist/outerwhisper-admin.js:391
+#: assets/js/dist/outerwhisper-admin.js:397
 msgid "admin.form_list.filter.status.archived"
 msgstr "Archived"
 
 #: includes/Lists/FormFeedbackListTable.php:86
 #: includes/Lists/FormFeedbackListTable.php:164
-#: assets/js/dist/outerwhisper-admin.js:395
+#: assets/js/dist/outerwhisper-admin.js:401
 msgid "admin.form_list.filter.status.unread"
 msgstr "Unread"
 
@@ -1760,40 +1760,40 @@ msgid "admin.builder.fields.placeholder.label"
 msgstr "Placeholder"
 
 #: templates/admin/form-builder/fields.php:288
-#: assets/js/dist/outerwhisper-form-builder.js:1522
-#: assets/js/dist/outerwhisper-form-builder.js:1527
-#: assets/js/dist/outerwhisper-form-builder.js:1565
-#: assets/js/dist/outerwhisper-form-builder.js:4828
-#: assets/js/dist/outerwhisper-form-builder.js:4834
-#: assets/js/dist/outerwhisper-form-builder.js:4842
-#: assets/js/dist/outerwhisper-form-builder.js:4851
-#: assets/js/dist/outerwhisper-form-frontend.js:1649
-#: assets/js/dist/outerwhisper-form-frontend.js:1654
-#: assets/js/dist/outerwhisper-form-frontend.js:1692
+#: assets/js/dist/outerwhisper-form-builder.js:1532
+#: assets/js/dist/outerwhisper-form-builder.js:1537
+#: assets/js/dist/outerwhisper-form-builder.js:1575
+#: assets/js/dist/outerwhisper-form-builder.js:4854
+#: assets/js/dist/outerwhisper-form-builder.js:4860
+#: assets/js/dist/outerwhisper-form-builder.js:4868
+#: assets/js/dist/outerwhisper-form-builder.js:4877
+#: assets/js/dist/outerwhisper-form-frontend.js:1680
+#: assets/js/dist/outerwhisper-form-frontend.js:1685
+#: assets/js/dist/outerwhisper-form-frontend.js:1723
 msgid "fields.name.first_name"
 msgstr "First name"
 
 #: templates/admin/form-builder/fields.php:289
-#: assets/js/dist/outerwhisper-form-builder.js:1528
-#: assets/js/dist/outerwhisper-form-builder.js:1571
-#: assets/js/dist/outerwhisper-form-builder.js:4845
-#: assets/js/dist/outerwhisper-form-builder.js:4852
-#: assets/js/dist/outerwhisper-form-frontend.js:1655
-#: assets/js/dist/outerwhisper-form-frontend.js:1698
+#: assets/js/dist/outerwhisper-form-builder.js:1538
+#: assets/js/dist/outerwhisper-form-builder.js:1581
+#: assets/js/dist/outerwhisper-form-builder.js:4871
+#: assets/js/dist/outerwhisper-form-builder.js:4878
+#: assets/js/dist/outerwhisper-form-frontend.js:1686
+#: assets/js/dist/outerwhisper-form-frontend.js:1729
 msgid "fields.name.middle_name"
 msgstr "Middle name"
 
 #: templates/admin/form-builder/fields.php:290
-#: assets/js/dist/outerwhisper-form-builder.js:1523
-#: assets/js/dist/outerwhisper-form-builder.js:1529
-#: assets/js/dist/outerwhisper-form-builder.js:1574
-#: assets/js/dist/outerwhisper-form-builder.js:4831
-#: assets/js/dist/outerwhisper-form-builder.js:4835
-#: assets/js/dist/outerwhisper-form-builder.js:4848
-#: assets/js/dist/outerwhisper-form-builder.js:4853
-#: assets/js/dist/outerwhisper-form-frontend.js:1650
-#: assets/js/dist/outerwhisper-form-frontend.js:1656
-#: assets/js/dist/outerwhisper-form-frontend.js:1701
+#: assets/js/dist/outerwhisper-form-builder.js:1533
+#: assets/js/dist/outerwhisper-form-builder.js:1539
+#: assets/js/dist/outerwhisper-form-builder.js:1584
+#: assets/js/dist/outerwhisper-form-builder.js:4857
+#: assets/js/dist/outerwhisper-form-builder.js:4861
+#: assets/js/dist/outerwhisper-form-builder.js:4874
+#: assets/js/dist/outerwhisper-form-builder.js:4879
+#: assets/js/dist/outerwhisper-form-frontend.js:1681
+#: assets/js/dist/outerwhisper-form-frontend.js:1687
+#: assets/js/dist/outerwhisper-form-frontend.js:1732
 msgid "fields.name.last_name"
 msgstr "Last name"
 
@@ -1874,18 +1874,18 @@ msgid "fields.email.confirmation_activation"
 msgstr "Activate confirmation field"
 
 #: templates/admin/form-builder/fields.php:430
-#: assets/js/dist/outerwhisper-form-builder.js:893
-#: assets/js/dist/outerwhisper-form-builder.js:1598
-#: assets/js/dist/outerwhisper-form-frontend.js:1020
-#: assets/js/dist/outerwhisper-form-frontend.js:1725
+#: assets/js/dist/outerwhisper-form-builder.js:903
+#: assets/js/dist/outerwhisper-form-builder.js:1608
+#: assets/js/dist/outerwhisper-form-frontend.js:1051
+#: assets/js/dist/outerwhisper-form-frontend.js:1756
 msgid "fields.email.placeholder"
 msgstr "E-mail address"
 
 #: templates/admin/form-builder/fields.php:431
-#: assets/js/dist/outerwhisper-form-builder.js:894
-#: assets/js/dist/outerwhisper-form-builder.js:1600
-#: assets/js/dist/outerwhisper-form-frontend.js:1021
-#: assets/js/dist/outerwhisper-form-frontend.js:1727
+#: assets/js/dist/outerwhisper-form-builder.js:904
+#: assets/js/dist/outerwhisper-form-builder.js:1610
+#: assets/js/dist/outerwhisper-form-frontend.js:1052
+#: assets/js/dist/outerwhisper-form-frontend.js:1758
 msgid "fields.email.confirmation_placeholder"
 msgstr "Confirm email address"
 
@@ -2790,690 +2790,691 @@ msgstr "Your Pro benefits:"
 msgid "admin.builder.pro.cta_text"
 msgstr "Upgrade & unlock now"
 
-#: assets/js/dist/outerwhisper-admin.js:85
+#: assets/js/dist/outerwhisper-admin.js:91
 msgid "admin.feedback.load_error"
 msgstr "Error loading feedback details"
 
-#: assets/js/dist/outerwhisper-admin.js:89
+#: assets/js/dist/outerwhisper-admin.js:95
 msgid "admin.feedback.load_network_error"
 msgstr "Network error loading feedback details"
 
-#: assets/js/dist/outerwhisper-admin.js:110
-#: assets/js/dist/outerwhisper-admin.js:235
+#: assets/js/dist/outerwhisper-admin.js:116
+#: assets/js/dist/outerwhisper-admin.js:241
 msgid "admin.feedback.delete_error"
 msgstr "Error deleting feedback"
 
-#: assets/js/dist/outerwhisper-admin.js:114
+#: assets/js/dist/outerwhisper-admin.js:120
 msgid "admin.feedback.delete_network_error"
 msgstr "Network error deleting feedback"
 
-#: assets/js/dist/outerwhisper-admin.js:214
-#: assets/js/dist/outerwhisper-form-builder.js:923
-#: assets/js/dist/outerwhisper-form-builder.js:4327
-#: assets/js/dist/outerwhisper-form-frontend.js:1050
+#: assets/js/dist/outerwhisper-admin.js:220
+#: assets/js/dist/outerwhisper-form-builder.js:933
+#: assets/js/dist/outerwhisper-form-builder.js:4349
+#: assets/js/dist/outerwhisper-form-frontend.js:1081
 msgid "fields.unnamed"
 msgstr "Unnamed"
 
-#: assets/js/dist/outerwhisper-admin.js:215
+#: assets/js/dist/outerwhisper-admin.js:221
 msgid "admin.feedback.delete_form_confirm"
 msgstr "Do you really want to permanently delete the form \"{name}\"? This will also delete all associated feedback."
 
-#: assets/js/dist/outerwhisper-admin.js:227
+#: assets/js/dist/outerwhisper-admin.js:233
 msgid "admin.feedback.delete_confirm"
 msgstr "Do you really want to permanently delete feedback #{id}?"
 
-#: assets/js/dist/outerwhisper-admin.js:240
+#: assets/js/dist/outerwhisper-admin.js:246
 msgid "admin.feedback.saving"
 msgstr "Saving..."
 
-#: assets/js/dist/outerwhisper-admin.js:320
+#: assets/js/dist/outerwhisper-admin.js:326
 msgid "admin.feedback.url_open_error"
 msgstr "Could not open URL:"
 
-#: assets/js/dist/outerwhisper-admin.js:403
+#: assets/js/dist/outerwhisper-admin.js:409
 msgid "admin.feedback.status_update_error"
 msgstr "Error updating status"
 
-#: assets/js/dist/outerwhisper-form-builder.js:475
-#: assets/js/dist/outerwhisper-form-frontend.js:479
+#: assets/js/dist/outerwhisper-form-builder.js:520
+#: assets/js/dist/outerwhisper-form-frontend.js:524
 msgid "admin.builder.default_step2.headline"
 msgstr "Tell us more"
 
-#: assets/js/dist/outerwhisper-form-builder.js:476
-#: assets/js/dist/outerwhisper-form-frontend.js:480
+#: assets/js/dist/outerwhisper-form-builder.js:521
+#: assets/js/dist/outerwhisper-form-frontend.js:525
 msgid "admin.builder.default_step2.textarea_label"
 msgstr "What can we do better?"
 
-#: assets/js/dist/outerwhisper-form-builder.js:476
-#: assets/js/dist/outerwhisper-form-frontend.js:480
+#: assets/js/dist/outerwhisper-form-builder.js:521
+#: assets/js/dist/outerwhisper-form-frontend.js:525
 msgid "admin.builder.default_step2.textarea_placeholder"
 msgstr "Write your feedback here..."
 
-#: assets/js/dist/outerwhisper-form-builder.js:477
-#: assets/js/dist/outerwhisper-form-frontend.js:481
+#: assets/js/dist/outerwhisper-form-builder.js:522
+#: assets/js/dist/outerwhisper-form-frontend.js:526
 msgid "admin.builder.default_step2.button_label"
 msgstr "Send feedback"
 
-#: assets/js/dist/outerwhisper-form-builder.js:688
-#: assets/js/dist/outerwhisper-form-builder.js:771
-#: assets/js/dist/outerwhisper-form-frontend.js:692
-#: assets/js/dist/outerwhisper-form-frontend.js:775
+#: assets/js/dist/outerwhisper-form-builder.js:733
+#: assets/js/dist/outerwhisper-form-builder.js:816
+#: assets/js/dist/outerwhisper-form-frontend.js:737
+#: assets/js/dist/outerwhisper-form-frontend.js:820
 msgid "admin.builder.unlink_values"
 msgstr "Unlink values"
 
-#: assets/js/dist/outerwhisper-form-builder.js:699
-#: assets/js/dist/outerwhisper-form-builder.js:774
-#: assets/js/dist/outerwhisper-form-frontend.js:703
-#: assets/js/dist/outerwhisper-form-frontend.js:778
+#: assets/js/dist/outerwhisper-form-builder.js:744
+#: assets/js/dist/outerwhisper-form-builder.js:819
+#: assets/js/dist/outerwhisper-form-frontend.js:748
+#: assets/js/dist/outerwhisper-form-frontend.js:823
 msgid "admin.builder.link_values"
 msgstr "Link values"
 
-#: assets/js/dist/outerwhisper-form-builder.js:840
-#: assets/js/dist/outerwhisper-form-frontend.js:967
+#: assets/js/dist/outerwhisper-form-builder.js:850
+#: assets/js/dist/outerwhisper-form-frontend.js:998
 msgid "admin.builder.default_feedback_placeholder"
 msgstr "Enter your feedback here..."
 
-#: assets/js/dist/outerwhisper-form-builder.js:851
-#: assets/js/dist/outerwhisper-form-builder.js:855
-#: assets/js/dist/outerwhisper-form-builder.js:864
-#: assets/js/dist/outerwhisper-form-builder.js:868
+#: assets/js/dist/outerwhisper-form-builder.js:861
+#: assets/js/dist/outerwhisper-form-builder.js:865
 #: assets/js/dist/outerwhisper-form-builder.js:874
 #: assets/js/dist/outerwhisper-form-builder.js:878
-#: assets/js/dist/outerwhisper-form-builder.js:1655
-#: assets/js/dist/outerwhisper-form-builder.js:1659
-#: assets/js/dist/outerwhisper-form-builder.js:1662
-#: assets/js/dist/outerwhisper-form-builder.js:1666
+#: assets/js/dist/outerwhisper-form-builder.js:884
+#: assets/js/dist/outerwhisper-form-builder.js:888
+#: assets/js/dist/outerwhisper-form-builder.js:1665
 #: assets/js/dist/outerwhisper-form-builder.js:1669
-#: assets/js/dist/outerwhisper-form-builder.js:1673
-#: assets/js/dist/outerwhisper-form-frontend.js:978
-#: assets/js/dist/outerwhisper-form-frontend.js:982
-#: assets/js/dist/outerwhisper-form-frontend.js:991
-#: assets/js/dist/outerwhisper-form-frontend.js:995
-#: assets/js/dist/outerwhisper-form-frontend.js:1001
-#: assets/js/dist/outerwhisper-form-frontend.js:1005
-#: assets/js/dist/outerwhisper-form-frontend.js:1782
-#: assets/js/dist/outerwhisper-form-frontend.js:1786
-#: assets/js/dist/outerwhisper-form-frontend.js:1789
-#: assets/js/dist/outerwhisper-form-frontend.js:1793
-#: assets/js/dist/outerwhisper-form-frontend.js:1796
-#: assets/js/dist/outerwhisper-form-frontend.js:1800
+#: assets/js/dist/outerwhisper-form-builder.js:1672
+#: assets/js/dist/outerwhisper-form-builder.js:1676
+#: assets/js/dist/outerwhisper-form-builder.js:1679
+#: assets/js/dist/outerwhisper-form-builder.js:1683
+#: assets/js/dist/outerwhisper-form-frontend.js:1009
+#: assets/js/dist/outerwhisper-form-frontend.js:1013
+#: assets/js/dist/outerwhisper-form-frontend.js:1022
+#: assets/js/dist/outerwhisper-form-frontend.js:1026
+#: assets/js/dist/outerwhisper-form-frontend.js:1032
+#: assets/js/dist/outerwhisper-form-frontend.js:1036
+#: assets/js/dist/outerwhisper-form-frontend.js:1813
+#: assets/js/dist/outerwhisper-form-frontend.js:1817
+#: assets/js/dist/outerwhisper-form-frontend.js:1820
+#: assets/js/dist/outerwhisper-form-frontend.js:1824
+#: assets/js/dist/outerwhisper-form-frontend.js:1827
+#: assets/js/dist/outerwhisper-form-frontend.js:1831
 msgid "fields.choices_list.general"
 msgstr "General questions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:852
-#: assets/js/dist/outerwhisper-form-builder.js:865
+#: assets/js/dist/outerwhisper-form-builder.js:862
 #: assets/js/dist/outerwhisper-form-builder.js:875
-#: assets/js/dist/outerwhisper-form-builder.js:1656
-#: assets/js/dist/outerwhisper-form-builder.js:1663
-#: assets/js/dist/outerwhisper-form-builder.js:1670
-#: assets/js/dist/outerwhisper-form-frontend.js:979
-#: assets/js/dist/outerwhisper-form-frontend.js:992
-#: assets/js/dist/outerwhisper-form-frontend.js:1002
-#: assets/js/dist/outerwhisper-form-frontend.js:1783
-#: assets/js/dist/outerwhisper-form-frontend.js:1790
-#: assets/js/dist/outerwhisper-form-frontend.js:1797
+#: assets/js/dist/outerwhisper-form-builder.js:885
+#: assets/js/dist/outerwhisper-form-builder.js:1666
+#: assets/js/dist/outerwhisper-form-builder.js:1673
+#: assets/js/dist/outerwhisper-form-builder.js:1680
+#: assets/js/dist/outerwhisper-form-frontend.js:1010
+#: assets/js/dist/outerwhisper-form-frontend.js:1023
+#: assets/js/dist/outerwhisper-form-frontend.js:1033
+#: assets/js/dist/outerwhisper-form-frontend.js:1814
+#: assets/js/dist/outerwhisper-form-frontend.js:1821
+#: assets/js/dist/outerwhisper-form-frontend.js:1828
 msgid "fields.choices_list.pre_purchase"
 msgstr "Pre-purchase questions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:853
-#: assets/js/dist/outerwhisper-form-builder.js:866
+#: assets/js/dist/outerwhisper-form-builder.js:863
 #: assets/js/dist/outerwhisper-form-builder.js:876
-#: assets/js/dist/outerwhisper-form-builder.js:1657
-#: assets/js/dist/outerwhisper-form-builder.js:1664
-#: assets/js/dist/outerwhisper-form-builder.js:1671
-#: assets/js/dist/outerwhisper-form-frontend.js:980
-#: assets/js/dist/outerwhisper-form-frontend.js:993
-#: assets/js/dist/outerwhisper-form-frontend.js:1003
-#: assets/js/dist/outerwhisper-form-frontend.js:1784
-#: assets/js/dist/outerwhisper-form-frontend.js:1791
-#: assets/js/dist/outerwhisper-form-frontend.js:1798
+#: assets/js/dist/outerwhisper-form-builder.js:886
+#: assets/js/dist/outerwhisper-form-builder.js:1667
+#: assets/js/dist/outerwhisper-form-builder.js:1674
+#: assets/js/dist/outerwhisper-form-builder.js:1681
+#: assets/js/dist/outerwhisper-form-frontend.js:1011
+#: assets/js/dist/outerwhisper-form-frontend.js:1024
+#: assets/js/dist/outerwhisper-form-frontend.js:1034
+#: assets/js/dist/outerwhisper-form-frontend.js:1815
+#: assets/js/dist/outerwhisper-form-frontend.js:1822
+#: assets/js/dist/outerwhisper-form-frontend.js:1829
 msgid "fields.choices_list.technical_support"
 msgstr "Technical support"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1026
-#: assets/js/dist/outerwhisper-form-frontend.js:1153
+#: assets/js/dist/outerwhisper-form-builder.js:1036
+#: assets/js/dist/outerwhisper-form-frontend.js:1184
 msgid "admin.builder.submit_action"
 msgstr "Submit action"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1026
-#: assets/js/dist/outerwhisper-form-frontend.js:1153
+#: assets/js/dist/outerwhisper-form-builder.js:1036
+#: assets/js/dist/outerwhisper-form-frontend.js:1184
 msgid "admin.builder.back_action"
 msgstr "Back to step 1"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1035
-#: assets/js/dist/outerwhisper-form-builder.js:1122
-#: assets/js/dist/outerwhisper-form-frontend.js:1162
-#: assets/js/dist/outerwhisper-form-frontend.js:1249
+#: assets/js/dist/outerwhisper-form-builder.js:1045
+#: assets/js/dist/outerwhisper-form-builder.js:1132
+#: assets/js/dist/outerwhisper-form-frontend.js:1193
+#: assets/js/dist/outerwhisper-form-frontend.js:1280
 msgid "admin.builder.step2_connected"
 msgstr "Linked to step 2"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1237
-#: assets/js/dist/outerwhisper-form-builder.js:1256
-#: assets/js/dist/outerwhisper-form-frontend.js:1364
-#: assets/js/dist/outerwhisper-form-frontend.js:1383
+#: assets/js/dist/outerwhisper-form-builder.js:1247
+#: assets/js/dist/outerwhisper-form-builder.js:1266
+#: assets/js/dist/outerwhisper-form-frontend.js:1395
+#: assets/js/dist/outerwhisper-form-frontend.js:1414
 msgid "fields.choices_list.placeholder"
 msgstr "Please select..."
 
-#: assets/js/dist/outerwhisper-form-builder.js:1695
-#: assets/js/dist/outerwhisper-form-frontend.js:1822
+#: assets/js/dist/outerwhisper-form-builder.js:1705
+#: assets/js/dist/outerwhisper-form-frontend.js:1853
 msgid "fields.choices_list.drag_to_sort"
 msgstr "Drag to sort"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1699
-#: assets/js/dist/outerwhisper-form-frontend.js:1826
+#: assets/js/dist/outerwhisper-form-builder.js:1709
+#: assets/js/dist/outerwhisper-form-frontend.js:1857
 msgid "fields.choices_list.set_as_default"
 msgstr "Set option as default"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1833
-#: assets/js/dist/outerwhisper-form-frontend.js:1960
+#: assets/js/dist/outerwhisper-form-builder.js:1843
+#: assets/js/dist/outerwhisper-form-frontend.js:1991
 msgid "fields.choices_list.add_option"
 msgstr "Add option"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1855
-#: assets/js/dist/outerwhisper-form-frontend.js:1982
+#: assets/js/dist/outerwhisper-form-builder.js:1865
+#: assets/js/dist/outerwhisper-form-frontend.js:2013
 msgid "fields.choices_list.remove_option"
 msgstr "Remove option"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1859
-#: assets/js/dist/outerwhisper-form-frontend.js:1986
+#: assets/js/dist/outerwhisper-form-builder.js:1869
+#: assets/js/dist/outerwhisper-form-frontend.js:2017
 msgid "fields.choices_list.at_least_one_option"
 msgstr "At least one option must be present."
 
-#: assets/js/dist/outerwhisper-form-builder.js:1943
+#: assets/js/dist/outerwhisper-form-builder.js:1953
 msgid "admin.builder.reset_preview"
 msgstr "Reset preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1988
+#: assets/js/dist/outerwhisper-form-builder.js:1998
 msgid "admin.builder.use_template"
 msgstr "Use template"
 
-#: assets/js/dist/outerwhisper-form-builder.js:1997
+#: assets/js/dist/outerwhisper-form-builder.js:2007
 msgid "admin.confirm.load_template"
 msgstr "Do you really want to load this template? This will overwrite your current draft."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2009
+#: assets/js/dist/outerwhisper-form-builder.js:2019
 msgid "admin.toast.template_loaded"
 msgstr "Template \"{title}\" loaded!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2050
+#: assets/js/dist/outerwhisper-form-builder.js:2060
 msgid "admin.conditions.page_type.label"
 msgstr "Page type"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2055
-#: assets/js/dist/outerwhisper-form-builder.js:2070
+#: assets/js/dist/outerwhisper-form-builder.js:2065
+#: assets/js/dist/outerwhisper-form-builder.js:2080
 msgid "admin.conditions.operators.in"
 msgstr "is one of"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2059
+#: assets/js/dist/outerwhisper-form-builder.js:2069
 msgid "admin.conditions.options.pages"
 msgstr "Pages"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2060
+#: assets/js/dist/outerwhisper-form-builder.js:2070
 msgid "admin.conditions.options.posts"
 msgstr "Posts"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2065
+#: assets/js/dist/outerwhisper-form-builder.js:2075
 msgid "admin.conditions.device.label"
 msgstr "Device type"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2074
+#: assets/js/dist/outerwhisper-form-builder.js:2084
 msgid "admin.conditions.options.desktop"
 msgstr "Desktop"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2075
+#: assets/js/dist/outerwhisper-form-builder.js:2085
 msgid "admin.conditions.options.mobile"
 msgstr "Mobile"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2169
+#: assets/js/dist/outerwhisper-form-builder.js:2179
 msgid "admin.conditions.title"
 msgstr "Rule conditions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2177
+#: assets/js/dist/outerwhisper-form-builder.js:2187
 msgid "admin.conditions.show_on_frontpage"
 msgstr "Show on front page"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2178
+#: assets/js/dist/outerwhisper-form-builder.js:2188
 msgid "admin.conditions.show_on_frontpage_desc"
 msgstr "Should this form appear on your website's front page?"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2198
+#: assets/js/dist/outerwhisper-form-builder.js:2208
 msgid "admin.conditions.and_group"
 msgstr "AND group (All conditions must be met)"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2204
+#: assets/js/dist/outerwhisper-form-builder.js:2214
 msgid "admin.conditions.connector"
 msgstr "CONNECTOR"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2208
+#: assets/js/dist/outerwhisper-form-builder.js:2218
 msgid "admin.conditions.or_group"
 msgstr "OR group (At least one condition must be met)"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2214
+#: assets/js/dist/outerwhisper-form-builder.js:2224
 msgid "admin.conditions.hint.title"
 msgstr "Why can't I add any more conditions?"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2216
+#: assets/js/dist/outerwhisper-form-builder.js:2226
 msgid "admin.conditions.hint.text"
 msgstr "Some conditions (like <em>Device type</em> or <em>Page type</em>) are <strong>unique</strong> and can only be used once. Other conditions (like <em>URL filter</em> or <em>Cookie value</em>) require the <strong>PRO version</strong>. Once all conditions available to you have been added, the add button will be disabled."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2229
+#: assets/js/dist/outerwhisper-form-builder.js:2239
 msgid "admin.conditions.type.and"
 msgstr "AND"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2229
+#: assets/js/dist/outerwhisper-form-builder.js:2239
 msgid "admin.conditions.type.or"
 msgstr "OR"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2245
-#: assets/js/dist/outerwhisper-form-builder.js:2250
+#: assets/js/dist/outerwhisper-form-builder.js:2255
+#: assets/js/dist/outerwhisper-form-builder.js:2260
 msgid "admin.conditions.empty_state"
 msgstr "No {type} conditions defined. These conditions will be ignored."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2266
+#: assets/js/dist/outerwhisper-form-builder.js:2276
 msgid "admin.conditions.add_button"
 msgstr "Add condition"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2277
+#: assets/js/dist/outerwhisper-form-builder.js:2287
 msgid "admin.conditions.add_button_disabled_title"
 msgstr "All available conditions have already been added."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2421
+#: assets/js/dist/outerwhisper-form-builder.js:2431
 msgid "admin.conditions.delete_condition"
 msgstr "Remove condition"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2437
+#: assets/js/dist/outerwhisper-form-builder.js:2447
 msgid "admin.warning.submit_button"
 msgstr "Warning: This form contains multiple input fields, but no submit button or next button with activated step 2. Add a button so users can submit the form."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2445
+#: assets/js/dist/outerwhisper-form-builder.js:2455
 msgid "admin.warning.step2_empty"
 msgstr "Warning: Step 2 is enabled for at least one element in Step 1, but no elements were defined in Step 2. Add elements to Step 2 or disable Step 2."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2453
+#: assets/js/dist/outerwhisper-form-builder.js:2463
 msgid "admin.warning.step2_missing_submit"
 msgstr "Attention: Step 2 contains input fields, but no submit button."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2460
+#: assets/js/dist/outerwhisper-form-builder.js:2470
 msgid "admin.warning.empty_form"
 msgstr "Warning: The form does not contain any elements yet. Add at least one element."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2527
-#: assets/js/dist/outerwhisper-form-builder.js:2539
+#: assets/js/dist/outerwhisper-form-builder.js:2537
+#: assets/js/dist/outerwhisper-form-builder.js:2549
 msgid "validation.error.active_warnings"
 msgstr "{count} active warnings"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2696
-#: assets/js/dist/outerwhisper-form-builder.js:2707
+#: assets/js/dist/outerwhisper-form-builder.js:2706
+#: assets/js/dist/outerwhisper-form-builder.js:2717
 msgid "admin.preview.title"
 msgstr "Plugin live preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2711
+#: assets/js/dist/outerwhisper-form-builder.js:2721
 msgid "admin.preview.address_placeholder"
 msgstr "https://your-website.com/blog/article"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2715
+#: assets/js/dist/outerwhisper-form-builder.js:2725
 msgid "admin.preview.desktop_view"
 msgstr "Desktop view"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2718
+#: assets/js/dist/outerwhisper-form-builder.js:2728
 msgid "admin.preview.mobile_view"
 msgstr "Mobile view"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2723
+#: assets/js/dist/outerwhisper-form-builder.js:2733
 msgid "admin.preview.refresh_preview"
 msgstr "Refresh preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2727
+#: assets/js/dist/outerwhisper-form-builder.js:2737
 msgid "admin.preview.close_preview"
 msgstr "Close preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2747
+#: assets/js/dist/outerwhisper-form-builder.js:2757
 msgid "admin.preview.active_mode_label"
 msgstr "Active mode:"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2749
+#: assets/js/dist/outerwhisper-form-builder.js:2759
 msgid "admin.preview.simulate_trigger"
 msgstr "Simulate trigger"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2758
+#: assets/js/dist/outerwhisper-form-builder.js:2768
 msgid "admin.preview.modes.in_content_shortcode"
 msgstr "Shortcode"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2758
+#: assets/js/dist/outerwhisper-form-builder.js:2768
 msgid "admin.preview.modes.in_content_inline"
 msgstr "Inline"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2759
+#: assets/js/dist/outerwhisper-form-builder.js:2769
 msgid "admin.preview.modes.in_content"
 msgstr "In-content ({type})"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2762
+#: assets/js/dist/outerwhisper-form-builder.js:2772
 msgid "admin.preview.modes.feedback_button"
 msgstr "Floating feedback button"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2764
+#: assets/js/dist/outerwhisper-form-builder.js:2774
 msgid "admin.preview.modes.slide_in"
 msgstr "Slide-in widget"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2766
+#: assets/js/dist/outerwhisper-form-builder.js:2776
 msgid "admin.preview.modes.overlay_modal"
 msgstr "Overlay modal"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2774
+#: assets/js/dist/outerwhisper-form-builder.js:2784
 msgid "admin.preview.mock.logo"
 msgstr "My blog"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2777
+#: assets/js/dist/outerwhisper-form-builder.js:2787
 msgid "admin.preview.mock.headline"
 msgstr "What can I use the OuterWhisper plugin for?"
 
-#: assets/js/dist/outerwhisper-form-builder.js:2778
+#: assets/js/dist/outerwhisper-form-builder.js:2788
 msgid "admin.preview.mock.desc1"
 msgstr "With OuterWhisper, you can create many different feedback forms and display them in various ways."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2780
+#: assets/js/dist/outerwhisper-form-builder.js:2790
 msgid "admin.preview.mock.desc2"
 msgstr "Simply create a form under \"Fields\" and then select your display type for this form under \"Display\"."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2781
+#: assets/js/dist/outerwhisper-form-builder.js:2791
 msgid "admin.preview.mock.desc3"
 msgstr "Then save and publish the form, and your form will be displayed on your site."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2782
+#: assets/js/dist/outerwhisper-form-builder.js:2792
 msgid "admin.preview.mock.desc4"
 msgstr "If you have questions about settings, feel free to take a look at our <a href=\"https://outerwhisper.de/docs/\" target=\"_blank\">documentation</a> or visit the <a href=\"https://outerwhisper.de/support-forum/\" target=\"_blank\">support-forum</a>."
 
-#: assets/js/dist/outerwhisper-form-builder.js:2896
+#: assets/js/dist/outerwhisper-form-builder.js:2906
 msgid "admin.preview.default_footer_text"
 msgstr "We appreciate your honest feedback!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3138
+#: assets/js/dist/outerwhisper-form-builder.js:3148
 msgid "admin.display.group_title_in_content"
 msgstr "Maximum width &amp; height"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3140
+#: assets/js/dist/outerwhisper-form-builder.js:3150
 msgid "admin.display.group_title_default"
 msgstr "Alignment &amp; dimensions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3155
+#: assets/js/dist/outerwhisper-form-builder.js:3165
 msgid "admin.display.tab_btn_in_content"
 msgstr "Spacing &amp; dimensions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3157
+#: assets/js/dist/outerwhisper-form-builder.js:3167
 msgid "admin.display.tab_btn_default"
 msgstr "Alignment &amp; dimensions"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3178
+#: assets/js/dist/outerwhisper-form-builder.js:3188
 msgid "admin.display.step_label"
 msgstr "Step {step}"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3935
+#: assets/js/dist/outerwhisper-form-builder.js:3957
 msgid "fields.button.submit.default_text"
 msgstr "Submit"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3939
+#: assets/js/dist/outerwhisper-form-builder.js:3961
 msgid "fields.button.back.default_text"
 msgstr "Back"
 
-#: assets/js/dist/outerwhisper-form-builder.js:3943
+#: assets/js/dist/outerwhisper-form-builder.js:3965
 msgid "fields.button.next.default_text"
 msgstr "Next"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4004
+#: assets/js/dist/outerwhisper-form-builder.js:4026
 msgid "admin.toast.step2_unlocked"
 msgstr "Step 2 unlocked for this element!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4100
+#: assets/js/dist/outerwhisper-form-builder.js:4122
 msgid "admin.toast.undo"
 msgstr "Action undone"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4135
+#: assets/js/dist/outerwhisper-form-builder.js:4157
 msgid "admin.toast.redo"
 msgstr "Action redone"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4288
+#: assets/js/dist/outerwhisper-form-builder.js:4310
 msgid "admin.toast.form_published"
 msgstr "Form published successfully!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4288
+#: assets/js/dist/outerwhisper-form-builder.js:4310
 msgid "admin.toast.draft_saved"
 msgstr "Draft saved successfully!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4291
+#: assets/js/dist/outerwhisper-form-builder.js:4313
 msgid "admin.toast.save_error"
 msgstr "Error saving: {error}"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4291
+#: assets/js/dist/outerwhisper-form-builder.js:4313
 msgid "admin.toast.unknown_error"
 msgstr "Unknown error"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4296
+#: assets/js/dist/outerwhisper-form-builder.js:4318
 msgid "admin.toast.network_error"
 msgstr "Network error saving data."
 
-#: assets/js/dist/outerwhisper-form-builder.js:4580
-#: assets/js/dist/outerwhisper-form-builder.js:4595
-#: assets/js/dist/outerwhisper-form-builder.js:4600
+#: assets/js/dist/outerwhisper-form-builder.js:4606
+#: assets/js/dist/outerwhisper-form-builder.js:4621
+#: assets/js/dist/outerwhisper-form-builder.js:4626
 msgid "admin.builder.element_count_plural"
 msgstr "{count} elements"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4595
-#: assets/js/dist/outerwhisper-form-builder.js:4600
+#: assets/js/dist/outerwhisper-form-builder.js:4621
+#: assets/js/dist/outerwhisper-form-builder.js:4626
 msgid "admin.builder.element_count_singular"
 msgstr "{count} element"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4601
+#: assets/js/dist/outerwhisper-form-builder.js:4627
 msgid "admin.builder.active_for"
 msgstr "Active for: {label}"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4603
+#: assets/js/dist/outerwhisper-form-builder.js:4629
 msgid "admin.builder.switch_recipient"
 msgstr "Switch recipient"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4663
-#: assets/js/dist/outerwhisper-form-builder.js:5161
+#: assets/js/dist/outerwhisper-form-builder.js:4689
+#: assets/js/dist/outerwhisper-form-builder.js:5187
 msgid "admin.builder.move_to_step2"
 msgstr "Move to step 2"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4663
-#: assets/js/dist/outerwhisper-form-builder.js:5161
+#: assets/js/dist/outerwhisper-form-builder.js:4689
+#: assets/js/dist/outerwhisper-form-builder.js:5187
 msgid "admin.builder.move_to_step1"
 msgstr "Move to step 1"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4671
-#: assets/js/dist/outerwhisper-form-builder.js:5153
+#: assets/js/dist/outerwhisper-form-builder.js:4697
+#: assets/js/dist/outerwhisper-form-builder.js:5179
 msgid "admin.builder.duplicate_element"
 msgstr "Duplicate element"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4679
-#: assets/js/dist/outerwhisper-form-builder.js:5172
+#: assets/js/dist/outerwhisper-form-builder.js:4705
+#: assets/js/dist/outerwhisper-form-builder.js:5198
 msgid "admin.builder.delete_element"
 msgstr "Delete element"
 
-#: assets/js/dist/outerwhisper-form-builder.js:4984
+#: assets/js/dist/outerwhisper-form-builder.js:5010
 msgid "admin.builder.customize_colors"
 msgstr "Customise {name} colours"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5001
+#: assets/js/dist/outerwhisper-form-builder.js:5027
 msgid "admin.builder.accent_color"
 msgstr "Accent color"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5001
+#: assets/js/dist/outerwhisper-form-builder.js:5027
 msgid "admin.builder.background_color"
 msgstr "Background color"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5012
+#: assets/js/dist/outerwhisper-form-builder.js:5038
 msgid "admin.builder.colors"
 msgstr "Colors"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5012
+#: assets/js/dist/outerwhisper-form-builder.js:5038
 msgid "admin.builder.standard_state"
 msgstr "Standard state"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5073
+#: assets/js/dist/outerwhisper-form-builder.js:5099
 msgid "admin.preview.widget_title"
 msgstr "Widget live preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5101
+#: assets/js/dist/outerwhisper-form-builder.js:5127
 msgid "admin.preview.form_preview_title"
 msgstr "Form preview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5145
+#: assets/js/dist/outerwhisper-form-builder.js:5171
 msgid "admin.builder.edit_element"
 msgstr "Edit element"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5198
+#: assets/js/dist/outerwhisper-form-builder.js:5224
 msgid "admin.toast.step2_auto_activated"
 msgstr "Step 2 was automatically activated for \"{label}\"."
 
-#: assets/js/dist/outerwhisper-form-builder.js:5202
+#: assets/js/dist/outerwhisper-form-builder.js:5228
 msgid "admin.toast.step2_requirement_error"
 msgstr "Step 2 requires at least one rating or button element in Step 1 with an activated step 2 path."
 
-#: assets/js/dist/outerwhisper-form-builder.js:5217
+#: assets/js/dist/outerwhisper-form-builder.js:5243
 msgid "admin.toast.moved_to_step2"
 msgstr "\"{label}\" successfully moved to Step 2!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5256
+#: assets/js/dist/outerwhisper-form-builder.js:5282
 msgid "admin.toast.moved_to_step1"
 msgstr "\"{label}\" successfully moved to Step 1!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5270
+#: assets/js/dist/outerwhisper-form-builder.js:5296
 msgid "admin.builder.back_to_overview"
 msgstr "Back to overview"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5295
+#: assets/js/dist/outerwhisper-form-builder.js:5321
 msgid "admin.toast.deleted"
 msgstr "Element deleted"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5310
+#: assets/js/dist/outerwhisper-form-builder.js:5336
 msgid "admin.toast.duplicated"
 msgstr "Element duplicated"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5328
+#: assets/js/dist/outerwhisper-form-builder.js:5354
 msgid "admin.toast.added"
 msgstr "Element \"{name}\" added"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5411
+#: assets/js/dist/outerwhisper-form-builder.js:5437
 msgid "admin.toast.dropped"
 msgstr "Element \"{name}\" dropped"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5421
+#: assets/js/dist/outerwhisper-form-builder.js:5447
 msgid "admin.toast.move_step_not_allowed"
 msgstr "Moving between steps is not allowed"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5495
+#: assets/js/dist/outerwhisper-form-builder.js:5521
 msgid "admin.toast.view_loaded"
 msgstr "View \"{view}\" loaded"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5891
+#: assets/js/dist/outerwhisper-form-builder.js:5947
 msgid "admin.toast.config_copied"
 msgstr "Configuration copied!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5899
+#: assets/js/dist/outerwhisper-form-builder.js:5955
 msgid "admin.toast.invalid_json"
 msgstr "Please enter a valid JSON configuration."
 
-#: assets/js/dist/outerwhisper-form-builder.js:5912
+#: assets/js/dist/outerwhisper-form-builder.js:5968
 msgid "admin.toast.config_loaded"
 msgstr "Configuration loaded!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5916
+#: assets/js/dist/outerwhisper-form-builder.js:5972
 msgid "admin.toast.import_error"
 msgstr "Error loading/importing: {error}"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5943
+#: assets/js/dist/outerwhisper-form-builder.js:5999
 msgid "admin.builder.display_type_label"
 msgstr "Display for display type {label}"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5960
+#: assets/js/dist/outerwhisper-form-builder.js:6016
 msgid "admin.builder.targeting_tabs.in_content"
 msgstr "Automatic placement (In-content)"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5961
+#: assets/js/dist/outerwhisper-form-builder.js:6017
 msgid "admin.builder.targeting_tabs.shortcode"
 msgstr "Shortcode"
 
-#: assets/js/dist/outerwhisper-form-builder.js:5965
+#: assets/js/dist/outerwhisper-form-builder.js:6021
 msgid "admin.builder.targeting_tabs.overlay"
 msgstr "Overlay"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6094
-#: assets/js/dist/outerwhisper-form-builder.js:6190
+#: assets/js/dist/outerwhisper-form-builder.js:6150
+#: assets/js/dist/outerwhisper-form-builder.js:6246
 msgid "admin.toast.status_paused"
 msgstr "Paused"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6097
-#: assets/js/dist/outerwhisper-form-builder.js:6191
+#: assets/js/dist/outerwhisper-form-builder.js:6153
+#: assets/js/dist/outerwhisper-form-builder.js:6247
 msgid "admin.toast.status_live"
 msgstr "Live"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6100
-#: assets/js/dist/outerwhisper-form-builder.js:6192
+#: assets/js/dist/outerwhisper-form-builder.js:6156
+#: assets/js/dist/outerwhisper-form-builder.js:6248
 msgid "admin.toast.status_admin_only"
 msgstr "Admin-only"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6193
+#: assets/js/dist/outerwhisper-form-builder.js:6249
 msgid "admin.toast.status_changed"
 msgstr "Form status changed to \"{status}\""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6220
+#: assets/js/dist/outerwhisper-form-builder.js:6276
 msgid "admin.builder.leave_editor_confirm"
 msgstr "Do you really want to leave the editor?"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6234
+#: assets/js/dist/outerwhisper-form-builder.js:6290
 msgid "admin.toast.split_preview_reset"
 msgstr "Split preview test reset!"
 
-#: assets/js/dist/outerwhisper-form-builder.js:6247
-#: assets/js/dist/outerwhisper-form-builder.js:6256
+#: assets/js/dist/outerwhisper-form-builder.js:6303
+#: assets/js/dist/outerwhisper-form-builder.js:6312
 msgid "admin.toast.activate_step2_first"
 msgstr "Activate 'Step 2' in the field options first!"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2525
+#: assets/js/dist/outerwhisper-form-frontend.js:2556
 msgid "widget.feedback_button.hide_button"
 msgstr "Hide feedback button for a while"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2590
+#: assets/js/dist/outerwhisper-form-frontend.js:2621
 msgid "widget.status_completed"
 msgstr "Completed"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2592
+#: assets/js/dist/outerwhisper-form-frontend.js:2623
 msgid "widget.step_indicator_full"
 msgstr "Step {step} of {total}"
 
+#: assets/js/dist/outerwhisper-form-frontend.js:2911
 msgid "validation.error.invalid"
 msgstr "The value is invalid."
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2876
+#: assets/js/dist/outerwhisper-form-frontend.js:2911
 msgid "validation.error.required"
 msgstr "This field is a required field."
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2926
-#: assets/js/dist/outerwhisper-form-frontend.js:2991
+#: assets/js/dist/outerwhisper-form-frontend.js:2966
+#: assets/js/dist/outerwhisper-form-frontend.js:3036
 msgid "widget.step_indicator"
 msgstr "Step {step} / {total}"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2953
+#: assets/js/dist/outerwhisper-form-frontend.js:2994
 msgid "widget.status_confirmed"
 msgstr "Confirmed"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2980
+#: assets/js/dist/outerwhisper-form-frontend.js:3021
 msgid "admin.builder.simulation_redirect_msg"
 msgstr "[Simulation] Redirecting to:"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:2991
+#: assets/js/dist/outerwhisper-form-frontend.js:3036
 msgid "widget.step_single"
 msgstr "Step {step}"
 
-#: assets/js/dist/outerwhisper-form-frontend.js:3022
+#: assets/js/dist/outerwhisper-form-frontend.js:3067
 msgid "widget.no_elements"
 msgstr "No elements selected."
 
-#: assets/js/dist/outerwhisper-form-frontend.js:3096
+#: assets/js/dist/outerwhisper-form-frontend.js:3141
 msgid "confirmation.message.redirecting"
 msgstr "You will be redirected in {seconds} seconds..."
 
-#: assets/js/dist/outerwhisper-form-frontend.js:3099
+#: assets/js/dist/outerwhisper-form-frontend.js:3144
 msgid "confirmation.message.target"
 msgstr "Target:"
