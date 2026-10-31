@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-28T17:25:09+01:00\n"
+"POT-Creation-Date: 2026-10-30T18:04:12+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -174,12 +174,12 @@ msgid "admin.env_check.php.update_link.txt"
 msgstr ""
 
 #: includes/FormFrontend.php:211
-#: includes/Helper/ConfigHelper.php:237
-#: includes/Helper/ConfigHelper.php:273
-#: includes/Helper/ConfigHelper.php:307
+#: includes/Helper/ConfigHelper.php:243
+#: includes/Helper/ConfigHelper.php:279
+#: includes/Helper/ConfigHelper.php:313
 #: templates/frontend/outerwhisper-form-footer.php:39
-#: assets/js/dist/outerwhisper-form-builder.js:4378
-#: assets/js/dist/outerwhisper-form-builder.js:4395
+#: assets/js/dist/outerwhisper-form-builder.js:4386
+#: assets/js/dist/outerwhisper-form-builder.js:4403
 #: assets/js/dist/outerwhisper-form-frontend.js:2441
 #: assets/js/dist/outerwhisper-form-frontend.js:2514
 msgid "admin.frontend.default_footer_text"
@@ -266,8 +266,8 @@ msgstr ""
 #: templates/admin/form-builder/fields.php:84
 #: assets/js/dist/outerwhisper-form-builder.js:1519
 #: assets/js/dist/outerwhisper-form-builder.js:1567
-#: assets/js/dist/outerwhisper-form-builder.js:4810
-#: assets/js/dist/outerwhisper-form-builder.js:4813
+#: assets/js/dist/outerwhisper-form-builder.js:4818
+#: assets/js/dist/outerwhisper-form-builder.js:4821
 #: assets/js/dist/outerwhisper-form-frontend.js:1646
 #: assets/js/dist/outerwhisper-form-frontend.js:1694
 msgid "fields.name.name"
@@ -298,274 +298,274 @@ msgstr ""
 msgid "admin.config.default_email"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:323
+#: includes/Helper/ConfigHelper.php:329
 #: assets/js/dist/outerwhisper-form-frontend.js:2936
 #: assets/js/dist/outerwhisper-form-frontend.js:3078
 #: assets/js/dist/outerwhisper-form-frontend.js:3094
 msgid "confirmation.message.default"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:329
+#: includes/Helper/ConfigHelper.php:335
 msgid "notification.subject.default"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:423
+#: includes/Helper/ConfigHelper.php:429
 msgid "admin.form_template.bug.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:427
+#: includes/Helper/ConfigHelper.php:433
 msgid "admin.form_template.website.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:431
+#: includes/Helper/ConfigHelper.php:437
 msgid "admin.form_template.template-4.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:435
+#: includes/Helper/ConfigHelper.php:441
 #: includes/Helper/FormHelper.php:122
 msgid "admin.initial_form.in_content.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:439
+#: includes/Helper/ConfigHelper.php:445
 #: includes/Helper/FormHelper.php:134
 msgid "admin.initial_form.feedback_button.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:443
+#: includes/Helper/ConfigHelper.php:449
 #: includes/Helper/FormHelper.php:155
 msgid "admin.initial_form.exit_intent.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:447
+#: includes/Helper/ConfigHelper.php:453
 msgid "admin.form_template.blank.title"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:465
-#: includes/Helper/ConfigHelper.php:589
+#: includes/Helper/ConfigHelper.php:471
+#: includes/Helper/ConfigHelper.php:595
 msgid "admin.default.rating.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:472
+#: includes/Helper/ConfigHelper.php:478
 msgid "admin.default.step1.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:473
+#: includes/Helper/ConfigHelper.php:479
 msgid "admin.default.step1.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:478
+#: includes/Helper/ConfigHelper.php:484
 msgid "admin.default.step2.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:479
+#: includes/Helper/ConfigHelper.php:485
 msgid "admin.default.step2.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:480
+#: includes/Helper/ConfigHelper.php:486
 msgid "admin.default.step2.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:480
+#: includes/Helper/ConfigHelper.php:486
 msgid "admin.default.step2.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:481
+#: includes/Helper/ConfigHelper.php:487
 msgid "admin.default.step2.button.back.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:482
+#: includes/Helper/ConfigHelper.php:488
 msgid "admin.default.step2.button.submit.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:492
+#: includes/Helper/ConfigHelper.php:498
 msgid "admin.feedback_button.btn_improve.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:509
+#: includes/Helper/ConfigHelper.php:515
 msgid "admin.feedback_button.btn_missing.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:526
+#: includes/Helper/ConfigHelper.php:532
 msgid "admin.feedback_button.btn_idea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:543
+#: includes/Helper/ConfigHelper.php:549
 msgid "admin.feedback_button.btn_problem.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:560
+#: includes/Helper/ConfigHelper.php:566
 msgid "admin.feedback_button.btn_other.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:579
+#: includes/Helper/ConfigHelper.php:585
 msgid "admin.feedback_button.step1.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:588
+#: includes/Helper/ConfigHelper.php:594
 msgid "admin.feedback_button.step2.improve.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:592
+#: includes/Helper/ConfigHelper.php:598
 msgid "admin.feedback_button.step2.missing.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:593
+#: includes/Helper/ConfigHelper.php:599
 msgid "admin.feedback_button.step2.missing.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:594
+#: includes/Helper/ConfigHelper.php:600
 msgid "admin.feedback_button.step2.missing.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:594
+#: includes/Helper/ConfigHelper.php:600
 msgid "admin.feedback_button.step2.missing.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:595
+#: includes/Helper/ConfigHelper.php:601
 msgid "admin.feedback_button.step2.missing.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:598
+#: includes/Helper/ConfigHelper.php:604
 msgid "admin.feedback_button.step2.idea.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:599
+#: includes/Helper/ConfigHelper.php:605
 msgid "admin.feedback_button.step2.idea.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:600
+#: includes/Helper/ConfigHelper.php:606
 msgid "admin.feedback_button.step2.idea.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:600
+#: includes/Helper/ConfigHelper.php:606
 msgid "admin.feedback_button.step2.idea.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:601
+#: includes/Helper/ConfigHelper.php:607
 msgid "admin.feedback_button.step2.idea.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:604
+#: includes/Helper/ConfigHelper.php:610
 msgid "admin.feedback_button.step2.problem.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:605
+#: includes/Helper/ConfigHelper.php:611
 msgid "admin.feedback_button.step2.problem.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:606
+#: includes/Helper/ConfigHelper.php:612
 msgid "admin.feedback_button.step2.problem.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:606
+#: includes/Helper/ConfigHelper.php:612
 msgid "admin.feedback_button.step2.problem.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:607
+#: includes/Helper/ConfigHelper.php:613
 msgid "admin.feedback_button.step2.problem.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:610
+#: includes/Helper/ConfigHelper.php:616
 msgid "admin.feedback_button.step2.other.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:611
+#: includes/Helper/ConfigHelper.php:617
 msgid "admin.feedback_button.step2.other.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:612
+#: includes/Helper/ConfigHelper.php:618
 msgid "admin.feedback_button.step2.other.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:612
+#: includes/Helper/ConfigHelper.php:618
 msgid "admin.feedback_button.step2.other.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:613
+#: includes/Helper/ConfigHelper.php:619
 msgid "admin.feedback_button.step2.other.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:622
+#: includes/Helper/ConfigHelper.php:628
 msgid "admin.exit_intent.rating.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:637
+#: includes/Helper/ConfigHelper.php:643
 msgid "admin.exit_intent.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:644
+#: includes/Helper/ConfigHelper.php:650
 msgid "admin.exit_intent.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:655
+#: includes/Helper/ConfigHelper.php:661
 msgid "admin.exit_intent.step2.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:661
+#: includes/Helper/ConfigHelper.php:667
 msgid "admin.exit_intent.step2.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:663
+#: includes/Helper/ConfigHelper.php:669
 msgid "admin.exit_intent.step2.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:669
+#: includes/Helper/ConfigHelper.php:675
 msgid "admin.exit_intent.step2.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:688
+#: includes/Helper/ConfigHelper.php:694
 msgid "admin.template2.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:689
+#: includes/Helper/ConfigHelper.php:695
 msgid "admin.template2.description.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:690
+#: includes/Helper/ConfigHelper.php:696
 msgid "admin.template2.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:690
+#: includes/Helper/ConfigHelper.php:696
 msgid "admin.template2.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:691
+#: includes/Helper/ConfigHelper.php:697
 msgid "admin.template2.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:700
+#: includes/Helper/ConfigHelper.php:706
 msgid "admin.template3.rating.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:715
+#: includes/Helper/ConfigHelper.php:721
 msgid "admin.template3.step1.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:720
+#: includes/Helper/ConfigHelper.php:726
 msgid "admin.template3.step2.headline.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:721
+#: includes/Helper/ConfigHelper.php:727
 msgid "admin.template3.step2.textarea.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:721
+#: includes/Helper/ConfigHelper.php:727
 msgid "admin.template3.step2.textarea.placeholder"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:722
+#: includes/Helper/ConfigHelper.php:728
 msgid "admin.template3.step2.button.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:732
+#: includes/Helper/ConfigHelper.php:738
 msgid "admin.template4.rating.label"
 msgstr ""
 
-#: includes/Helper/ConfigHelper.php:747
+#: includes/Helper/ConfigHelper.php:753
 msgid "admin.template4.step1.headline.label"
 msgstr ""
 
-#: includes/Helper/FormDataSanitizer.php:744
+#: includes/Helper/FormDataSanitizer.php:750
 msgid "Invalid form configuration."
 msgstr ""
 
@@ -1391,47 +1391,67 @@ msgstr ""
 msgid "admin.builder.display.custom_colors.label.border_radius"
 msgstr ""
 
+#: templates/admin/form-builder/display.php:677
+msgid "admin.builder.display.custom_colors.label.box_shadow"
+msgstr ""
+
+#: templates/admin/form-builder/display.php:679
+msgid "admin.builder.display.custom_colors.option.shadow_none"
+msgstr ""
+
+#: templates/admin/form-builder/display.php:680
+msgid "admin.builder.display.custom_colors.option.shadow_low"
+msgstr ""
+
 #: templates/admin/form-builder/display.php:681
+msgid "admin.builder.display.custom_colors.option.shadow_medium"
+msgstr ""
+
+#: templates/admin/form-builder/display.php:682
+msgid "admin.builder.display.custom_colors.option.shadow_strong"
+msgstr ""
+
+#: templates/admin/form-builder/display.php:691
 msgid "admin.builder.display.header_footer.title"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:684
+#: templates/admin/form-builder/display.php:694
 msgid "admin.builder.display.header_footer.indicator_type.label"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:686
+#: templates/admin/form-builder/display.php:696
 msgid "admin.builder.display.header_footer.indicator_type.option.progress"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:687
+#: templates/admin/form-builder/display.php:697
 msgid "admin.builder.display.header_footer.indicator_type.option.title"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:688
+#: templates/admin/form-builder/display.php:698
 msgid "admin.builder.display.header_footer.indicator_type.option.step"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:689
+#: templates/admin/form-builder/display.php:699
 msgid "admin.builder.display.header_footer.indicator_type.option.none"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:694
+#: templates/admin/form-builder/display.php:704
 msgid "admin.builder.display.header_footer.custom_title.label"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:695
+#: templates/admin/form-builder/display.php:705
 msgid "admin.builder.display.header_footer.custom_title.placeholder"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:700
+#: templates/admin/form-builder/display.php:710
 msgid "admin.builder.display.header_footer.show_footer.label"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:708
+#: templates/admin/form-builder/display.php:718
 msgid "admin.builder.display.header_footer.custom_footer_text.label"
 msgstr ""
 
-#: templates/admin/form-builder/display.php:709
+#: templates/admin/form-builder/display.php:719
 msgid "admin.builder.display.header_footer.custom_footer_text.placeholder"
 msgstr ""
 
@@ -1744,10 +1764,10 @@ msgstr ""
 #: assets/js/dist/outerwhisper-form-builder.js:1522
 #: assets/js/dist/outerwhisper-form-builder.js:1527
 #: assets/js/dist/outerwhisper-form-builder.js:1565
-#: assets/js/dist/outerwhisper-form-builder.js:4820
-#: assets/js/dist/outerwhisper-form-builder.js:4826
+#: assets/js/dist/outerwhisper-form-builder.js:4828
 #: assets/js/dist/outerwhisper-form-builder.js:4834
-#: assets/js/dist/outerwhisper-form-builder.js:4843
+#: assets/js/dist/outerwhisper-form-builder.js:4842
+#: assets/js/dist/outerwhisper-form-builder.js:4851
 #: assets/js/dist/outerwhisper-form-frontend.js:1649
 #: assets/js/dist/outerwhisper-form-frontend.js:1654
 #: assets/js/dist/outerwhisper-form-frontend.js:1692
@@ -1757,8 +1777,8 @@ msgstr ""
 #: templates/admin/form-builder/fields.php:289
 #: assets/js/dist/outerwhisper-form-builder.js:1528
 #: assets/js/dist/outerwhisper-form-builder.js:1571
-#: assets/js/dist/outerwhisper-form-builder.js:4837
-#: assets/js/dist/outerwhisper-form-builder.js:4844
+#: assets/js/dist/outerwhisper-form-builder.js:4845
+#: assets/js/dist/outerwhisper-form-builder.js:4852
 #: assets/js/dist/outerwhisper-form-frontend.js:1655
 #: assets/js/dist/outerwhisper-form-frontend.js:1698
 msgid "fields.name.middle_name"
@@ -1768,10 +1788,10 @@ msgstr ""
 #: assets/js/dist/outerwhisper-form-builder.js:1523
 #: assets/js/dist/outerwhisper-form-builder.js:1529
 #: assets/js/dist/outerwhisper-form-builder.js:1574
-#: assets/js/dist/outerwhisper-form-builder.js:4823
-#: assets/js/dist/outerwhisper-form-builder.js:4827
-#: assets/js/dist/outerwhisper-form-builder.js:4840
-#: assets/js/dist/outerwhisper-form-builder.js:4845
+#: assets/js/dist/outerwhisper-form-builder.js:4831
+#: assets/js/dist/outerwhisper-form-builder.js:4835
+#: assets/js/dist/outerwhisper-form-builder.js:4848
+#: assets/js/dist/outerwhisper-form-builder.js:4853
 #: assets/js/dist/outerwhisper-form-frontend.js:1650
 #: assets/js/dist/outerwhisper-form-frontend.js:1656
 #: assets/js/dist/outerwhisper-form-frontend.js:1701
@@ -2075,6 +2095,37 @@ msgstr ""
 
 #: templates/admin/form-builder/styles.php:33
 msgid "admin.builder.styles.secondary_color.description"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:38
+msgid "admin.builder.styles.gap.label"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:41
+msgid "admin.builder.styles.gap.all.placeholder"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:41
+#: templates/admin/form-builder/styles.php:44
+msgid "admin.builder.styles.gap.all.title"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:49
+msgid "admin.builder.styles.gap.step1.placeholder"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:49
+#: templates/admin/form-builder/styles.php:52
+msgid "admin.builder.styles.gap.step1.title"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:57
+msgid "admin.builder.styles.gap.step2.placeholder"
+msgstr ""
+
+#: templates/admin/form-builder/styles.php:57
+#: templates/admin/form-builder/styles.php:60
+msgid "admin.builder.styles.gap.step2.title"
 msgstr ""
 
 #: templates/admin/form-builder/targeting.php:7
@@ -2632,9 +2683,6 @@ msgid "Last 30 days"
 msgstr ""
 
 #: templates/admin/partial/mockup/export.php:319
-#: templates/admin/partial/mockup/feedback-list.php:53
-#: templates/admin/partial/mockup/feedback-list.php:106
-#: templates/admin/partial/mockup/feedback-list.php:198
 msgid "Status"
 msgstr ""
 
@@ -2711,75 +2759,6 @@ msgstr ""
 msgid "Supports .json form files (single or multiple forms)"
 msgstr ""
 
-#: templates/admin/partial/mockup/feedback-list.php:45
-msgid "Form"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:49
-#: templates/admin/partial/mockup/feedback-list.php:94
-#: templates/admin/partial/mockup/feedback-list.php:170
-msgid "Display Type"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:57
-msgid "Date Range"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:61
-msgid "Filter"
-msgstr ""
-
-#. translators: %d: Number of demo feedback entries.
-#: templates/admin/partial/mockup/feedback-list.php:71
-#: templates/admin/partial/mockup/feedback-list.php:233
-#, php-format
-msgid "%d entries"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:86
-#: templates/admin/partial/mockup/feedback-list.php:144
-msgid "ID"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:90
-#: templates/admin/partial/mockup/feedback-list.php:163
-msgid "Form ID"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:98
-#: templates/admin/partial/mockup/feedback-list.php:179
-msgid "Form Name"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:102
-#: templates/admin/partial/mockup/feedback-list.php:186
-msgid "Page URL"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:110
-#: templates/admin/partial/mockup/feedback-list.php:207
-msgid "Created"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:114
-#: templates/admin/partial/mockup/feedback-list.php:214
-msgid "Updated"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:153
-msgid "View"
-msgstr ""
-
-#: templates/admin/partial/mockup/feedback-list.php:156
-msgid "Delete"
-msgstr ""
-
-#. translators: 1: Current page, 2: Total number of pages.
-#: templates/admin/partial/mockup/feedback-list.php:247
-#, php-format
-msgid "%1$d of %2$d"
-msgstr ""
-
 #: templates/admin/partial/outerwhisper-pro-notice-modal.php:6
 msgid "admin.builder.pro.headline"
 msgstr ""
@@ -2831,7 +2810,7 @@ msgstr ""
 
 #: assets/js/dist/outerwhisper-admin.js:214
 #: assets/js/dist/outerwhisper-form-builder.js:923
-#: assets/js/dist/outerwhisper-form-builder.js:4319
+#: assets/js/dist/outerwhisper-form-builder.js:4327
 #: assets/js/dist/outerwhisper-form-frontend.js:1050
 msgid "fields.unnamed"
 msgstr ""
@@ -3253,202 +3232,202 @@ msgstr ""
 msgid "admin.toast.redo"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4280
+#: assets/js/dist/outerwhisper-form-builder.js:4288
 msgid "admin.toast.form_published"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4280
+#: assets/js/dist/outerwhisper-form-builder.js:4288
 msgid "admin.toast.draft_saved"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4283
+#: assets/js/dist/outerwhisper-form-builder.js:4291
 msgid "admin.toast.save_error"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4283
+#: assets/js/dist/outerwhisper-form-builder.js:4291
 msgid "admin.toast.unknown_error"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4288
+#: assets/js/dist/outerwhisper-form-builder.js:4296
 msgid "admin.toast.network_error"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4572
-#: assets/js/dist/outerwhisper-form-builder.js:4587
-#: assets/js/dist/outerwhisper-form-builder.js:4592
+#: assets/js/dist/outerwhisper-form-builder.js:4580
+#: assets/js/dist/outerwhisper-form-builder.js:4595
+#: assets/js/dist/outerwhisper-form-builder.js:4600
 msgid "admin.builder.element_count_plural"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4587
-#: assets/js/dist/outerwhisper-form-builder.js:4592
+#: assets/js/dist/outerwhisper-form-builder.js:4595
+#: assets/js/dist/outerwhisper-form-builder.js:4600
 msgid "admin.builder.element_count_singular"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4593
+#: assets/js/dist/outerwhisper-form-builder.js:4601
 msgid "admin.builder.active_for"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4595
+#: assets/js/dist/outerwhisper-form-builder.js:4603
 msgid "admin.builder.switch_recipient"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4655
-#: assets/js/dist/outerwhisper-form-builder.js:5167
+#: assets/js/dist/outerwhisper-form-builder.js:4663
+#: assets/js/dist/outerwhisper-form-builder.js:5161
 msgid "admin.builder.move_to_step2"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4655
-#: assets/js/dist/outerwhisper-form-builder.js:5167
+#: assets/js/dist/outerwhisper-form-builder.js:4663
+#: assets/js/dist/outerwhisper-form-builder.js:5161
 msgid "admin.builder.move_to_step1"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4663
-#: assets/js/dist/outerwhisper-form-builder.js:5159
+#: assets/js/dist/outerwhisper-form-builder.js:4671
+#: assets/js/dist/outerwhisper-form-builder.js:5153
 msgid "admin.builder.duplicate_element"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4671
-#: assets/js/dist/outerwhisper-form-builder.js:5178
+#: assets/js/dist/outerwhisper-form-builder.js:4679
+#: assets/js/dist/outerwhisper-form-builder.js:5172
 msgid "admin.builder.delete_element"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4976
+#: assets/js/dist/outerwhisper-form-builder.js:4984
 msgid "admin.builder.customize_colors"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4993
+#: assets/js/dist/outerwhisper-form-builder.js:5001
 msgid "admin.builder.accent_color"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:4993
+#: assets/js/dist/outerwhisper-form-builder.js:5001
 msgid "admin.builder.background_color"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5004
+#: assets/js/dist/outerwhisper-form-builder.js:5012
 msgid "admin.builder.colors"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5004
+#: assets/js/dist/outerwhisper-form-builder.js:5012
 msgid "admin.builder.standard_state"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5079
+#: assets/js/dist/outerwhisper-form-builder.js:5073
 msgid "admin.preview.widget_title"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5107
+#: assets/js/dist/outerwhisper-form-builder.js:5101
 msgid "admin.preview.form_preview_title"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5151
+#: assets/js/dist/outerwhisper-form-builder.js:5145
 msgid "admin.builder.edit_element"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5204
+#: assets/js/dist/outerwhisper-form-builder.js:5198
 msgid "admin.toast.step2_auto_activated"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5208
+#: assets/js/dist/outerwhisper-form-builder.js:5202
 msgid "admin.toast.step2_requirement_error"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5223
+#: assets/js/dist/outerwhisper-form-builder.js:5217
 msgid "admin.toast.moved_to_step2"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5262
+#: assets/js/dist/outerwhisper-form-builder.js:5256
 msgid "admin.toast.moved_to_step1"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5276
+#: assets/js/dist/outerwhisper-form-builder.js:5270
 msgid "admin.builder.back_to_overview"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5301
+#: assets/js/dist/outerwhisper-form-builder.js:5295
 msgid "admin.toast.deleted"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5316
+#: assets/js/dist/outerwhisper-form-builder.js:5310
 msgid "admin.toast.duplicated"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5334
+#: assets/js/dist/outerwhisper-form-builder.js:5328
 msgid "admin.toast.added"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5417
+#: assets/js/dist/outerwhisper-form-builder.js:5411
 msgid "admin.toast.dropped"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5427
+#: assets/js/dist/outerwhisper-form-builder.js:5421
 msgid "admin.toast.move_step_not_allowed"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5501
+#: assets/js/dist/outerwhisper-form-builder.js:5495
 msgid "admin.toast.view_loaded"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5897
+#: assets/js/dist/outerwhisper-form-builder.js:5891
 msgid "admin.toast.config_copied"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5905
+#: assets/js/dist/outerwhisper-form-builder.js:5899
 msgid "admin.toast.invalid_json"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5918
+#: assets/js/dist/outerwhisper-form-builder.js:5912
 msgid "admin.toast.config_loaded"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5922
+#: assets/js/dist/outerwhisper-form-builder.js:5916
 msgid "admin.toast.import_error"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5949
+#: assets/js/dist/outerwhisper-form-builder.js:5943
 msgid "admin.builder.display_type_label"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5966
+#: assets/js/dist/outerwhisper-form-builder.js:5960
 msgid "admin.builder.targeting_tabs.in_content"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5967
+#: assets/js/dist/outerwhisper-form-builder.js:5961
 msgid "admin.builder.targeting_tabs.shortcode"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:5971
+#: assets/js/dist/outerwhisper-form-builder.js:5965
 msgid "admin.builder.targeting_tabs.overlay"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6100
-#: assets/js/dist/outerwhisper-form-builder.js:6196
+#: assets/js/dist/outerwhisper-form-builder.js:6094
+#: assets/js/dist/outerwhisper-form-builder.js:6190
 msgid "admin.toast.status_paused"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6103
-#: assets/js/dist/outerwhisper-form-builder.js:6197
+#: assets/js/dist/outerwhisper-form-builder.js:6097
+#: assets/js/dist/outerwhisper-form-builder.js:6191
 msgid "admin.toast.status_live"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6106
-#: assets/js/dist/outerwhisper-form-builder.js:6198
+#: assets/js/dist/outerwhisper-form-builder.js:6100
+#: assets/js/dist/outerwhisper-form-builder.js:6192
 msgid "admin.toast.status_admin_only"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6199
+#: assets/js/dist/outerwhisper-form-builder.js:6193
 msgid "admin.toast.status_changed"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6226
+#: assets/js/dist/outerwhisper-form-builder.js:6220
 msgid "admin.builder.leave_editor_confirm"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6240
+#: assets/js/dist/outerwhisper-form-builder.js:6234
 msgid "admin.toast.split_preview_reset"
 msgstr ""
 
-#: assets/js/dist/outerwhisper-form-builder.js:6253
-#: assets/js/dist/outerwhisper-form-builder.js:6262
+#: assets/js/dist/outerwhisper-form-builder.js:6247
+#: assets/js/dist/outerwhisper-form-builder.js:6256
 msgid "admin.toast.activate_step2_first"
 msgstr ""
 

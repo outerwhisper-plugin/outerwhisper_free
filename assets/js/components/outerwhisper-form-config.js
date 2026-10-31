@@ -27,5 +27,11 @@ export const config = {
         get isFrontpage() { return !!(typeof outerwhisperFormFrontend !== "undefined" && outerwhisperFormFrontend.isFrontpage); }
     },
     FIELD_TYPES_CONFIG: fieldTypesConfig,
+    SHADOW_PRESETS: {
+        none: 'none',
+        low: 'rgba(0, 0, 0, 0.05) 0px 5px 15px',
+        medium: 'rgba(0, 0, 0, 0.05) 0px 10px 30px',
+        strong: 'rgba(0, 0, 0, 0.05) 0px 20px 60px'
+    },
     FORM_TEMPLATES: formTemplates
 };

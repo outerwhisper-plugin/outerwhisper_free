@@ -313,6 +313,7 @@ class FormDataSanitizer
 					'borderStyle'         => 'enum:none|solid|dashed|dotted|double',
 					'borderWidth'         => 'int',
 					'borderRadius'        => 'int',
+					'boxShadow'           => 'enum:none|low|medium|strong',
 				],
 			];
 		}
@@ -665,7 +666,13 @@ class FormDataSanitizer
 		$schemas = [
 			'settings'     => [
 				'main'     => ['title' => 'text', 'customClasses' => 'classes', 'honeypot' => 'bool'],
-				'styles'   => ['accentColor' => 'color', 'secondaryColor' => 'color'],
+				'styles' => [
+					'accentColor' => 'color',
+					'secondaryColor' => 'color',
+					'fieldGapAll'    => 'int',
+					'fieldGapStep1'  => 'int',
+					'fieldGapStep2'  => 'int'
+				],
 				'tracking' => array_fill_keys(
 					[
 						'enabled',

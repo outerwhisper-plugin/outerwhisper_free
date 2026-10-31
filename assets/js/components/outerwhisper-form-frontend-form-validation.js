@@ -98,51 +98,76 @@ export const OUTERWHISPERFormValidator = {
         return true;
     },
 
-    isFieldInvalid: (type, val, item = null) => {
+    getFieldValidationError: (type, val, item = null, isRequired = true) => {
+        const isValEmpty = (v) => {
+            if (v === undefined || v === null) return true;
+            if (typeof v === 'string') return v.trim() === '';
+            if (Array.isArray(v)) return v.length === 0;
+            if (typeof v === 'object') {
+                return !Object.values(v).some(x => {
+                    if (x === undefined || x === null) return false;
+                    if (typeof x === 'string') return x.trim() !== '';
+                    return true;
+                });
+            }
+            return false;
+        };
+
+        const empty = isValEmpty(val);
+
+        if (empty) {
+            return isRequired ? 'required' : null;
+        }
+
         if (type === 'name') {
-            if (val === undefined || val === null) return true;
-            if (typeof val === 'string') return val.trim() === '';
+            if (typeof val === 'string') {
+                return val.trim() === '' ? 'invalid' : null;
+            }
             if (typeof val === 'object') {
                 const nameType = item?.settings?.nameType || 'full';
                 if (nameType === 'first_last' || nameType === 'first_middle_last') {
                     const first = (typeof val.first === 'string' ? val.first : '').trim();
                     const last = (typeof val.last === 'string' ? val.last : '').trim();
-                    return first === '' || last === '';
+                    return (first === '' || last === '') ? 'invalid' : null;
                 }
                 if (nameType === 'full') {
                     const full = (typeof val.full === 'string' ? val.full : (typeof val.first === 'string' ? val.first : '')).trim();
-                    return full === '';
+                    return full === '' ? 'invalid' : null;
                 }
                 const hasNonEmpty = Object.values(val).some(v => typeof v === 'string' && v.trim() !== '');
-                return !hasNonEmpty;
+                return !hasNonEmpty ? 'invalid' : null;
             }
-            return true;
+            return 'invalid';
         }
 
         if (type === 'email') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (val === undefined || val === null) return true;
             if (typeof val === 'string') {
                 const trimmed = val.trim();
-                return trimmed === '' || !emailRegex.test(trimmed);
+                return (!trimmed || !emailRegex.test(trimmed)) ? 'invalid' : null;
             }
             if (typeof val === 'object') {
                 const emailConfirmation = item?.settings?.emailConfirmation || ('confirm' in val);
                 const main = (typeof val.main === 'string' ? val.main : '').trim();
-                if (main === '' || !emailRegex.test(main)) return true;
+                if (main === '' || !emailRegex.test(main)) return 'invalid';
                 if (emailConfirmation) {
                     const confirm = (typeof val.confirm === 'string' ? val.confirm : '').trim();
                     if (confirm === '' || main.toLowerCase() !== confirm.toLowerCase()) {
-                        return true;
+                        return 'invalid';
                     }
                 }
-                return false;
+                return null;
             }
-            return true;
+            return 'invalid';
         }
 
-        return (val === undefined || val === null || (typeof val === 'string' && val.trim() === ''));
+        return null;
+    },
+
+    isFieldInvalid: (type, val, item = null, isRequired = true) => {
+        return OUTERWHISPERFormValidator.getFieldValidationError(type, val, item, isRequired);
     }
 };
 
+export const getFieldValidationError = OUTERWHISPERFormValidator.getFieldValidationError;
 export const isFieldInvalid = OUTERWHISPERFormValidator.isFieldInvalid;

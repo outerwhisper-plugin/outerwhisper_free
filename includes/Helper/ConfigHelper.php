@@ -176,6 +176,9 @@ class ConfigHelper {
 				'styles' => [
 					'accentColor' => '#000000',
 					'secondaryColor' => '#555555',
+					'fieldGapAll' => 15,
+					'fieldGapStep1' => 15,
+					'fieldGapStep2' => 15
 				],
                 'display' => [
 					'displayType' => 'in-content',
@@ -199,6 +202,9 @@ class ConfigHelper {
 									'customStylesEnabled' => false,
 									'bgColor' => '#ffffff',
 									'borderColor' => '#ffffff',
+									'borderWidth' => 0,
+									'borderRadius' => 0,
+									'borderStyle' => 'solid',
 								],
 							]
 						],

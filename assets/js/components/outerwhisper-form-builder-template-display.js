@@ -844,6 +844,14 @@ export function initFormBuilderTemplateDisplay(ctx = {}) {
                 requestUpdate();
             });
         }
+        const boxShadowInput = document.getElementById("outerwhisper-opt-globaldata-box-shadow");
+        if (boxShadowInput) {
+            boxShadowInput.addEventListener("change", () => {
+                const activeSubtype = state.settings.display.displaySubType || "modal";
+                utils.setDeepState(state, `settings.display.subTypeData.${activeSubtype}.globalData.design.boxShadow`, boxShadowInput.value);
+                requestUpdate();
+            });
+        }
     }
 
     let activePreviewController = null;
@@ -1036,10 +1044,14 @@ export function initFormBuilderTemplateDisplay(ctx = {}) {
             borderStyleInput.value = ovGrD.borderStyle || "solid";
         }
         if (borderWidthInput) {
-            borderWidthInput.value = ovGrD.borderWidth || "1";
+            borderWidthInput.value = ovGrD.borderWidth || "0";
         }
         if (borderRadiusInput) {
             borderRadiusInput.value = ovGrD.borderRadius || "0";
+        }
+        const boxShadowInput = document.getElementById("outerwhisper-opt-globaldata-box-shadow");
+        if (boxShadowInput) {
+            boxShadowInput.value = ovGrD.boxShadow || "none";
         }
 
         if (inContentAutoEnabledToggle) {

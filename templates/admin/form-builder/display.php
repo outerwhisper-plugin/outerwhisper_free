@@ -366,7 +366,7 @@ if (!defined('ABSPATH')) {
                                 <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-style-overlay-rule-close-days">
                                     <?php esc_html_e('admin.builder.display.frequency.close_days.label', 'outerwhisper'); ?>
                                 </label>
-                                <div class="outerwhisper-form-builder-template-display-input-suffix">
+                                <div class="outerwhisper-form-builder-input-suffix">
                                     <input type="number" id="outerwhisper-style-overlay-rule-close-days" value="1" min="0" />
                                     <span><?php esc_html_e('admin.builder.display.days', 'outerwhisper'); ?></span>
                                 </div>
@@ -377,7 +377,7 @@ if (!defined('ABSPATH')) {
                                 <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-style-overlay-rule-submit-days">
                                     <?php esc_html_e('admin.builder.display.frequency.submit_days.label', 'outerwhisper'); ?>
                                 </label>
-                                <div class="outerwhisper-form-builder-template-display-input-suffix">
+                                <div class="outerwhisper-form-builder-input-suffix">
                                     <input type="number" id="outerwhisper-style-overlay-rule-submit-days" value="30" min="0" />
                                     <span><?php esc_html_e('admin.builder.display.days', 'outerwhisper'); ?></span>
                                 </div>
@@ -596,7 +596,7 @@ if (!defined('ABSPATH')) {
                         <div class="outerwhisper-form-builder-template-display-grid-2">
                             <div class="outerwhisper-form-builder-template-display-form-row">
                                 <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-style-overlay-rule-width"><?php esc_html_e('admin.builder.display.dimensions.max_width.label', 'outerwhisper'); ?></label>
-                                <div class="outerwhisper-form-builder-template-display-input-suffix">
+                                <div class="outerwhisper-form-builder-input-suffix">
                                     <input type="number" id="outerwhisper-style-overlay-rule-width" placeholder="480" min="280" max="1200" />
                                     <span>px</span>
                                 </div>
@@ -604,7 +604,7 @@ if (!defined('ABSPATH')) {
 
                             <div class="outerwhisper-form-builder-template-display-form-row" id="outerwhisper-display-row-min-height">
                                 <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-style-min-height"><?php esc_html_e('admin.builder.display.dimensions.min_height.label', 'outerwhisper'); ?></label>
-                                <div class="outerwhisper-form-builder-template-display-input-suffix">
+                                <div class="outerwhisper-form-builder-input-suffix">
                                     <input type="number" id="outerwhisper-style-min-height" placeholder="Auto" min="0" max="800" />
                                     <span>px</span>
                                 </div>
@@ -659,19 +659,29 @@ if (!defined('ABSPATH')) {
 
 	                            <div class="outerwhisper-form-builder-template-display-color-field" style="grid-column: span 2;">
 		                            <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-opt-globaldata-border-width"><?php esc_html_e('admin.builder.display.custom_colors.label.border_width', 'outerwhisper'); ?></label>
-		                            <div class="outerwhisper-form-builder-template-display-input-suffix">
-			                            <input type="number" id="outerwhisper-opt-globaldata-border-width" value="1" min="0" max="20" />
+		                            <div class="outerwhisper-form-builder-input-suffix">
+			                            <input type="number" id="outerwhisper-opt-globaldata-border-width" value="0" min="0" max="20" />
 			                            <span>px</span>
 		                            </div>
 	                            </div>
 
                                 <div class="outerwhisper-form-builder-template-display-color-field" style="grid-column: span 2;">
                                     <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-opt-globaldata-border-radius"><?php esc_html_e('admin.builder.display.custom_colors.label.border_radius', 'outerwhisper'); ?></label>
-                                    <div class="outerwhisper-form-builder-template-display-input-suffix">
+                                    <div class="outerwhisper-form-builder-input-suffix">
                                         <input type="number" id="outerwhisper-opt-globaldata-border-radius" value="0" min="0" max="50" />
                                         <span>px</span>
                                     </div>
                                 </div>
+
+	                            <div class="outerwhisper-form-builder-template-display-color-field" style="grid-column: span 2;">
+		                            <label class="outerwhisper-form-builder-template-display-label" for="outerwhisper-opt-globaldata-box-shadow"><?php esc_html_e('admin.builder.display.custom_colors.label.box_shadow', 'outerwhisper'); ?></label>
+		                            <select id="outerwhisper-opt-globaldata-box-shadow" class="outerwhisper-form-select" style="height: 34px;">
+			                            <option value="none" selected><?php esc_html_e('admin.builder.display.custom_colors.option.shadow_none', 'outerwhisper'); ?></option>
+			                            <option value="low"><?php esc_html_e('admin.builder.display.custom_colors.option.shadow_low', 'outerwhisper'); ?></option>
+			                            <option value="medium"><?php esc_html_e('admin.builder.display.custom_colors.option.shadow_medium', 'outerwhisper'); ?></option>
+			                            <option value="strong"><?php esc_html_e('admin.builder.display.custom_colors.option.shadow_strong', 'outerwhisper'); ?></option>
+		                            </select>
+	                            </div>
 
                             </div>
                         </div>

@@ -596,7 +596,7 @@
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: var(--outerwhisper-form-fields-gap, 15px);
     width: 100%;
 }
 

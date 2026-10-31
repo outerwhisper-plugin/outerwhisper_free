@@ -1,6 +1,6 @@
 import { utils, logger } from '../components/outerwhisper-form-utils.js';
 import { config } from '../components/outerwhisper-form-config.js';
-import { OUTERWHISPERFormValidator, isFieldInvalid } from '../components/outerwhisper-form-frontend-form-validation.js';
+import { OUTERWHISPERFormValidator, getFieldValidationError } from '../components/outerwhisper-form-frontend-form-validation.js';
 import { __ } from '../components/outerwhisper-i18n.js';
 import { fields } from '../components/outerwhisper-form-fields.js';
 
@@ -982,11 +982,12 @@ const engine = {
 
             if (!activeStepWrap) return true;
 
-            const requiredGroups = activeStepWrap.querySelectorAll('.outerwhisper-fd-group[data-required="true"]');
+            const allGroups = activeStepWrap.querySelectorAll('.outerwhisper-fd-group');
             let allValid = true;
             let firstInvalidGroup = null;
 
-            requiredGroups.forEach(group => {
+            allGroups.forEach(group => {
+                const isRequired = group.getAttribute("data-required") === "true";
                 const elementId = group.getAttribute("data-element-id");
                 const elementType = group.getAttribute("data-element-type");
                 const val = containerEl.outerwhisperAnswers ? containerEl.outerwhisperAnswers[elementId] : undefined;
@@ -994,20 +995,24 @@ const engine = {
                 const currentList = (currentStep === 1) ? step1List : utils.getStep2List(stateObj, containerEl.outerwhisperStep2TriggerId || (itemsWithStep2[0] ? itemsWithStep2[0].id : null));
                 const item = Array.isArray(currentList) ? currentList.find(i => String(i.id) === String(elementId)) : null;
 
-                const isInvalid = isFieldInvalid(elementType, val, item);
+                const validationError = getFieldValidationError(elementType, val, item, isRequired);
 
-                if (isInvalid) {
+                if (validationError) {
                     allValid = false;
                     if (!firstInvalidGroup) {
                         firstInvalidGroup = group;
                     }
                     group.classList.add("outerwhisper-fd-invalid");
-                    if (!group.querySelector(".outerwhisper-fd-error-msg")) {
-                        const errMsg = document.createElement("div");
+                    let errMsg = group.querySelector(".outerwhisper-fd-error-msg");
+                    if (!errMsg) {
+                        errMsg = document.createElement("div");
                         errMsg.className = "outerwhisper-fd-error-msg";
-                        errMsg.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${__("validation.error.required")}`;
                         group.appendChild(errMsg);
                     }
+                    const errorMsgText = (validationError === 'invalid')
+                        ? __("validation.error.invalid")
+                        : __("validation.error.required");
+                    errMsg.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${errorMsgText}`;
                 } else {
                     group.classList.remove("outerwhisper-fd-invalid");
                     const err = group.querySelector(".outerwhisper-fd-error-msg");
@@ -1059,7 +1064,17 @@ const engine = {
             const allSteps = containerEl.querySelectorAll('.outerwhisper-fd-step, .outerwhisper-fd-success');
             allSteps.forEach(el => el.classList.remove('is-active'));
 
+            // Apply field gap if configured
+            const stylesSettings = stateObj?.settings?.styles || {};
+            let gap = stylesSettings.fieldGapAll || 15;
+
             if (targetStep === 2) {
+                if (stylesSettings.fieldGapStep2 !== undefined) {
+                    gap = stylesSettings.fieldGapStep2;
+                }
+
+                containerEl.style.setProperty('--outerwhisper-form-fields-gap', `${gap}px`);
+
                 const actId = targetTriggerId || containerEl.outerwhisperStep2TriggerId || (itemsWithStep2[0] ? itemsWithStep2[0].id : null);
                 const targetStep2 = containerEl.querySelector(`.outerwhisper-fd-step[data-step="2"][data-trigger-id="${actId}"]`);
                 if (targetStep2) {
@@ -1099,6 +1114,8 @@ const engine = {
                         }
                     }
                 }
+
+                containerEl.style.setProperty('--outerwhisper-form-fields-gap', `${gap}px`);
 
                 const targetSuccess = containerEl.querySelector('.outerwhisper-fd-success');
                 if (targetSuccess) {
@@ -1141,6 +1158,12 @@ const engine = {
                 }
             } else {
                 // Step 1
+                if (stylesSettings.fieldGapStep1 !== undefined) {
+                    gap = stylesSettings.fieldGapStep1;
+                }
+
+                containerEl.style.setProperty('--outerwhisper-form-fields-gap', `${gap}px`);
+
                 const targetStep1 = containerEl.querySelector('.outerwhisper-fd-step[data-step="1"]');
                 if (targetStep1) {
                     targetStep1.classList.add('is-active');
