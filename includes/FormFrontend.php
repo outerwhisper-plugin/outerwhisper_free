@@ -571,7 +571,7 @@ class FormFrontend {
         $form_helper = new FormHelper();
         $input_fields = $form_helper->get_form_input_fields($form_json, true);
 
-		foreach ($input_fields as $field) {
+        foreach ($input_fields as $field) {
 			$separator = ' ';
 			if (in_array(substr($field['label'], -1), ['?', ':'], true) === false) {
 				$separator = ': ';
@@ -593,8 +593,8 @@ class FormFrontend {
 					break;
 			}
 
-			$all_fields_text .= $field['label'] . $separator . $rowValue . '<br>';
-		}
+            $all_fields_text .= $field['label'] . $separator . $rowValue . '<br>';
+        }
 
         $replacements = [
             '{feedback_values}' => $all_fields_text,

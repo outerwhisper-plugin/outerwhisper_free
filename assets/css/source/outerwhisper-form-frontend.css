@@ -28,7 +28,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0; /* managed by step gap */
+    gap: 8px;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-group.outerwhisper-fd-width-100 {

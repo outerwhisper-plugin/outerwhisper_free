@@ -1,20 +1,24 @@
 import { __ } from './outerwhisper-i18n.js';
 
+const availablePostTypes = (typeof window !== 'undefined' && window.outerwhisperFormBuilder?.postTypes)
+    ? window.outerwhisperFormBuilder.postTypes
+    : [
+        { value: "page", label: __('admin.conditions.options.pages'), icon: "fas fa-file-alt" },
+        { value: "post", label: __('admin.conditions.options.posts'), icon: "fas fa-newspaper" }
+    ];
+
 export const CONDITION_TYPES_CONFIG = {
     page_type: {
         type: "page_type",
         label: __('admin.conditions.page_type.label'),
         unique: true,
         defaultOperator: "in",
-        defaultValue: ["page", "post"],
+        defaultValue: availablePostTypes.map(opt => opt.value),
         operators: [
             { value: "in", label: __('admin.conditions.operators.in') }
         ],
         controlType: "multi-pills",
-        options: [
-            { value: "page", label: __('admin.conditions.options.pages'), icon: "fas fa-file-alt" },
-            { value: "post", label: __('admin.conditions.options.posts'), icon: "fas fa-newspaper" }
-        ]
+        options: availablePostTypes
     },
     device: {
         type: "device",
