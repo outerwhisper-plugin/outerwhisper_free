@@ -33,6 +33,35 @@ if (!defined('ABSPATH')) {
 					<span class="outerwhisper-settings-text"><?php esc_html_e('admin.builder.styles.secondary_color.description', 'outerwhisper'); ?></span>
 				</div>
 			</div>
+
+			<div class="outerwhisper-form-group">
+				<label><?php esc_html_e('admin.builder.styles.gap.label', 'outerwhisper'); ?></label>
+				<div class="outerwhisper-color-picker-row">
+					<div class="outerwhisper-form-builder-input-suffix">
+						<input type="number" id="outerwhisper-style-gap-all" class="outerwhisper-form-input" style="min-width: 160px;" placeholder="<?php esc_attr_e('admin.builder.styles.gap.all.placeholder', 'outerwhisper'); ?>" title="<?php esc_attr_e('admin.builder.styles.gap.all.title', 'outerwhisper'); ?>" value="15" min="0" max="50">
+						<span>px</span>
+					</div>
+					<span class="outerwhisper-settings-text"><?php esc_html_e('admin.builder.styles.gap.all.title', 'outerwhisper'); ?></span>
+				</div>
+
+				<div class="outerwhisper-color-picker-row">
+					<div class="outerwhisper-form-builder-input-suffix">
+						<input type="number" id="outerwhisper-style-gap-step1" class="outerwhisper-form-input" style="min-width: 160px;" placeholder="<?php esc_attr_e('admin.builder.styles.gap.step1.placeholder', 'outerwhisper'); ?>" title="<?php esc_attr_e('admin.builder.styles.gap.step1.title', 'outerwhisper'); ?>" value="15" min="0" max="50">
+						<span>px</span>
+					</div>
+					<span class="outerwhisper-settings-text"><?php esc_html_e('admin.builder.styles.gap.step1.title', 'outerwhisper'); ?></span>
+				</div>
+
+				<div class="outerwhisper-color-picker-row">
+					<div class="outerwhisper-form-builder-input-suffix">
+						<input type="number" id="outerwhisper-style-gap-step2" class="outerwhisper-form-input" style="min-width: 160px;" placeholder="<?php esc_attr_e('admin.builder.styles.gap.step2.placeholder', 'outerwhisper'); ?>" title="<?php esc_attr_e('admin.builder.styles.gap.step2.title', 'outerwhisper'); ?>" value="15" min="0" max="50">
+						<span>px</span>
+					</div>
+					<span class="outerwhisper-settings-text"><?php esc_html_e('admin.builder.styles.gap.step2.title', 'outerwhisper'); ?></span>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 </section>

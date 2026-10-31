@@ -317,6 +317,13 @@ OuterWhisper includes translations for:
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Feature: add new form field gap setting
+* Feature: add new box shadow setting
+* Fix: also validate not required form fields
+* Improvement: add custom validation error messages
+
 = 1.0.1 =
 
 * Initial public release of OuterWhisper.

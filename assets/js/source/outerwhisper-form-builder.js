@@ -509,6 +509,16 @@ const OUTERWHISPERFormBuilder = (function() {
                         outerwhisperFormBuilder.formId = result.data.new_id;
                         if (elActiveFormIdDisplay) elActiveFormIdDisplay.textContent = outerwhisperFormBuilder.formId;
 
+                        const setIDEl = document.getElementById("outerwhisper-setting-form-id");
+                        if (setIDEl) {
+                            setIDEl.value = outerwhisperFormBuilder.formId;
+                        }
+
+                        const shortcodeTemplate = document.getElementById("outerwhisper-form-shortcode-template");
+                        if (shortcodeTemplate) {
+                            shortcodeTemplate.textContent = `[outerwhisper_form id="${outerwhisperFormBuilder.formId}"]`;
+                        }
+
                         const url = new URL(window.location.href);
                         url.searchParams.set('id', result.data.new_id);
                         window.history.replaceState({}, '', url);
@@ -595,7 +605,11 @@ const OUTERWHISPERFormBuilder = (function() {
             }
             if (!data.settings.styles) {
                 data.settings.styles = {
-                    accentColor: '#104689'
+                    accentColor: '#000000',
+                    secondaryColor: '#555555',
+                    fieldGapAll: 15,
+                    fieldGapStep1: 15,
+                    fieldGapStep2: 15
                 };
             }
             if (!data.settings.display) data.settings.display = {};
@@ -2006,6 +2020,43 @@ const OUTERWHISPERFormBuilder = (function() {
                 state.settings.styles.secondaryColor = val;
                 api.saveStateToLocalStorage();
             });
+
+            // Setup Gap Controls
+            setupGapControls();
+            syncGapUI();
+
+            // --- Setup Gap Controls ---
+            function setupGapControls() {
+                const gapInputs = {
+                    all: document.getElementById("outerwhisper-style-gap-all"),
+                    step1: document.getElementById("outerwhisper-style-gap-step1"),
+                    step2: document.getElementById("outerwhisper-style-gap-step2")
+                };
+
+                Object.entries(gapInputs).forEach(([key, input]) => {
+                    if (input) {
+                        input.addEventListener("input", (e) => {
+                            const val = parseInt(e.target.value, 10);
+                            const stateKey = key === 'all' ? 'fieldGapAll' : (key === 'step1' ? 'fieldGapStep1' : 'fieldGapStep2');
+                            utils.setDeepState(state, `settings.styles.${stateKey}`, !isNaN(val) ? val : null);
+
+                            api.saveStateToLocalStorage();
+                        });
+                    }
+                });
+            }
+
+            function syncGapUI() {
+                const stylesSettings = state.settings?.styles || {};
+                const gapInputs = {
+                    all: document.getElementById("outerwhisper-style-gap-all"),
+                    step1: document.getElementById("outerwhisper-style-gap-step1"),
+                    step2: document.getElementById("outerwhisper-style-gap-step2")
+                };
+                if (gapInputs.all) gapInputs.all.value = stylesSettings.fieldGapAll !== undefined ? stylesSettings.fieldGapAll : '';
+                if (gapInputs.step1) gapInputs.step1.value = stylesSettings.fieldGapStep1 !== undefined ? stylesSettings.fieldGapStep1 : '';
+                if (gapInputs.step2) gapInputs.step2.value = stylesSettings.fieldGapStep2 !== undefined ? stylesSettings.fieldGapStep2 : '';
+            }
 
             const valMinHeight = document.getElementById("outerwhisper-style-min-height");
             if (valMinHeight) {

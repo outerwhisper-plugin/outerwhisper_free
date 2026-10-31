@@ -3,6 +3,7 @@
  */
 
 import { __ } from './outerwhisper-i18n.js';
+import {config} from "./outerwhisper-form-config";
 
 export const logger = {
     isDebug() {
@@ -233,6 +234,11 @@ export const utils = {
             container.style.borderWidth = utils.getDeepState(state, `settings.display.subTypeData.shortcode.globalData.design.borderWidth`, "0") + "px";
             container.style.backgroundColor = utils.getDeepState(state, `settings.display.subTypeData.shortcode.globalData.design.bgColor`, '#ffffff');
             container.style.borderColor = utils.getDeepState(state, `settings.display.subTypeData.shortcode.globalData.design.borderColor`, "#ffffff");
+
+            const boxShadowSetting = utils.getDeepState(state, `settings.display.subTypeData.shortcode.globalData.design.boxShadow`, "none");
+            if (boxShadowSetting && config.SHADOW_PRESETS[boxShadowSetting]) {
+                container.style.boxShadow = config.SHADOW_PRESETS[boxShadowSetting];
+            }
         }
     },
 

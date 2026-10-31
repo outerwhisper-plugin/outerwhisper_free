@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 			<div class="outerwhisper-form-group">
 				<label for="outerwhisper-setting-form-id"><?php esc_html_e('admin.builder.general.form_id.label', 'outerwhisper'); ?> <span style="color: var(--outerwhisper-text-secondary);">(<?php esc_html_e('admin.builder.general.form_id.hint', 'outerwhisper'); ?>)</span></label>
 				<input type="text" id="outerwhisper-setting-form-id" class="outerwhisper-form-input" value="<?php echo (int) $formId ?>" readonly style="background-color: #f1f5f9; cursor: not-allowed;" />
-				<p class="outerwhisper-settings-text"><?php echo sprintf(esc_html__('admin.builder.general.form_id.description', 'outerwhisper'), '<code>[outerwhisper_form id="' . (int) $formId . '"]</code>'); ?></p>
+				<p class="outerwhisper-settings-text"><?php echo sprintf(esc_html__('admin.builder.general.form_id.description', 'outerwhisper'), '<code id="outerwhisper-form-shortcode-template">[outerwhisper_form id="' . (int) $formId . '"]</code>'); ?></p>
 			</div>
 
 			<div class="outerwhisper-form-group">
