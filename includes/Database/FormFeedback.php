@@ -16,18 +16,20 @@ class FormFeedback extends Database {
             outerwhisper_ff_fd_id INT(11) UNSIGNED NOT NULL,
             outerwhisper_ff_form_type ENUM('shortcode','pre-content','post-content','feedback-button','overlay','slide-in','modal') NOT NULL,
             outerwhisper_ff_feedback_data LONGTEXT NULL DEFAULT NULL,
+            outerwhisper_ff_feedback_score FLOAT UNSIGNED NULL DEFAULT NULL,
             outerwhisper_ff_tracking_data LONGTEXT NULL DEFAULT NULL,
             outerwhisper_ff_tracking_page_url TEXT NULL DEFAULT NULL,
             outerwhisper_ff_identifier VARCHAR(50) NOT NULL DEFAULT '',
             outerwhisper_ff_status ENUM('unread','read','archived') NOT NULL DEFAULT 'unread',
             outerwhisper_ff_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
             outerwhisper_ff_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
-            PRIMARY KEY  (outerwhisper_ff_id),
+            PRIMARY KEY (outerwhisper_ff_id),
             INDEX outerwhisper_ff_status (outerwhisper_ff_status),
             INDEX outerwhisper_ff_form_type (outerwhisper_ff_form_type),
             INDEX outerwhisper_ff_created (outerwhisper_ff_created),
             INDEX outerwhisper_ff_identifier (outerwhisper_ff_identifier),
-            INDEX FK_ff_fd (outerwhisper_ff_fd_id)
+            INDEX FK_ff_fd (outerwhisper_ff_fd_id),
+            INDEX outerwhisper_ff_feedback_score (outerwhisper_ff_feedback_score)
         ) $charset_collate ENGINE=InnoDB;";
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -219,6 +221,7 @@ class FormFeedback extends Database {
             'outerwhisper_ff_fd_id'                 => (int) $data['form_id'],
             'outerwhisper_ff_form_type'             => $data['form_type'] ?? 'shortcode',
             'outerwhisper_ff_feedback_data'         => $feedback_data,
+			'outerwhisper_ff_feedback_score'        => $data['feedback_score'] ?? null,
             'outerwhisper_ff_tracking_data'         => $tracking_data_encoded,
             'outerwhisper_ff_tracking_page_url'     => $prepared_tracking['tracking_page_url'],
             'outerwhisper_ff_identifier'            => !empty($data['identifier']) ? $data['identifier'] : (!empty($data['outerwhisper_ff_identifier']) ? $data['outerwhisper_ff_identifier'] : uniqid('', true)),
