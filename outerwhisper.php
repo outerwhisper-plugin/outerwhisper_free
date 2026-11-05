@@ -3,7 +3,7 @@
  * Plugin Name:       OuterWhisper
  * Plugin URI:        https://outerwhisper.de
  * Description:       Collect and analyze user feedback directly in WordPress with a visual form builder, flexible display options, smart triggers, and targeting.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            Kai Steudten
@@ -39,8 +39,8 @@ if (!defined('OUTERWHISPER_PLUGIN_NAME_PREFIX')) {
 	define('OUTERWHISPER_PLUGIN_NAME_PREFIX', 'OUTERWHISPER_');
 	define('OUTERWHISPER_PLUGIN_PATH', plugin_dir_path(__FILE__));
 	define('OUTERWHISPER_PLUGIN_URL', plugin_dir_url(__FILE__));
-	define('OUTERWHISPER_VERSION', '1.0.1');
-	define('OUTERWHISPER_DB_VERSION', '1.0.1');
+	define('OUTERWHISPER_VERSION', '1.0.2');
+	define('OUTERWHISPER_DB_VERSION', '1.0.2');
 }
 
 // Autoloader (einfach gehalten für dieses Plugin)

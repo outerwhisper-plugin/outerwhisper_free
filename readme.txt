@@ -4,7 +4,7 @@ Tags: feedback, user feedback, customer feedback, surveys, user experience
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,11 @@ The free version of OuterWhisper includes the following form fields:
 * Text area
 * Button
 * Rating
+* Dropdown
+* Chips
+* Radio button
+* Name
+* Email
 
 OuterWhisper Pro adds additional feedback and rating fields:
 
@@ -105,13 +110,6 @@ Notification emails can include dynamic information such as:
 * Date
 * Time
 * Page URL
-
-Available placeholders include:
-
-`{feedback_values}`
-`{date}`
-`{time}`
-`{page_url}`
 
 Email notifications complement the feedback inbox available in the WordPress admin area in both Free and Pro.
 
