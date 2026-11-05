@@ -4,6 +4,7 @@ namespace OuterWhisper;
 
 use OuterWhisper\Database\Form as FormDB;
 use OuterWhisper\Database\FormFeedback;
+use OuterWhisper\Helper\FeedbackScoreHelper;
 use OuterWhisper\Helper\FormHelper;
 use OuterWhisper\Helper\IndexBuilder;
 use OuterWhisper\Helper\LanguageHelper;
@@ -506,11 +507,18 @@ class FormFrontend {
 
         // Save to database
         $form_feedback_db = new FormFeedback();
+		$feedbackScoreHelper = new FeedbackScoreHelper();
 
         $tracking_payload = [];
         if (!empty($_POST['tracking_data'])) {
             $tracking_payload = json_decode(sanitize_textarea_field(wp_unslash($_POST['tracking_data'])), true) ?: [];
         }
+
+		$decodedStepsData = $decodedFormVersionData['steps'] ?? [];
+		$feedbackScoreData = $feedbackScoreHelper->calculate($decodedStepsData, FeedbackScoreHelper::RETURN_MERGED);
+		if (!empty($feedbackScoreData)) {
+			$decodedStepsData = $feedbackScoreData;
+		}
 
 		$formType = sanitize_text_field(wp_unslash($_POST['form_type'] ?? 'shortcode'));
 
@@ -519,10 +527,11 @@ class FormFrontend {
             'form_type'     => $formType,
             'feedback_data' => [
                 'title' => $decodedFormVersionData['settings']['main']['title'] ?? '',
-                'steps' => $decodedFormVersionData['steps'] ?? [],
+                'steps' => $decodedStepsData,
                 'active_step2_trigger_id' => $active_step2_trigger_id,
             ],
-            'tracking_data' => $tracking_payload
+            'feedback_score' => $decodedStepsData['score'] ?? null,
+            'tracking_data' => $tracking_payload,
         ]);
 
         if ($success) {
@@ -571,7 +580,7 @@ class FormFrontend {
         $form_helper = new FormHelper();
         $input_fields = $form_helper->get_form_input_fields($form_json, true);
 
-		foreach ($input_fields as $field) {
+        foreach ($input_fields as $field) {
 			$separator = ' ';
 			if (in_array(substr($field['label'], -1), ['?', ':'], true) === false) {
 				$separator = ': ';
@@ -593,8 +602,8 @@ class FormFrontend {
 					break;
 			}
 
-			$all_fields_text .= $field['label'] . $separator . $rowValue . '<br>';
-		}
+            $all_fields_text .= $field['label'] . $separator . $rowValue . '<br>';
+        }
 
         $replacements = [
             '{feedback_values}' => $all_fields_text,

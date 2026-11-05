@@ -7,6 +7,7 @@ class FormFeedback {
     private $form_id;
     private $form_type;
     private $feedback_data;
+	private $feedback_score;
     private $tracking_data;
     private $tracking_page_url;
     private $identifier;
@@ -20,6 +21,7 @@ class FormFeedback {
             $this->form_id               = isset($data['outerwhisper_ff_fd_id']) ? (int) $data['outerwhisper_ff_fd_id'] : (isset($data['form_id']) ? (int) $data['form_id'] : null);
             $this->form_type             = $data['outerwhisper_ff_form_type'] ?? ($data['form_type'] ?? 'shortcode');
             $this->feedback_data         = $data['outerwhisper_ff_feedback_data'] ?? ($data['feedback_data'] ?? null);
+			$this->feedback_score        = $data['outerwhisper_ff_feedback_score'] ?? ($data['feedback_score'] ?? null);
             $this->tracking_data         = $data['outerwhisper_ff_tracking_data'] ?? ($data['tracking_data'] ?? null);
             $this->tracking_page_url     = $data['outerwhisper_ff_tracking_page_url'] ?? ($data['tracking_page_url'] ?? ($data['page_url'] ?? null));
             $this->identifier            = $data['outerwhisper_ff_identifier'] ?? ($data['identifier'] ?? '');
@@ -48,6 +50,10 @@ class FormFeedback {
     public function getDecodedFeedbackData(): array {
         return json_decode($this->feedback_data, true) ?: [];
     }
+
+	public function getFeedbackScore(): ?float {
+		return $this->feedback_score;
+	}
 
     public function getTrackingData(): ?string {
         return $this->tracking_data;
@@ -83,6 +89,7 @@ class FormFeedback {
             'form_id'               => $this->form_id,
             'form_type'             => $this->form_type,
             'feedback_data'         => $this->feedback_data,
+			'feedback_score'        => $this->feedback_score,
             'tracking_data'         => $this->tracking_data,
             'tracking_page_url'     => $this->tracking_page_url,
             'identifier'            => $this->identifier,

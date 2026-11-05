@@ -24,7 +24,6 @@ class FormBuilder extends Page {
      */
     public function render() {
         $configHelper = new ConfigHelper();
-
 		$langugageHelper = new LanguageHelper();
 		$currentLocale = $langugageHelper->get_current_locale();
 
@@ -75,6 +74,7 @@ class FormBuilder extends Page {
 		    'formPublishedTimestamp' => $form_published ? $form_published->getTimestamp() : null,
 		    'pluginVersion'          => OUTERWHISPER_VERSION,
 		    'pluginUrl'              => OUTERWHISPER_PLUGIN_URL,
+			'postTypes'              => $configHelper->get_available_post_types_data()
 		]);
 
         $this->data = [

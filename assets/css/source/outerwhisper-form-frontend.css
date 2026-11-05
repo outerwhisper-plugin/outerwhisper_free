@@ -23,12 +23,21 @@
 }
 
 /* Responsive width classes for .outerwhisper-fd-group slots */
+input[type=email].outerwhisper-form-input, input[type=text].outerwhisper-form-input, select.outerwhisper-form-select, textarea.outerwhisper-form-textarea {
+    width: 100%;
+    font-size: 13px;
+    border: 1px solid var(--outerwhisper-border);
+    outline: none;
+    background-color: white;
+    line-height: 1.4;
+}
+
 .outerwhisper-feedback-plugin .outerwhisper-fd-group {
     width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0; /* managed by step gap */
+    gap: 8px;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-group.outerwhisper-fd-width-100 {
@@ -81,6 +90,7 @@
     font-size: 16px;
     display: block;
     width: 100%;
+    line-height: 1.4;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-empty-message {
@@ -97,11 +107,12 @@
     word-break: break-word;
     width: 100%;
     margin: 0;
+    line-height: 1.4;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-description {
     font-size: 14px;
-    line-height: 1.45;
+    line-height: 1.4;
     word-break: break-word;
     width: 100%;
     margin: 0;
@@ -115,6 +126,7 @@
     border-radius: 4px;
     outline: none;
     background-color: white;
+    line-height: 1.4;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-input:focus, .outerwhisper-feedback-plugin .outerwhisper-fd-select:focus, .outerwhisper-feedback-plugin textarea.outerwhisper-fd-textarea:focus {
@@ -125,7 +137,6 @@
 .outerwhisper-feedback-plugin textarea.outerwhisper-fd-textarea {
     resize: vertical;
     min-height: 70px;
-    margin-top: 6px;
 }
 
 /* Buttons utility rules */
@@ -141,7 +152,7 @@
     transition: background-color 0.2s, border-color 0.2s;
     font-weight: normal;
     gap: 12px;
-    line-height: inherit;
+    line-height: 1.4;
 }
 
 .outerwhisper-feedback-plugin button.outerwhisper-btn:hover {
@@ -184,7 +195,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 6px;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-select-wrapper {
@@ -232,7 +242,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 6px;
 }
 
 .outerwhisper-visual-mock-chips .outerwhisper-chip,
@@ -294,7 +303,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     box-sizing: border-box;
 }
 
@@ -423,7 +431,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     box-sizing: border-box;
 }
 
@@ -487,13 +494,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-group-email .outerwhisper-form-input {
     width: 100%;
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: 14px;
     border: 1px solid var(--outerwhisper-border);
     border-radius: 4px;
     outline: none;
@@ -523,6 +529,7 @@
     font-size: 26px;
     gap: 4px;
     cursor: pointer;
+    line-height: 1;
 }
 
 .outerwhisper-feedback-plugin .outerwhisper-fd-star {
@@ -608,11 +615,6 @@
 .outerwhisper-fd-group.outerwhisper-fd-invalid textarea {
     border-color: #ef4444 !important;
     background-color: #fef2f2 !important;
-}
-
-.outerwhisper-fd-group.outerwhisper-fd-invalid .outerwhisper-fd-stars-row {
-    outline: 1px dashed #ef4444;
-    border-radius: 4px;
 }
 
 .outerwhisper-fd-error-msg {

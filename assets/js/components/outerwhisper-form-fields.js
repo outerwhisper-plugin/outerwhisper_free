@@ -352,7 +352,7 @@ export const fields = {
                 } else {
                     // Interactive rating stars
                     const container = document.createElement("div");
-                    container.className = `outerwhisper-fd-group-rating outerwhisper-fd-align-${align}`;
+                    container.className = `outerwhisper-fd-group outerwhisper-fd-group-rating outerwhisper-fd-align-${align}`;
                     container.appendChild(fields.createLabel(item));
 
                     const starsRow = document.createElement("div");
@@ -442,7 +442,7 @@ export const fields = {
                 } else {
                     // Interactive textarea box
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-textarea";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-textarea";
                     container.appendChild(fields.createLabel(item));
 
                     const textarea = document.createElement("textarea");
@@ -494,7 +494,7 @@ export const fields = {
                     `;
                 } else {
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-dropdown";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-dropdown";
                     container.appendChild(fields.createLabel(item));
 
                     const selectWrapper = document.createElement("div");
@@ -607,7 +607,7 @@ export const fields = {
                     `;
                 } else {
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-chips";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-chips";
                     container.appendChild(fields.createLabel(item));
 
                     const chipsWrapper = document.createElement("div");
@@ -737,7 +737,7 @@ export const fields = {
                     `;
                 } else {
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-radio";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-radio";
                     if (!item.settings.hideLabel) {
                         container.appendChild(fields.createLabel(item));
                     }
@@ -843,7 +843,7 @@ export const fields = {
                     `;
                 } else {
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-name";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-name";
                     container.appendChild(fields.createLabel(item));
 
                     const wrapper = document.createElement("div");
@@ -926,7 +926,7 @@ export const fields = {
                     `;
                 } else {
                     const container = document.createElement("div");
-                    container.className = "outerwhisper-fd-group-email";
+                    container.className = "outerwhisper-fd-group outerwhisper-fd-group-email";
                     container.appendChild(fields.createLabel(item));
 
                     const wrapper = document.createElement("div");

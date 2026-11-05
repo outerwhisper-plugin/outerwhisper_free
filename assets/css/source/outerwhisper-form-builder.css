@@ -882,6 +882,7 @@ input[type=email].outerwhisper-form-input, input[type=text].outerwhisper-form-in
     border: 1px solid var(--outerwhisper-border);
     outline: none;
     background-color: white;
+    line-height: 1.4;
 }
 
 .outerwhisper-form-textarea {

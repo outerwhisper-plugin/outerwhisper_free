@@ -762,4 +762,40 @@ class ConfigHelper {
 
         return $formStepData;
     }
+
+	/**
+	 * @return array
+	 */
+	public function get_available_post_types_data(): array {
+		$post_types = get_post_types(['public' => true], 'objects');
+
+		$exclude = ['attachment', 'outerwhisper_form'];
+
+		$options = [];
+		foreach ($post_types as $slug => $post_type) {
+			if (in_array($slug, $exclude, true)) {
+				continue;
+			}
+
+			$icon = 'fas fa-file-alt';
+			$label = $post_type->labels->name ?? $post_type->label ?? $slug;
+			if ($slug === 'post') {
+				$icon = 'fas fa-newspaper';
+				$label = esc_html__('admin.conditions.options.posts', 'outerwhisper');
+			} elseif ($slug === 'page') {
+				$icon = 'fas fa-file-alt';
+				$label = esc_html__('admin.conditions.options.pages', 'outerwhisper');
+			} elseif ($slug === 'product') {
+				$icon = 'fas fa-shopping-cart';
+			}
+
+			$options[] = [
+				'value' => $slug,
+				'label' => $label,
+				'icon'  => $icon,
+			];
+		}
+
+		return $options;
+	}
 }

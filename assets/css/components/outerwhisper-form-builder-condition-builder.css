@@ -149,6 +149,7 @@
     padding: 3px;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
 }
 
 .outerwhisper-cb-pill {

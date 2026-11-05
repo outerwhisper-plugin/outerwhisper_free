@@ -12,12 +12,21 @@ if (!defined('ABSPATH')) {
 class FormDataSanitizer
 {
 	private $allowed_fields;
+	private $available_post_types;
 	private $errors = [];
 	private $removed = [];
 
 	public function __construct(array $allowed_fields)
 	{
 		$this->allowed_fields = array_values(array_unique(array_map('strval', $allowed_fields)));
+
+		$configHelper = new \OuterWhisper\Helper\ConfigHelper();
+		$availablePostTypesData = $configHelper->get_available_post_types_data();
+		if (empty($availablePostTypesData)) {
+			$availablePostTypesData = ['page', 'post'];
+		}
+
+		$this->available_post_types = array_column($availablePostTypesData, 'value');
 	}
 
 	public function get_removed_keys(): array
@@ -443,15 +452,7 @@ class FormDataSanitizer
 				$this->report($path . '.value', 'Expected list', true);
 				$out['value'] = [];
 			} else {
-				$allowed = 'device' === $type ? ['desktop', 'tablet', 'mobile'] : [
-					'page',
-					'post',
-					'frontpage',
-					'home',
-					'archive',
-					'search',
-					'404'
-				];
+				$allowed = 'device' === $type ? ['desktop', 'tablet', 'mobile'] : $this->available_post_types;
 				$out['value'] = [];
 				foreach ($value['value'] as $i => $item) {
 					if (is_string($item) && in_array($item, $allowed, true)) {
