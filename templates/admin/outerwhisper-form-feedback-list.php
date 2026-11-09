@@ -2,125 +2,167 @@
 if (!defined('ABSPATH')) {
 	exit;
 }
+
+$outerwhisperKpis = $preparedKpiData ?? [];
+
+$outerwhisperKpi_total             = $outerwhisperKpis['total'] ?? 0;
+$outerwhisperKpi_prev_total        = $outerwhisperKpis['prev_total'] ?? 0;
+$outerwhisperKpi_total_diff        = $outerwhisperKpis['total_diff'] ?? 0;
+$outerwhisperKpi_total_change_pct  = $outerwhisperKpis['total_change_pct'] ?? null;
+$outerwhisperKpi_has_previous      = !empty($outerwhisperKpis['has_previous_period']);
+
+$outerwhisperKpi_rated             = $outerwhisperKpis['rated'] ?? 0;
+$outerwhisperKpi_rated_pct         = $outerwhisperKpis['rated_pct'] ?? 0;
+
+$outerwhisperKpi_avg_score         = $outerwhisperKpis['avg_score'] ?? null;
+$outerwhisperKpi_avg_score_diff    = $outerwhisperKpis['avg_score_diff'] ?? null;
+
+$outerwhisperKpi_positive_pct      = $outerwhisperKpis['positive_pct'] ?? 0;
+$outerwhisperKpi_negative_pct      = $outerwhisperKpis['negative_pct'] ?? 0;
+$outerwhisperKpi_positive_pct_diff = $outerwhisperKpis['positive_pct_diff'] ?? null;
+
+$outerwhisperKpi_unread            = $outerwhisperKpis['unread'] ?? 0;
 ?>
 
-<section id="outerwhisper-view-start" class="outerwhisper-view-section outerwhisper-form-feedback-list">
-	<header class="outerwhisper-view-header flex-row">
-		<h2 style="font-size: 24px; font-weight: 600; margin: 0 0 25px 0; color: var(--outerwhisper-primary-color);"><?php esc_html_e('admin.page.feedback_list.title', 'outerwhisper'); ?></h2>
-	</header>
-
-	<form method="get">
-		<input type="hidden" name="page" value="outerwhisper-form-feedbacks" />
-		<?php wp_nonce_field('outerwhisper_admin_nonce', 'nonce'); ?>
-		<?php $feedback_table->display(); ?>
-	</form>
-
-	<div id="outerwhisper-modal-backdrop" class="outerwhisper-modal-backdrop hidden"></div>
-	<div id="outerwhisper-modal-container" class="outerwhisper-modal-container hidden"></div>
-
-	<template id="outerwhisper-feedback-details-modal">
-		<div class="outerwhisper-modal outerwhisper-feedback-dialog-container">
-			<header class="outerwhisper-modal-header outerwhisper-feedback-dialog-header">
-				<div style="display: flex; align-items: center; gap: 12px;">
-					<div class="outerwhisper-feedback-avatar" id="outerwhisper-modal-avatar-wrapper">
-						<i class="fas fa-comment-dots"></i>
-					</div>
-					<div>
-						<h2 id="outerwhisper-modal-feedback-id-title" style="margin: 0; font-size: 1.15rem; font-weight: 600;"><?php esc_html_e('admin.page.feedback_list.modal.id_title', 'outerwhisper'); ?></h2>
-						<p style="margin: 2px 0 0 0; font-size: 0.75rem; color: var(--outerwhisper-text-secondary);"><?php esc_html_e('admin.page.feedback_list.modal.created_at', 'outerwhisper'); ?> <span id="outerwhisper-modal-date-text" style="font-weight: 500;">{{date}}</span></p>
-					</div>
-				</div>
-				<button class="outerwhisper-modal-modal-close" id="outerwhisper-modal-btn-close-modal" aria-label="<?php echo esc_attr__('admin.page.feedback_list.modal.close', 'outerwhisper') ?>"><i class="fas fa-times"></i></button>
-			</header>
-
-			<div class="outerwhisper-modal-scrollable-body" style="background-color: #f6f8fb;">
-				<div class="outerwhisper-details-grid-layout">
-
-					<!-- LINKER BEREICH: FORMULAR (USERWERTE) -->
-					<div style="display: flex; flex-direction: column; gap: 20px;">
-						<!-- BEARBEITUNGS-STATUS -->
-						<div class="outerwhisper-details-card">
-							<div class="outerwhisper-card-title-bar">
-								<i class="fas fa-tasks" style="color: var(--app-primary-color);"></i>
-								<h3><?php esc_html_e('admin.page.feedback_list.modal.status.title', 'outerwhisper'); ?></h3>
-							</div>
-							<div class="outerwhisper-status-segmented-control" id="outerwhisper-modal-status-control">
-								<button type="button" class="outerwhisper-status-btn" data-status="unread">
-									<i class="far fa-envelope"></i> <?php esc_html_e('admin.page.feedback_list.modal.status.unread', 'outerwhisper'); ?>
-								</button>
-								<button type="button" class="outerwhisper-status-btn" data-status="read">
-									<i class="far fa-envelope-open"></i> <?php esc_html_e('admin.page.feedback_list.modal.status.read', 'outerwhisper'); ?>
-								</button>
-								<button type="button" class="outerwhisper-status-btn" data-status="archived">
-									<i class="fas fa-archive"></i> <?php esc_html_e('admin.page.feedback_list.modal.status.archived', 'outerwhisper'); ?>
-								</button>
-							</div>
-						</div>
-
-						<!-- KUNDEN-FORMULARWERTE -->
-						<div class="outerwhisper-details-card outerwhisper-details-form-card">
-							<div class="outerwhisper-card-title-bar">
-								<i class="fas fa-file-invoice" style="color: var(--app-primary-color);"></i>
-								<h3><?php esc_html_e('admin.page.feedback_list.modal.customer_form_values', 'outerwhisper'); ?></h3>
-							</div>
-
-							<div class="outerwhisper-form-body">
-								<div id="outerwhisper-admin-feedback-form-render" class="outerwhisper-feedback-plugin outerwhisper-form-frontend-wrapper" data-is-admin="1"></div>
-
-								<!-- URL der Einsendung -->
-								<div class="outerwhisper-form-group-item">
-									<label class="outerwhisper-form-field-label"><?php esc_html_e('admin.page.feedback_list.modal.source_url', 'outerwhisper'); ?></label>
-									<div style="margin-bottom: 8px; font-size: 0.85rem; color: var(--outerwhisper-primary-color); font-weight: 600;" id="outerwhisper-modal-page-path"></div>
-									<div class="outerwhisper-copyable-input-group">
-										<input type="text" id="outerwhisper-input-source-url" class="outerwhisper-form-text-control" readonly style="font-family: monospace; font-size: 0.8rem;">
-										<button id="outerwhisper-btn-copy-url" class="outerwhisper-form-copy-btn" type="button" title="<?php echo esc_attr__('admin.page.feedback_list.modal.copy_to_clipboard', 'outerwhisper') ?>">
-											<i class="far fa-copy"></i>
-										</button>
-										<button id="outerwhisper-btn-open-url" class="outerwhisper-form-open-btn" type="button" title="<?php echo esc_attr__('admin.page.feedback_list.modal.open_in_new_window', 'outerwhisper') ?>">
-											<i class="fas fa-external-link-alt"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- RECHTER BEREICH: TRACKING INFORMATIONEN -->
-					<div class="outerwhisper-details-card outerwhisper-details-tracking-card">
-						<div class="outerwhisper-card-title-bar">
-							<i class="fas fa-satellite-dish" style="color: var(--outerwhisper-primary-color); animation: pulse 2s infinite;"></i>
-							<h3><?php esc_html_e('admin.page.feedback_list.modal.tracking.title', 'outerwhisper'); ?></h3>
-						</div>
-
-						<div class="outerwhisper-tracking-grid">
-
-							<!-- UserAgent -->
-							<div class="outerwhisper-tracking-metric-box full-width">
-								<div class="outerwhisper-metric-icon-sphere"><i class="fas fa-info-circle"></i></div>
-								<div class="outerwhisper-metric-info-block">
-									<span class="outerwhisper-metric-label" title="<?php echo esc_attr__('admin.page.feedback_list.modal.tracking.user_agent', 'outerwhisper') ?>"><?php esc_html_e('admin.page.feedback_list.modal.tracking.user_agent', 'outerwhisper') ?></span>
-									<div class="outerwhisper-track-ua-text" id="outerwhisper-track-useragent" style="font-size: 0.75rem; color: var(--outerwhisper-text-secondary); word-break: break-all; line-height: 1.3;">-</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Collapse Section JSON -->
-						<div class="outerwhisper-raw-data-section" style="margin-top: 20px; border-top: 1px dashed #e2e8f0; padding-top: 15px;">
-							<button class="outerwhisper-raw-toggle-btn" id="outerwhisper-btn-raw-toggle" type="button" style="background: none; border: none; font-size: 0.8rem; color: var(--outerwhisper-primary-color); cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 4px 6px; border-radius: 4px; transition: background 0.2s;">
-								<span style="font-weight: 600;" title="<?php echo esc_attr__('admin.page.feedback_list.modal.json_data', 'outerwhisper') ?>"><i class="fas fa-code" style="margin-right: 6px;"></i> <?php esc_html_e('admin.page.feedback_list.modal.json_data', 'outerwhisper') ?></span>
-								<i class="fas fa-chevron-down" id="outerwhisper-raw-chevron"></i>
-							</button>
-							<pre class="outerwhisper-raw-json-pre hidden" id="outerwhisper-raw-json-block" style="background: #1e293b; color: #38bdf8; font-family: monospace; font-size: 0.75rem; padding: 12px; border-radius: 6px; margin-top: 10px; max-height: 150px; overflow-y: auto; text-align: left;"></pre>
-						</div>
-					</div>
-
-				</div>
+<section id="outerwhisper-feedback-section" class="outerwhisper-feedback-workspace outerwhisper-feedback-workspace-with-drawer" aria-label="<?php esc_attr_e('admin.page.feedback_list.overview', 'outerwhisper'); ?>">
+	<div class="outerwhisper-feedback-main-panel">
+		<header class="outerwhisper-feedback-header">
+			<div>
+				<h1 class="outerwhisper-feedback-title"><?php esc_html_e('admin.page.feedback_list.heading', 'outerwhisper'); ?></h1>
+				<p class="outerwhisper-feedback-subtitle"><strong><?php esc_html_e('admin.page.feedback_list.subtitle_bold', 'outerwhisper'); ?></strong> <?php esc_html_e('admin.page.feedback_list.subtitle_text', 'outerwhisper'); ?></p>
 			</div>
+		</header>
 
-			<footer class="outerwhisper-modal-modal-footer" style="padding: 1rem 1.5rem; display: flex; justify-content: flex-end; background-color: #f8f9fa; border-top: 1px solid var(--outerwhisper-border-color);">
-				<button class="outerwhisper-modal-btn-secondary" id="outerwhisper-modal-btn-modal-done" style="font-weight: 500; font-size: 0.85rem; padding: 8px 16px; border-radius: var(--outerwhisper-radius);"><?php esc_html_e('admin.page.feedback_list.modal.close_button', 'outerwhisper'); ?></button>
-			</footer>
+		<div class="outerwhisper-feedback-kpi-grid" role="region" aria-label="<?php esc_attr_e('admin.page.feedback_list.kpi.aria_label', 'outerwhisper'); ?>">
+			<article class="outerwhisper-feedback-kpi-card">
+				<div class="outerwhisper-feedback-kpi-top">
+					<span class="outerwhisper-feedback-kpi-label"><?php esc_html_e('admin.page.feedback_list.kpi.total', 'outerwhisper'); ?></span>
+					<span class="outerwhisper-feedback-kpi-icon outerwhisper-feedback-kpi-icon-blue" aria-hidden="true">
+						<i class="fa-regular fa-comment-dots"></i>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-middle">
+					<span id="outerwhisper-feedback-kpi-total" class="outerwhisper-feedback-kpi-value"><?php echo esc_html(number_format_i18n($outerwhisperKpi_total)); ?></span>
+					<?php if ($outerwhisperKpi_has_previous && null !== $outerwhisperKpi_total_change_pct) : ?>
+						<span class="outerwhisper-feedback-kpi-trend <?php echo $outerwhisperKpi_total_diff < 0 ? 'outerwhisper-feedback-kpi-trend-down' : ($outerwhisperKpi_total_diff === 0 ? 'outerwhisper-feedback-kpi-trend-neutral' : ''); ?>">
+							<i class="fa-solid <?php echo $outerwhisperKpi_total_diff > 0 ? 'fa-arrow-up' : ($outerwhisperKpi_total_diff < 0 ? 'fa-arrow-down' : 'fa-minus'); ?>" aria-hidden="true"></i>
+							<?php echo esc_html(($outerwhisperKpi_total_change_pct > 0 ? '+ ' : ($outerwhisperKpi_total_change_pct < 0 ? '- ' : '')) . abs($outerwhisperKpi_total_change_pct) . ' %'); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+				<div class="outerwhisper-feedback-kpi-bottom">
+					<?php if ($outerwhisperKpi_has_previous) : ?>
+						<span><?php printf(esc_html__('admin.page.feedback_list.kpi.prev_period', 'outerwhisper'), esc_html(number_format_i18n($outerwhisperKpi_prev_total))); ?></span>
+					<?php else : ?>
+						<span><?php esc_html_e('admin.page.feedback_list.kpi.all_time', 'outerwhisper'); ?></span>
+					<?php endif; ?>
+				</div>
+			</article>
+
+			<article class="outerwhisper-feedback-kpi-card">
+				<div class="outerwhisper-feedback-kpi-top">
+					<span class="outerwhisper-feedback-kpi-label"><?php esc_html_e('admin.page.feedback_list.kpi.rated', 'outerwhisper'); ?></span>
+					<span class="outerwhisper-feedback-kpi-icon outerwhisper-feedback-kpi-icon-blue" aria-hidden="true">
+						<i class="fa-solid fa-chart-column"></i>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-middle">
+					<span id="outerwhisper-feedback-kpi-rated" class="outerwhisper-feedback-kpi-value"><?php echo esc_html(number_format_i18n($outerwhisperKpi_rated)); ?></span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-bottom">
+					<span class="outerwhisper-feedback-kpi-bottom-strong"><?php echo esc_html((string) $outerwhisperKpi_rated_pct); ?> %</span>
+				</div>
+			</article>
+
+			<article class="outerwhisper-feedback-kpi-card">
+				<div class="outerwhisper-feedback-kpi-top">
+					<span class="outerwhisper-feedback-kpi-label"><?php esc_html_e('admin.page.feedback_list.kpi.avg_score', 'outerwhisper'); ?></span>
+					<span class="outerwhisper-feedback-kpi-icon outerwhisper-feedback-kpi-icon-amber" aria-hidden="true">
+						<i class="fa-solid fa-star"></i>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-middle">
+					<span id="outerwhisper-feedback-kpi-avg" class="outerwhisper-feedback-kpi-value">
+						<?php if (null !== $outerwhisperKpi_avg_score) : ?>
+							<?php echo esc_html(number_format_i18n($outerwhisperKpi_avg_score, 1)); ?> <span class="outerwhisper-feedback-kpi-value-unit">/ 100</span>
+						<?php else : ?>
+							–
+						<?php endif; ?>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-bottom">
+					<?php if ($outerwhisperKpi_has_previous && null !== $outerwhisperKpi_avg_score_diff) : ?>
+						<span class="outerwhisper-feedback-kpi-trend <?php echo $outerwhisperKpi_avg_score_diff < 0 ? 'outerwhisper-feedback-kpi-trend-down' : ($outerwhisperKpi_avg_score_diff == 0 ? 'outerwhisper-feedback-kpi-trend-neutral' : ''); ?>">
+							<i class="fa-solid <?php echo $outerwhisperKpi_avg_score_diff > 0 ? 'fa-arrow-up' : ($outerwhisperKpi_avg_score_diff < 0 ? 'fa-arrow-down' : 'fa-minus'); ?>" aria-hidden="true"></i>
+							<?php echo esc_html(($outerwhisperKpi_avg_score_diff > 0 ? '+ ' : ($outerwhisperKpi_avg_score_diff < 0 ? '- ' : '')) . number_format_i18n(abs($outerwhisperKpi_avg_score_diff), 1)); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+			</article>
+
+			<article class="outerwhisper-feedback-kpi-card">
+				<div class="outerwhisper-feedback-kpi-top">
+					<span class="outerwhisper-feedback-kpi-label"><?php esc_html_e('admin.page.feedback_list.kpi.sentiment', 'outerwhisper'); ?></span>
+					<span class="outerwhisper-feedback-kpi-icon outerwhisper-feedback-kpi-icon-green" aria-hidden="true">
+						<i class="fa-solid fa-thumbs-up"></i>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-middle">
+					<span class="outerwhisper-feedback-kpi-sentiment-main">
+						<i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> <?php echo esc_html((string) $outerwhisperKpi_positive_pct); ?> %
+					</span>
+					<?php if ($outerwhisperKpi_has_previous && null !== $outerwhisperKpi_positive_pct_diff) : ?>
+						<span class="outerwhisper-feedback-kpi-trend <?php echo $outerwhisperKpi_positive_pct_diff < 0 ? 'outerwhisper-feedback-kpi-trend-down' : ($outerwhisperKpi_positive_pct_diff === 0 ? 'outerwhisper-feedback-kpi-trend-neutral' : ''); ?>">
+							<i class="fa-solid <?php echo $outerwhisperKpi_positive_pct_diff > 0 ? 'fa-arrow-up' : ($outerwhisperKpi_positive_pct_diff < 0 ? 'fa-arrow-down' : 'fa-minus'); ?>" aria-hidden="true"></i>
+							<?php echo esc_html(($outerwhisperKpi_positive_pct_diff > 0 ? '+ ' : ($outerwhisperKpi_positive_pct_diff < 0 ? '- ' : '')) . abs($outerwhisperKpi_positive_pct_diff) . ' %'); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+				<div class="outerwhisper-feedback-kpi-bottom">
+					<i class="fa-solid fa-thumbs-down outerwhisper-feedback-kpi-bottom-neg" aria-hidden="true"></i>
+					<span><?php printf(esc_html__('admin.page.feedback_list.kpi.negative_pct', 'outerwhisper'), (int) $outerwhisperKpi_negative_pct); ?></span>
+				</div>
+			</article>
+
+			<article class="outerwhisper-feedback-kpi-card">
+				<div class="outerwhisper-feedback-kpi-top">
+					<span class="outerwhisper-feedback-kpi-label"><?php esc_html_e('admin.page.feedback_list.status.unread', 'outerwhisper'); ?></span>
+					<span class="outerwhisper-feedback-kpi-icon outerwhisper-feedback-kpi-icon-red" aria-hidden="true">
+						<i class="fa-regular fa-envelope"></i>
+					</span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-middle">
+					<span id="outerwhisper-feedback-kpi-unread" class="outerwhisper-feedback-kpi-value outerwhisper-feedback-kpi-value-danger"><?php echo esc_html(number_format_i18n($outerwhisperKpi_unread)); ?></span>
+				</div>
+				<div class="outerwhisper-feedback-kpi-bottom">
+					<span><?php printf(esc_html__('admin.page.feedback_list.kpi.of_total', 'outerwhisper'), esc_html(number_format_i18n($outerwhisperKpi_total))); ?></span>
+				</div>
+			</article>
 		</div>
-	</template>
 
+		<form id="outerwhisper-feedback-list-form" class="outerwhisper-feedback-form" method="get" action="">
+			<input type="hidden" name="page" value="outerwhisper-form-feedbacks" />
+			<?php wp_nonce_field('outerwhisper_admin_nonce', 'nonce'); ?>
+
+			<?php if (isset($feedback_table)) : ?>
+				<?php $feedback_table->display(); ?>
+			<?php endif; ?>
+		</form>
+	</div>
+
+	<aside id="outerwhisper-feedback-detail-drawer" class="outerwhisper-feedback-detail-drawer" aria-label="<?php esc_attr_e('admin.page.feedback_list.drawer.aria_label', 'outerwhisper'); ?>">
+		<?php
+		if (!empty($first_feedback_detail) && is_array($first_feedback_detail)) {
+			extract($first_feedback_detail, EXTR_SKIP);
+			require __DIR__ . '/partial/outerwhisper-form-feedback-list-detail.php';
+		} else {
+			?>
+			<div class="outerwhisper-feedback-drawer-empty" style="padding: 32px; text-align: center; color: var(--outerwhisper-feedback-text-muted);">
+				<i class="fa-regular fa-comment-dots" style="font-size: 32px; margin-bottom: 12px; display: block;" aria-hidden="true"></i>
+				<p style="margin: 0; font-size: 14px;"><?php esc_html_e('admin.page.feedback_list.drawer.empty', 'outerwhisper'); ?></p>
+			</div>
+			<?php
+		}
+		?>
+	</aside>
 </section>

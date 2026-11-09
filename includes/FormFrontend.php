@@ -5,6 +5,7 @@ namespace OuterWhisper;
 use OuterWhisper\Database\Form as FormDB;
 use OuterWhisper\Database\FormFeedback;
 use OuterWhisper\Helper\FeedbackScoreHelper;
+use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormHelper;
 use OuterWhisper\Helper\IndexBuilder;
 use OuterWhisper\Helper\LanguageHelper;
@@ -472,8 +473,14 @@ class FormFrontend {
         if (isset($decodedFormVersionData['settings']['main']['honeypot']) && $decodedFormVersionData['settings']['main']['honeypot'] !== false) {
             if (!empty($_POST['outerwhisper_hp_field'])) {
                 wp_send_json_success('Feedback saved (hp)');
+                exit;
             }
         }
+
+		$firstAnswer  = '';
+		$firstAnswerFieldType = '';
+		$firstLabelText = '';
+		$firstLabelTextFallback = '';
 
         // Map answers for easier lookup
         $answers_map = [];
@@ -487,8 +494,22 @@ class FormFrontend {
         if (isset($decodedFormVersionData['steps']['step1']) && is_array($decodedFormVersionData['steps']['step1'])) {
             foreach ($decodedFormVersionData['steps']['step1'] as $key => $element) {
                 if (isset($answers_map[$element['id']])) {
-                    $decodedFormVersionData['steps']['step1'][$key]['value'] = $answers_map[$element['id']];
+					$answerValue = $answers_map[$element['id']];
+                    $decodedFormVersionData['steps']['step1'][$key]['value'] = $answerValue;
+
+					if ($firstAnswer === '') {
+						$firstAnswer = $answerValue;
+						$firstAnswerFieldType = $element['type'];
+					}
+
+					if (empty($firstLabelText) && !empty($element['label'])) {
+						$firstLabelText = $element['label'];
+					}
                 }
+
+				if (empty($firstLabelTextFallback) && !empty($element['label'])) {
+					$firstLabelTextFallback = $element['label'];
+				}
             }
         }
 
@@ -497,13 +518,31 @@ class FormFrontend {
                 if (is_array($elements)) {
                     foreach ($elements as $key => $element) {
                         if (isset($answers_map[$element['id']])) {
-                            $elements[$key]['value'] = $answers_map[$element['id']];
+							$answerValue = $answers_map[$element['id']];
+                            $elements[$key]['value'] = $answerValue;
+
+							if ($firstAnswer === '') {
+								$firstAnswer = $answerValue;
+								$firstAnswerFieldType = $element['type'];
+							}
+
+							if (empty($firstLabelText) && !empty($element['label'])) {
+								$firstLabelText = $element['label'];
+							}
                         }
+
+						if (empty($firstLabelTextFallback) && !empty($element['label'])) {
+							$firstLabelTextFallback = $element['label'];
+						}
                     }
                     $decodedFormVersionData['steps']['step2'][$trigger_id] = $elements;
                 }
             }
         }
+
+		if (empty($firstLabelText)) {
+			$firstLabelText = $firstLabelTextFallback;
+		}
 
         // Save to database
         $form_feedback_db = new FormFeedback();
@@ -528,6 +567,9 @@ class FormFrontend {
             'feedback_data' => [
                 'title' => $decodedFormVersionData['settings']['main']['title'] ?? '',
                 'steps' => $decodedStepsData,
+				'first_answer' => $firstAnswer,
+				'first_answer_field_type' => $firstAnswerFieldType,
+				'first_label_text' => $firstLabelText,
                 'active_step2_trigger_id' => $active_step2_trigger_id,
             ],
             'feedback_score' => $decodedStepsData['score'] ?? null,
@@ -535,6 +577,7 @@ class FormFrontend {
         ]);
 
         if ($success) {
+            FeedbackStatsService::clear_cache();
             $this->send_notification_email($decodedFormVersionData, $formType);
             wp_send_json_success(esc_html__('admin.notification.feedback_saved', 'outerwhisper'));
         } else {

@@ -1,28 +1,28 @@
-=== OuterWhisper ===
+=== OuterWhisper - Interactive Feedback Form, Feedback Button, Survey, Rate Post & Collect User Feedback in Minutes ===
 Contributors: outerwhisper
-Tags: feedback, user feedback, customer feedback, surveys, user experience
+Tags: feedback, feedback button, feedback widget, user feedback, surveys
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Collect and analyze user feedback directly in WordPress with a visual form builder, flexible display options, smart triggers, and targeting rules.
+Create dynamic user feedback forms or a feedback button in 2–3 minutes using our form builder and collect user feedback for your WordPress site.
 
 == Description ==
 
-OuterWhisper is a lightweight and flexible feedback plugin for collecting user feedback directly on your WordPress website.
+OuterWhisper is a flexible **WordPress feedback plugin** for collecting, managing, and analyzing user feedback directly on your website. Create custom feedback forms, add a floating feedback button, and display feedback widgets where they matter most.
 
-Create feedback forms with a visual form builder and display them exactly where and when they are relevant. Embed forms directly in your content, open them as overlays or slide-ins, or use a floating feedback button.
+**Collect website feedback without relying on an external feedback service.** Responses are stored locally in your WordPress database, and you can review and manage submissions in the WordPress admin area.
 
-OuterWhisper provides flexible display rules, smart triggers, frequency controls, email notifications, and configurable confirmation behavior.
+Build feedback forms with the visual form builder and live preview. Embed a form in your content or via shortcode, show it in an overlay or slide-in, or invite visitors to share their thoughts through a floating feedback button.
 
-The free version lets you create unlimited feedback forms and manage submitted feedback directly in the WordPress admin area. View individual responses, organize feedback by status, and use basic filters. OuterWhisper Pro adds advanced analytics, detailed technical context, additional field types, and import/export tools.
+Use smart triggers, flexible display conditions, and frequency controls to decide when and where visitors see your forms. Configure email notifications and choose what happens after a visitor submits feedback.
 
-Submitted feedback data is stored locally in your WordPress database.
+**OuterWhisper Free** includes unlimited feedback forms, core feedback fields, a feedback inbox, and basic filtering. **OuterWhisper Pro** adds advanced analytics, NPS and emoji-based feedback fields, detailed technical context, advanced targeting, and import/export tools.
 
-The frontend is built with native JavaScript (ES Modules), CSS, and semantic HTML without requiring a frontend framework such as React or Vue.
+The lightweight frontend uses native JavaScript (ES Modules), CSS, and semantic HTML without requiring a frontend framework such as React or Vue.
 
 == Highlights & Features ==
 
@@ -234,7 +234,7 @@ Use the shortcode `[outerwhisper_form id="123"]`, replacing `123` with the ID of
 
 = Which form fields are included in the free version? =
 
-The free version includes headline, description, text area, button, and rating fields.
+The free version includes headline, description, text area, button, rating, dropdown, chips, radio button, name, and email fields.
 
 OuterWhisper Pro additionally provides thumbs up/down, smiley/emoji ratings, and NPS (Net Promoter Score 0–10).
 
@@ -300,11 +300,11 @@ No. OuterWhisper's frontend functionality is built with native JavaScript (ES Mo
 
 == Links ==
 
-* Plugin website: https://outerwhisper.de/
-* Features: https://outerwhisper.de/funktionen/
-* Documentation: https://outerwhisper.de/docs/
-* Support forum: https://outerwhisper.de/support-forum/
-* GitHub repository: https://github.com/outerwhisper-plugin/outerwhisper_free
+* [Plugin website](https://outerwhisper.de/)
+* [Features](https://outerwhisper.de/funktionen/)
+* [Online Documentation](https://outerwhisper.de/docs/)
+* [Support forum](https://outerwhisper.de/support-forum/)
+* [GitHub repository](https://github.com/outerwhisper-plugin/outerwhisper_free)
 
 == Translations ==
 
@@ -314,6 +314,13 @@ OuterWhisper includes translations for:
 * German
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Feature: add support for custom post types
+* Improvement: redesign feedback list, add feedback score
+* Improvement: add same spacing for all form fields
+* Improvement: set default line-height to form fields
 
 = 1.0.2 =
 

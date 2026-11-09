@@ -29,7 +29,9 @@ class FormFeedback extends Database {
             INDEX outerwhisper_ff_created (outerwhisper_ff_created),
             INDEX outerwhisper_ff_identifier (outerwhisper_ff_identifier),
             INDEX FK_ff_fd (outerwhisper_ff_fd_id),
-            INDEX outerwhisper_ff_feedback_score (outerwhisper_ff_feedback_score)
+            INDEX outerwhisper_ff_feedback_score (outerwhisper_ff_feedback_score),
+            INDEX outerwhisper_ff_fd_id_created (outerwhisper_ff_fd_id, outerwhisper_ff_created),
+			INDEX outerwhisper_ff_feedback_score_status_created (outerwhisper_ff_feedback_score, outerwhisper_ff_status, outerwhisper_ff_created)
         ) $charset_collate ENGINE=InnoDB;";
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -109,33 +111,11 @@ class FormFeedback extends Database {
 
         if (!empty($args['range']) && empty($start_date) && empty($end_date)) {
             switch ($args['range']) {
-                case 'today':
-                    $start_date = gmdate('Y-m-d');
-					$end_date = gmdate('Y-m-d');
-                    break;
-                case 'yesterday':
-                    $start_date = gmdate('Y-m-d', strtotime('-1 day'));
-					$end_date = gmdate('Y-m-d', strtotime('-1 day'));
-                    break;
                 case 'last_7_days':
                     $start_date = gmdate('Y-m-d', strtotime('-6 days'));
                     break;
                 case 'last_30_days':
                     $start_date = gmdate('Y-m-d', strtotime('-29 days'));
-                    break;
-                case 'this_month':
-                    $start_date = gmdate('Y-m-01');
-                    break;
-                case 'last_month':
-                    $start_date = gmdate('Y-m-01', strtotime('first day of last month'));
-                    $end_date = gmdate('Y-m-t', strtotime('last day of last month'));
-                    break;
-                case 'this_year':
-                    $start_date = gmdate('Y-01-01');
-                    break;
-                case 'last_year':
-                    $start_date = gmdate('Y-01-01', strtotime('last year'));
-                    $end_date = gmdate('Y-12-31', strtotime('last year'));
                     break;
             }
         }
@@ -160,7 +140,7 @@ class FormFeedback extends Database {
 
         $where = $this->apply_filters($args);
 
-        $allowed_orderby = ['outerwhisper_ff_id', 'outerwhisper_ff_created', 'outerwhisper_ff_fd_id', 'outerwhisper_ff_status', 'outerwhisper_ff_identifier'];
+        $allowed_orderby = ['outerwhisper_ff_id', 'outerwhisper_ff_created', 'outerwhisper_ff_fd_id', 'outerwhisper_ff_feedback_score', 'outerwhisper_ff_status', 'outerwhisper_ff_identifier'];
         if (!in_array($orderby, $allowed_orderby)) {
             $orderby = 'outerwhisper_ff_created';
         }
@@ -361,5 +341,23 @@ class FormFeedback extends Database {
             'statuses' => $statuses,
             'types' => $types
         ];
+    }
+
+    public function get_distinct_page_urls(): array {
+        $wpdb = $this->wpdb;
+
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.DirectQuery
+        $results = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT DISTINCT outerwhisper_ff_tracking_page_url 
+                 FROM %i 
+                 WHERE outerwhisper_ff_tracking_page_url IS NOT NULL 
+                   AND outerwhisper_ff_tracking_page_url != '' 
+                 ORDER BY outerwhisper_ff_tracking_page_url ASC",
+                $this->table_name
+            )
+        );
+
+        return is_array($results) ? $results : [];
     }
 }

@@ -5,8 +5,10 @@ namespace OuterWhisper;
 use OuterWhisper\Database\Form;
 use OuterWhisper\Database\FormFeedback;
 use OuterWhisper\Helper\ConfigHelper;
+use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormFeedbackHelper;
 use OuterWhisper\Helper\IndexBuilder;
+use OuterWhisper\Lists\FormFeedbackListTable;
 use OuterWhisper\Page\About;
 use OuterWhisper\Page\Dashboard;
 use OuterWhisper\Page\Export;
@@ -35,6 +37,8 @@ class Admin {
 		if (!EnvironmentChecks::check()) {
 			return;
 		}
+
+		$feedback_page = new Feedbacks();
 
 		$icon_svg = 'data:image/svg+xml;base64,' . base64_encode(
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#fff" d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z"/></svg>'
@@ -77,14 +81,18 @@ class Admin {
             function() { (new FormBuilder())->render(); }
         );
 
-        add_submenu_page(
-            'outerwhisper-dashboard',
-           esc_html__('admin.menu.feedback_list', 'outerwhisper'),
-           esc_html__('admin.menu.feedback_list', 'outerwhisper'),
-            'manage_options',
-            'outerwhisper-form-feedbacks',
-            function() { (new Feedbacks())->render(); }
-        );
+		$feedback_hook_suffix = add_submenu_page(
+			'outerwhisper-dashboard',
+		    esc_html__('admin.menu.feedback_list', 'outerwhisper'),
+		    esc_html__('admin.menu.feedback_list', 'outerwhisper'),
+		    'manage_options',
+		    'outerwhisper-form-feedbacks',
+		    [$feedback_page, 'render']
+		);
+
+		if ($feedback_hook_suffix !== false) {
+			$feedback_page->register_hooks($feedback_hook_suffix);
+		}
 
         add_submenu_page(
             'outerwhisper-dashboard',
@@ -323,6 +331,8 @@ class Admin {
         $success = $fb_db->update_status($feedback_id, $status);
 
         if ($success !== false) {
+			FeedbackStatsService::clear_cache();
+
             wp_send_json_success(['message' => esc_html__('Feedback status updated successfully', 'outerwhisper')]);
         } else {
             wp_send_json_error(esc_html__('Failed to update feedback status', 'outerwhisper'));
@@ -339,6 +349,8 @@ class Admin {
         $id = absint(wp_unslash($_POST['id'] ?? 0));
         $feedback_db = new FormFeedback();
         if (!empty($id) && $feedback_db->delete_feedback($id)) {
+			FeedbackStatsService::clear_cache();
+
             wp_send_json_success();
         } else {
             wp_send_json_error();
@@ -419,33 +431,28 @@ class Admin {
             wp_send_json_error(esc_html__('ID missing', 'outerwhisper'));
         }
 
-        $feedback_db = new FormFeedback();
-        $feedback = $feedback_db->get_feedback_by_id($id);
-        if (!$feedback) {
+        $helper = new FormFeedbackHelper();
+        $detail_data = $helper->get_detail_view_data(['id' => $id]);
+        if (!$detail_data) {
             wp_send_json_error(esc_html__('Feedback not found', 'outerwhisper'));
         }
 
-        $user_data = $feedback->getDecodedFeedbackData();
+        // Render Partial to HTML
+        ob_start();
+        extract($detail_data, EXTR_SKIP);
+        require OUTERWHISPER_PLUGIN_PATH . 'templates/admin/partial/outerwhisper-form-feedback-list-detail.php';
+        $html = ob_get_clean();
 
-        $helper = new FormFeedbackHelper();
-        $prepared_data = $helper->prepare_steps_for_detail_view($user_data);
-
+        $feedback = $detail_data['feedback'];
         $feedbackArray = $feedback->toArray(['feedback_data']);
-        $feedbackArray['title'] = $user_data['title'];
-
-		$form_db = new Form();
-		$formData = $form_db->get_form($feedback->getFormId());
-
-		$accentColor = '#000';
-		if (!empty($formData->getDecodedPreviewData())) {
-			$accentColor = $formData->getDecodedPreviewData()['settings']['styles']['accentColor'] ?? '#000';
-		}
+        $feedbackArray['title'] = $detail_data['user_data']['title'] ?? '';
 
         wp_send_json_success([
-            'feedback' => $feedbackArray,
-            'steps' => $prepared_data['steps'],
-            'user_values' => $prepared_data['userValues'],
-			'accent_color' => $accentColor,
+            'html'         => $html,
+            'feedback'     => $feedbackArray,
+            'steps'        => $detail_data['steps'],
+            'user_values'  => $detail_data['user_values'],
+            'accent_color' => $detail_data['accent_color'],
         ]);
     }
 

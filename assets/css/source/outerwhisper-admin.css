@@ -1,3 +1,5 @@
+@import "../components/outerwhisper-admin-feedback-list.css";
+
 :root {
     --outerwhisper-primary-color: #2271b1;
     --outerwhisper-primary-hover: #135e96;

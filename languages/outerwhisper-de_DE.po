@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OuterWhisper 1.0.2\n"
+"Project-Id-Version: OuterWhisper 1.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: Junie\n"
 "Language-Team: German\n"
@@ -8,15 +8,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-15 11:57+0000\n"
-"PO-Revision-Date: 2026-11-05T10:06:27+00:00\n"
+"PO-Revision-Date: 2026-11-09T10:49:21+00:00\n"
 "Language: de_DE\n"
 "X-Generator: Poedit 3.9\n"
 "X-Domain: outerwhisper\n"
 
 #. Plugin Name of the plugin
 #: outerwhisper.php:5
-#: includes/Page/Page.php:26
-msgid "OuterWhisper"
+msgid "OuterWhisper - Interactive Feedback Form, Feedback Button, Survey, Rate Post & Collect User Feedback in Minutes"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -26,7 +25,7 @@ msgstr "https://outerwhisper.de"
 
 #. Description of the plugin
 #: outerwhisper.php:9
-msgid "Collect and analyze user feedback directly in WordPress with a visual form builder, flexible display options, smart triggers, and targeting."
+msgid "Create dynamic user feedback forms or a feedback button in 2–3 minutes using our form builder and collect user feedback for your WordPress site."
 msgstr ""
 
 #. Author of the plugin
@@ -34,103 +33,103 @@ msgstr ""
 msgid "Kai Steudten"
 msgstr ""
 
-#: includes/Admin.php:55
-#: includes/Admin.php:56
+#: includes/Admin.php:59
+#: includes/Admin.php:60
 msgid "admin.menu.dashboard"
 msgstr "Dashboard"
 
-#: includes/Admin.php:64
-#: includes/Admin.php:65
+#: includes/Admin.php:68
+#: includes/Admin.php:69
 msgid "admin.menu.all_forms"
 msgstr "Alle Formulare"
 
-#: includes/Admin.php:73
-#: includes/Admin.php:74
+#: includes/Admin.php:77
+#: includes/Admin.php:78
 msgid "admin.menu.add_form"
 msgstr "Formular hinzufügen"
 
-#: includes/Admin.php:82
-#: includes/Admin.php:83
+#: includes/Admin.php:86
+#: includes/Admin.php:87
 msgid "admin.menu.feedback_list"
 msgstr "Feedback-Liste"
 
-#: includes/Admin.php:91
-#: includes/Admin.php:92
+#: includes/Admin.php:99
+#: includes/Admin.php:100
 msgid "admin.menu.export"
 msgstr "Export"
 
-#: includes/Admin.php:100
-#: includes/Admin.php:101
+#: includes/Admin.php:108
+#: includes/Admin.php:109
 msgid "admin.menu.about"
 msgstr "Über OuterWhisper"
 
-#: includes/Admin.php:218
-#: includes/Admin.php:284
-#: includes/Admin.php:312
-#: includes/Admin.php:336
-#: includes/Admin.php:352
-#: includes/Admin.php:391
-#: includes/Admin.php:414
+#: includes/Admin.php:226
+#: includes/Admin.php:292
+#: includes/Admin.php:320
+#: includes/Admin.php:346
+#: includes/Admin.php:364
+#: includes/Admin.php:403
+#: includes/Admin.php:426
 msgid "Permission denied"
 msgstr ""
 
-#: includes/Admin.php:231
-#: includes/Admin.php:291
-#: includes/Admin.php:319
+#: includes/Admin.php:239
+#: includes/Admin.php:299
+#: includes/Admin.php:327
 msgid "Missing data"
 msgstr ""
 
-#: includes/Admin.php:240
+#: includes/Admin.php:248
 msgid "Invalid data"
 msgstr ""
 
-#: includes/Admin.php:253
+#: includes/Admin.php:261
 msgid "Invalid form configuration. Please check your form settings."
 msgstr ""
 
-#: includes/Admin.php:260
+#: includes/Admin.php:268
 #: includes/Database/Form.php:144
 msgid "admin.db.default_new_form_name"
 msgstr "Neues Formular"
 
-#: includes/Admin.php:270
+#: includes/Admin.php:278
 msgid "Form data saved successfully"
 msgstr ""
 
-#: includes/Admin.php:276
+#: includes/Admin.php:284
 msgid "Failed to save form data"
 msgstr ""
 
-#: includes/Admin.php:302
+#: includes/Admin.php:310
 msgid "Status updated successfully"
 msgstr ""
 
-#: includes/Admin.php:304
+#: includes/Admin.php:312
 msgid "Failed to update status"
 msgstr ""
 
-#: includes/Admin.php:326
+#: includes/Admin.php:336
 msgid "Feedback status updated successfully"
 msgstr ""
 
-#: includes/Admin.php:328
+#: includes/Admin.php:338
 msgid "Failed to update feedback status"
 msgstr ""
 
-#: includes/Admin.php:419
+#: includes/Admin.php:431
 msgid "ID missing"
 msgstr ""
 
-#: includes/Admin.php:425
+#: includes/Admin.php:437
 msgid "Feedback not found"
 msgstr ""
 
-#: includes/Admin.php:470
+#: includes/Admin.php:477
 msgid "admin.notice.thank_you"
 msgstr "Vielen Dank, dass Du %s verwendest."
 
 #: includes/Database/Form.php:18
-#: includes/FormFrontend.php:179
+#: includes/FormFrontend.php:180
 #: includes/Helper/ConfigHelper.php:172
 msgid "admin.db.default_form_name"
 msgstr "Feedbackformular"
@@ -173,7 +172,7 @@ msgstr "%s oder kontaktiere deinen Serveradministrator."
 msgid "admin.env_check.php.update_link.txt"
 msgstr "Erfahre mehr über die Aktualisierung von PHP"
 
-#: includes/FormFrontend.php:212
+#: includes/FormFrontend.php:213
 #: includes/Helper/ConfigHelper.php:243
 #: includes/Helper/ConfigHelper.php:279
 #: includes/Helper/ConfigHelper.php:313
@@ -185,27 +184,27 @@ msgstr "Erfahre mehr über die Aktualisierung von PHP"
 msgid "admin.frontend.default_footer_text"
 msgstr "Wir schätzen dein ehrliches Feedback!"
 
-#: includes/FormFrontend.php:539
+#: includes/FormFrontend.php:582
 msgid "admin.notification.feedback_saved"
 msgstr "Feedback gespeichert"
 
-#: includes/FormFrontend.php:541
+#: includes/FormFrontend.php:584
 msgid "admin.notification.database_error"
 msgstr "Datenbankfehler"
 
-#: includes/FormFrontend.php:560
+#: includes/FormFrontend.php:603
 msgid "admin.notification.subject"
 msgstr "Neuer Formulareintrag"
 
-#: includes/FormFrontend.php:574
+#: includes/FormFrontend.php:617
 msgid "admin.notification.email_body"
 msgstr "<p>Hier sind die übermittelten Formulardaten:</p><p>{feedback_values}</p><p>Gesendet am: {date} um {time}</p><p>Über die Seite: {page_url}</p>"
 
-#: includes/FormFrontend.php:610
+#: includes/FormFrontend.php:653
 msgid "admin.notification.default_form_name"
 msgstr "Feedback-Formular"
 
-#: includes/FormFrontend.php:614
+#: includes/FormFrontend.php:657
 msgid "admin.notification.time_suffix"
 msgstr "Uhr"
 
@@ -603,144 +602,171 @@ msgstr "Pre-Content"
 msgid "admin.form_type.post-content.name"
 msgstr "Post-Content"
 
-#: includes/Lists/FormFeedbackListTable.php:33
+#: includes/Lists/FormFeedbackListTable.php:39
+msgid "admin.page.feedback_list.table.select_all"
+msgstr "Alle auswählen"
+
+#: includes/Lists/FormFeedbackListTable.php:40
+msgid "admin.page.feedback_list.table.id"
+msgstr "ID"
+
+#: includes/Lists/FormFeedbackListTable.php:41
+msgid "admin.page.feedback_list.table.status"
+msgstr "Status"
+
+#: includes/Lists/FormFeedbackListTable.php:42
+msgid "admin.page.feedback_list.table.score"
+msgstr "Score"
+
+#: includes/Lists/FormFeedbackListTable.php:43
+msgid "admin.page.feedback_list.table.form"
+msgstr "Formular"
+
+#: includes/Lists/FormFeedbackListTable.php:44
+msgid "admin.page.feedback_list.table.page_url"
+msgstr "Seiten-URL"
+
+#: includes/Lists/FormFeedbackListTable.php:45
+msgid "admin.page.feedback_list.table.answer"
+msgstr "Antwort (Vorschau)"
+
+#: includes/Lists/FormFeedbackListTable.php:46
+msgid "admin.page.feedback_list.table.date"
+msgstr "Datum"
+
+#: includes/Lists/FormFeedbackListTable.php:47
+msgid "admin.page.feedback_list.table.details"
+msgstr "Details"
+
+#: includes/Lists/FormFeedbackListTable.php:67
+msgid "admin.page.feedback_list.bulk.mark_read"
+msgstr "Als gelesen markieren"
+
+#: includes/Lists/FormFeedbackListTable.php:68
+msgid "admin.page.feedback_list.bulk.mark_unread"
+msgstr "Als ungelesen markieren"
+
+#: includes/Lists/FormFeedbackListTable.php:69
+msgid "admin.page.feedback_list.bulk.archive"
+msgstr "Archivieren"
+
+#: includes/Lists/FormFeedbackListTable.php:70
+msgid "admin.page.feedback_list.bulk.trash"
+msgstr "In den Papierkorb"
+
+#: includes/Lists/FormFeedbackListTable.php:204
+msgid "admin.page.feedback_list.table.select_item"
+msgstr "Feedback #%d auswählen"
+
+#: includes/Lists/FormFeedbackListTable.php:224
+#: includes/Lists/FormFeedbackListTable.php:535
+#: includes/Lists/FormFeedbackListTable.php:594
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:81
+msgid "admin.page.feedback_list.status.read"
+msgstr "Gelesen"
+
+#: includes/Lists/FormFeedbackListTable.php:228
+#: includes/Lists/FormFeedbackListTable.php:536
+#: includes/Lists/FormFeedbackListTable.php:595
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:84
+msgid "admin.page.feedback_list.status.archived"
+msgstr "Archiviert"
+
+#: includes/Lists/FormFeedbackListTable.php:233
+#: includes/Lists/FormFeedbackListTable.php:534
+#: includes/Lists/FormFeedbackListTable.php:593
+#: templates/admin/outerwhisper-form-feedback-list.php:129
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:78
+msgid "admin.page.feedback_list.status.unread"
+msgstr "Ungelesen"
+
+#: includes/Lists/FormFeedbackListTable.php:363
+#: assets/js/dist/outerwhisper-admin.js:353
+msgid "admin.page.feedback_list.table.no_items"
+msgstr "Keine Feedbacks gefunden."
+
+#: includes/Lists/FormFeedbackListTable.php:369
+msgid "admin.page.feedback_list.no_permission"
+msgstr "Du hast keine Berechtigung, auf diese Seite zuzugreifen."
+
+#: includes/Lists/FormFeedbackListTable.php:501
+#: includes/Lists/FormFeedbackListTable.php:551
+msgid "admin.page.feedback_list.filter.period_7d"
+msgstr "Letzte 7 Tage"
+
+#: includes/Lists/FormFeedbackListTable.php:502
+#: includes/Lists/FormFeedbackListTable.php:552
+msgid "admin.page.feedback_list.filter.period_90d"
+msgstr "Letzte 90 Tage"
+
+#: includes/Lists/FormFeedbackListTable.php:503
+#: includes/Lists/FormFeedbackListTable.php:553
+msgid "admin.page.feedback_list.filter.period_all"
+msgstr "Gesamter Zeitraum"
+
+#: includes/Lists/FormFeedbackListTable.php:506
+#: includes/Lists/FormFeedbackListTable.php:547
+msgid "admin.page.feedback_list.filter.period"
+msgstr "Zeitraum"
+
+#: includes/Lists/FormFeedbackListTable.php:518
+#: includes/Lists/FormFeedbackListTable.php:559
+msgid "admin.page.feedback_list.filter.form"
+msgstr "Formular"
+
+#: includes/Lists/FormFeedbackListTable.php:527
+#: includes/Lists/FormFeedbackListTable.php:577
+msgid "admin.page.feedback_list.filter.display_type"
+msgstr "Anzeigetyp"
+
+#: includes/Lists/FormFeedbackListTable.php:540
+#: includes/Lists/FormFeedbackListTable.php:589
+msgid "admin.page.feedback_list.filter.status"
+msgstr "Status"
+
+#: includes/Lists/FormFeedbackListTable.php:550
+msgid "admin.page.feedback_list.filter.period_30d"
+msgstr "Letzte 30 Tage"
+
+#: includes/Lists/FormFeedbackListTable.php:562
+msgid "admin.page.feedback_list.filter.all_forms"
+msgstr "Alle Formulare"
+
+#: includes/Lists/FormFeedbackListTable.php:580
+msgid "admin.page.feedback_list.filter.all_display_types"
+msgstr "Alle Anzeigetypen"
+
+#: includes/Lists/FormFeedbackListTable.php:592
+msgid "admin.page.feedback_list.filter.all_statuses"
+msgstr "Alle Status"
+
+#: includes/Lists/FormFeedbackListTable.php:607
+msgid "admin.page.feedback_list.filter.remove_filter"
+msgstr "Filter %s entfernen"
+
+#: includes/Lists/FormFeedbackListTable.php:614
+msgid "admin.page.feedback_list.filter.reset_all"
+msgstr "Alle Filter zurücksetzen"
+
 #: includes/Lists/FormListTable.php:37
 msgid "admin.form_list.id"
 msgstr "ID"
-
-#: includes/Lists/FormFeedbackListTable.php:34
-msgid "admin.form_list.form_id"
-msgstr "Formular-ID"
-
-#: includes/Lists/FormFeedbackListTable.php:35
-#: includes/Lists/FormFeedbackListTable.php:156
-msgid "admin.form_list.display_type"
-msgstr "Anzeigetyp"
-
-#: includes/Lists/FormFeedbackListTable.php:36
-msgid "admin.form_list.form_name"
-msgstr "Formularname"
-
-#: includes/Lists/FormFeedbackListTable.php:37
-msgid "admin.form_list.page_url"
-msgstr "Seiten-URL"
-
-#: includes/Lists/FormFeedbackListTable.php:38
-#: includes/Lists/FormListTable.php:39
-msgid "admin.form_list.status"
-msgstr "Status"
-
-#: includes/Lists/FormFeedbackListTable.php:39
-msgid "admin.form_list.created"
-msgstr "Erstellt"
-
-#: includes/Lists/FormFeedbackListTable.php:40
-#: includes/Lists/FormListTable.php:41
-msgid "admin.form_list.updated"
-msgstr "Aktualisiert"
-
-#: includes/Lists/FormFeedbackListTable.php:79
-#: includes/Lists/FormFeedbackListTable.php:165
-#: assets/js/dist/outerwhisper-admin.js:394
-msgid "admin.form_list.filter.status.read"
-msgstr "Gelesen"
-
-#: includes/Lists/FormFeedbackListTable.php:82
-#: includes/Lists/FormFeedbackListTable.php:166
-#: assets/js/dist/outerwhisper-admin.js:397
-msgid "admin.form_list.filter.status.archived"
-msgstr "Archiviert"
-
-#: includes/Lists/FormFeedbackListTable.php:86
-#: includes/Lists/FormFeedbackListTable.php:164
-#: assets/js/dist/outerwhisper-admin.js:401
-msgid "admin.form_list.filter.status.unread"
-msgstr "Ungelesen"
-
-#: includes/Lists/FormFeedbackListTable.php:105
-msgid "admin.form_list.action.view"
-msgstr "Anzeigen"
-
-#: includes/Lists/FormFeedbackListTable.php:110
-msgid "admin.form_list.action.delete"
-msgstr "Löschen"
-
-#: includes/Lists/FormFeedbackListTable.php:122
-msgid "admin.form_list.no_items"
-msgstr "Keine Formular-Feedbacks gefunden."
-
-#: includes/Lists/FormFeedbackListTable.php:139
-msgid "admin.form_list.filter.form"
-msgstr "Formular"
-
-#: includes/Lists/FormFeedbackListTable.php:163
-msgid "admin.form_list.filter.status.placeholder"
-msgstr "Status"
-
-#: includes/Lists/FormFeedbackListTable.php:170
-msgid "admin.form_list.filter.range.placeholder"
-msgstr "Zeitraum"
-
-#: includes/Lists/FormFeedbackListTable.php:171
-msgid "admin.form_list.filter.range.today"
-msgstr "Heute"
-
-#: includes/Lists/FormFeedbackListTable.php:172
-msgid "admin.form_list.filter.range.yesterday"
-msgstr "Gestern"
-
-#: includes/Lists/FormFeedbackListTable.php:173
-msgid "admin.form_list.filter.range.last_7_days"
-msgstr "Letzte 7 Tage"
-
-#: includes/Lists/FormFeedbackListTable.php:174
-msgid "admin.form_list.filter.range.last_30_days"
-msgstr "Letzte 30 Tage"
-
-#: includes/Lists/FormFeedbackListTable.php:175
-msgid "admin.form_list.filter.range.this_month"
-msgstr "Diesen Monat"
-
-#: includes/Lists/FormFeedbackListTable.php:176
-msgid "admin.form_list.filter.range.last_month"
-msgstr "Letzten Monat"
-
-#: includes/Lists/FormFeedbackListTable.php:177
-msgid "admin.form_list.filter.range.this_year"
-msgstr "Dieses Jahr"
-
-#: includes/Lists/FormFeedbackListTable.php:178
-msgid "admin.form_list.filter.range.last_year"
-msgstr "Letztes Jahr"
-
-#: includes/Lists/FormFeedbackListTable.php:179
-msgid "admin.form_list.filter.range.custom"
-msgstr "Benutzerdefiniert"
-
-#: includes/Lists/FormFeedbackListTable.php:183
-msgid "admin.form_list.filter.date.start"
-msgstr "Startdatum"
-
-#: includes/Lists/FormFeedbackListTable.php:184
-msgid "admin.form_list.filter.date.end"
-msgstr "Enddatum"
-
-#: includes/Lists/FormFeedbackListTable.php:187
-msgid "admin.form_list.filter.button"
-msgstr "Filtern"
-
-#: includes/Lists/FormFeedbackListTable.php:196
-#: includes/Lists/FormListTable.php:148
-msgid "You do not have permission to access this page."
-msgstr ""
 
 #: includes/Lists/FormListTable.php:38
 msgid "admin.form_list.name"
 msgstr "Name"
 
+#: includes/Lists/FormListTable.php:39
+msgid "admin.form_list.status"
+msgstr "Status"
+
 #: includes/Lists/FormListTable.php:40
 msgid "admin.form_list.shortcode"
 msgstr "Shortcode"
+
+#: includes/Lists/FormListTable.php:41
+msgid "admin.form_list.updated"
+msgstr "Aktualisiert"
 
 #: includes/Lists/FormListTable.php:62
 msgid "admin.form_list.status.paused"
@@ -769,6 +795,10 @@ msgstr "Löschen"
 #: includes/Lists/FormListTable.php:141
 msgid "admin.form_list.no_forms"
 msgstr "Keine Formulare gefunden."
+
+#: includes/Lists/FormListTable.php:148
+msgid "You do not have permission to access this page."
+msgstr ""
 
 #: includes/Page/About.php:21
 msgid "admin.page.about.box.about"
@@ -853,6 +883,10 @@ msgstr "OuterWhisper wurde von %s entwickelt."
 #: includes/Page/About.php:126
 msgid "admin.page.about.debug.hint"
 msgstr "Bitte gib diese Informationen bei Fehlerberichten und Support-Anfragen an."
+
+#: includes/Page/Page.php:26
+msgid "OuterWhisper"
+msgstr ""
 
 #: templates/admin/form-builder/confirmation.php:7
 msgid "admin.builder.confirmation.aria_label"
@@ -2559,69 +2593,65 @@ msgstr "Schließen"
 msgid "admin.builder.overlay_template.footer_text"
 msgstr "Wir schätzen dein ehrliches Feedback!"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:9
-msgid "admin.page.feedback_list.title"
-msgstr "Formular-Feedbacks"
+#: templates/admin/outerwhisper-form-feedback-list.php:27
+msgid "admin.page.feedback_list.overview"
+msgstr "Feedback-Übersicht"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:29
-msgid "admin.page.feedback_list.modal.id_title"
-msgstr "Feedback-Rückmeldung - #{{id}}"
+#: templates/admin/outerwhisper-form-feedback-list.php:31
+msgid "admin.page.feedback_list.heading"
+msgstr "Feedbacks"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:30
-msgid "admin.page.feedback_list.modal.created_at"
-msgstr "Erstellt am"
+#: templates/admin/outerwhisper-form-feedback-list.php:32
+msgid "admin.page.feedback_list.subtitle_bold"
+msgstr "Alle Rückmeldungen deiner Formulare."
 
-#: templates/admin/outerwhisper-form-feedback-list.php:33
-msgid "admin.page.feedback_list.modal.close"
-msgstr "Modal schließen"
+#: templates/admin/outerwhisper-form-feedback-list.php:32
+msgid "admin.page.feedback_list.subtitle_text"
+msgstr "Filtere, suche und analysiere die einzelnen Antworten."
 
-#: templates/admin/outerwhisper-form-feedback-list.php:45
-msgid "admin.page.feedback_list.modal.status.title"
-msgstr "Bearbeitungs-Status"
+#: templates/admin/outerwhisper-form-feedback-list.php:36
+msgid "admin.page.feedback_list.kpi.aria_label"
+msgstr "Kennzahlen"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:49
-msgid "admin.page.feedback_list.modal.status.unread"
-msgstr "Ungelesen"
-
-#: templates/admin/outerwhisper-form-feedback-list.php:52
-msgid "admin.page.feedback_list.modal.status.read"
-msgstr "Gelesen"
+#: templates/admin/outerwhisper-form-feedback-list.php:39
+msgid "admin.page.feedback_list.kpi.total"
+msgstr "Feedbacks gesamt"
 
 #: templates/admin/outerwhisper-form-feedback-list.php:55
-msgid "admin.page.feedback_list.modal.status.archived"
-msgstr "Archiviert"
+msgid "admin.page.feedback_list.kpi.prev_period"
+msgstr "vorheriger Zeitraum: %s"
+
+#: templates/admin/outerwhisper-form-feedback-list.php:57
+msgid "admin.page.feedback_list.kpi.all_time"
+msgstr "Gesamter Zeitraum"
 
 #: templates/admin/outerwhisper-form-feedback-list.php:64
-msgid "admin.page.feedback_list.modal.customer_form_values"
-msgstr "Kunden-Formularwerte"
-
-#: templates/admin/outerwhisper-form-feedback-list.php:72
-msgid "admin.page.feedback_list.modal.source_url"
-msgstr "Quelle (Seiten-URL)"
-
-#: templates/admin/outerwhisper-form-feedback-list.php:76
-msgid "admin.page.feedback_list.modal.copy_to_clipboard"
-msgstr "In Zwischenablage kopieren"
+msgid "admin.page.feedback_list.kpi.rated"
+msgstr "Mit Bewertung"
 
 #: templates/admin/outerwhisper-form-feedback-list.php:79
-msgid "admin.page.feedback_list.modal.open_in_new_window"
-msgstr "In neuem Fenster öffnen"
+msgid "admin.page.feedback_list.kpi.avg_score"
+msgstr "Durchschnitts-Score"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:92
-msgid "admin.page.feedback_list.modal.tracking.title"
-msgstr "Technische Tracking-Messwerte"
+#: templates/admin/outerwhisper-form-feedback-list.php:105
+msgid "admin.page.feedback_list.kpi.sentiment"
+msgstr "Positiv / Negativ"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:101
-msgid "admin.page.feedback_list.modal.tracking.user_agent"
-msgstr "Vollständiger User-Agent String"
+#: templates/admin/outerwhisper-form-feedback-list.php:123
+msgid "admin.page.feedback_list.kpi.negative_pct"
+msgstr "%d %% negativ"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:110
-msgid "admin.page.feedback_list.modal.json_data"
-msgstr "Technische rohe JSON-Daten"
+#: templates/admin/outerwhisper-form-feedback-list.php:138
+msgid "admin.page.feedback_list.kpi.of_total"
+msgstr "von %s"
 
-#: templates/admin/outerwhisper-form-feedback-list.php:121
-msgid "admin.page.feedback_list.modal.close_button"
-msgstr "Schließen"
+#: templates/admin/outerwhisper-form-feedback-list.php:153
+msgid "admin.page.feedback_list.drawer.aria_label"
+msgstr "Feedback-Details"
+
+#: templates/admin/outerwhisper-form-feedback-list.php:162
+msgid "admin.page.feedback_list.drawer.empty"
+msgstr "Keine Feedbacks gefunden."
 
 #: templates/admin/outerwhisper-form-list.php:9
 msgid "admin.page.form_list.title"
@@ -2769,6 +2799,82 @@ msgstr ""
 msgid "Supports .json form files (single or multiple forms)"
 msgstr ""
 
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:27
+msgid "admin.page.feedback_list.detail.no_feedback_selected"
+msgstr "Kein Feedback ausgewählt."
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:44
+msgid "admin.page.feedback_list.modal.status.unread"
+msgstr "Ungelesen"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:46
+msgid "admin.page.feedback_list.modal.status.read"
+msgstr "Gelesen"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:48
+msgid "admin.page.feedback_list.modal.status.archived"
+msgstr "Archiviert"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:67
+msgid "admin.page.feedback_list.detail.title"
+msgstr "Feedback #%d"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:92
+msgid "admin.page.feedback_list.detail.general_info"
+msgstr "Allgemeine Informationen"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:97
+msgid "admin.form_list.filter.form"
+msgstr "Formular"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:101
+msgid "admin.page.feedback_list.detail.topic"
+msgstr "Thema"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:105
+msgid "admin.form_list.display_type"
+msgstr "Anzeigetyp"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:109
+msgid "admin.form_list.page_url"
+msgstr "Seiten-URL"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:122
+msgid "admin.form_list.created"
+msgstr "Erstellt"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:132
+msgid "admin.page.feedback_list.detail.answers"
+msgstr "Antworten"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:176
+msgid "admin.page.feedback_list.detail.no_answers"
+msgstr "Keine Antworten vorhanden."
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:183
+msgid "admin.page.feedback_list.modal.tracking.title"
+msgstr "Technische Tracking-Messwerte"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:188
+msgid "admin.page.feedback_list.detail.user_agent"
+msgstr "User-Agent String"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:198
+msgid "admin.page.feedback_list.modal.json_data"
+msgstr "Technische rohe JSON-Daten"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:208
+msgid "admin.page.feedback_list.detail.trash"
+msgstr "In den Papierkorb"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:211
+msgid "admin.page.feedback_list.detail.prev_feedback"
+msgstr "Vorheriges Feedback"
+
+#: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:214
+msgid "admin.page.feedback_list.detail.next_feedback"
+msgstr "Nächstes Feedback"
+
 #: templates/admin/partial/outerwhisper-pro-notice-modal.php:6
 msgid "admin.builder.pro.headline"
 msgstr "Bringe dein Feedback auf das nächste Level!"
@@ -2801,49 +2907,49 @@ msgstr "Deine Pro Vorteile:"
 msgid "admin.builder.pro.cta_text"
 msgstr "Jetzt upgraden & freischalten"
 
-#: assets/js/dist/outerwhisper-admin.js:91
-msgid "admin.feedback.load_error"
-msgstr "Fehler beim Laden der Feedback-Details"
+#: assets/js/dist/outerwhisper-admin.js:273
+msgid "admin.form_list.filter.status.read"
+msgstr "Gelesen"
 
-#: assets/js/dist/outerwhisper-admin.js:95
-msgid "admin.feedback.load_network_error"
-msgstr "Netzwerkfehler beim Laden der Feedback-Details"
+#: assets/js/dist/outerwhisper-admin.js:276
+msgid "admin.form_list.filter.status.archived"
+msgstr "Archiviert"
 
-#: assets/js/dist/outerwhisper-admin.js:116
-#: assets/js/dist/outerwhisper-admin.js:241
+#: assets/js/dist/outerwhisper-admin.js:280
+msgid "admin.form_list.filter.status.unread"
+msgstr "Ungelesen"
+
+#: assets/js/dist/outerwhisper-admin.js:287
+msgid "admin.feedback.status_update_error"
+msgstr "Fehler beim Aktualisieren des Status"
+
+#: assets/js/dist/outerwhisper-admin.js:309
+msgid "admin.feedback.delete_confirm"
+msgstr "Möchtest du das Feedback #{id} wirklich unwiderruflich löschen?"
+
+#: assets/js/dist/outerwhisper-admin.js:358
+#: assets/js/dist/outerwhisper-admin.js:486
 msgid "admin.feedback.delete_error"
 msgstr "Fehler beim Löschen des Feedbacks"
 
-#: assets/js/dist/outerwhisper-admin.js:120
+#: assets/js/dist/outerwhisper-admin.js:362
 msgid "admin.feedback.delete_network_error"
 msgstr "Netzwerkfehler beim Löschen des Feedbacks"
 
-#: assets/js/dist/outerwhisper-admin.js:220
+#: assets/js/dist/outerwhisper-admin.js:479
 #: assets/js/dist/outerwhisper-form-builder.js:933
 #: assets/js/dist/outerwhisper-form-builder.js:4350
 #: assets/js/dist/outerwhisper-form-frontend.js:1081
 msgid "fields.unnamed"
 msgstr "Unbenannt"
 
-#: assets/js/dist/outerwhisper-admin.js:221
+#: assets/js/dist/outerwhisper-admin.js:480
 msgid "admin.feedback.delete_form_confirm"
 msgstr "Möchtest du das Formular \"{name}\" wirklich unwiderruflich löschen? Dabei werden auch alle dazugehörigen Feedbacks gelöscht."
 
-#: assets/js/dist/outerwhisper-admin.js:233
-msgid "admin.feedback.delete_confirm"
-msgstr "Möchtest du das Feedback #{id} wirklich unwiderruflich löschen?"
-
-#: assets/js/dist/outerwhisper-admin.js:246
+#: assets/js/dist/outerwhisper-admin.js:491
 msgid "admin.feedback.saving"
 msgstr "Speichern..."
-
-#: assets/js/dist/outerwhisper-admin.js:326
-msgid "admin.feedback.url_open_error"
-msgstr "Konnte URL nicht öffnen:"
-
-#: assets/js/dist/outerwhisper-admin.js:409
-msgid "admin.feedback.status_update_error"
-msgstr "Fehler beim Aktualisieren des Status"
 
 #: assets/js/dist/outerwhisper-form-builder.js:520
 #: assets/js/dist/outerwhisper-form-frontend.js:524

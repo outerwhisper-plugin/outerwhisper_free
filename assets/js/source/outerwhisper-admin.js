@@ -1,5 +1,6 @@
 import { config as globalConfig } from '../components/outerwhisper-form-config.js';
 import { __ } from '../components/outerwhisper-i18n';
+import { adminFeedbackList, initAdminFeedbackList } from '../components/outerwhisper-admin-feedback-list.js';
 
 const outerwhisperAdmin = window.outerwhisperAdmin;
 
@@ -29,80 +30,18 @@ const api = {
             throw error;
         }
     },
-
-    async fetchAndShowFormFeedbackDetails(id) {
-        const url = new URL(outerwhisperAdmin.ajaxurl, window.location.origin);
-        url.searchParams.append('action', 'outerwhisper_get_form_feedback_by_id');
-        url.searchParams.append('nonce', outerwhisperAdmin.nonce);
-        url.searchParams.append('id', id);
-
-        try {
-            const response = await fetch(url);
-            const result = await response.json();
-            if (result.success) {
-                controller.showOverlay(result.data);
-            } else {
-                alert(result.data || __('admin.feedback.load_error'));
-            }
-        } catch (error) {
-            console.error('Error fetching details:', error);
-            alert(__('admin.feedback.load_network_error'));
-        }
-    },
-
-    async deleteFeedback(feedbackId, row) {
-        const formData = new FormData();
-        formData.append('action', 'outerwhisper_delete_feedback');
-        formData.append('nonce', outerwhisperAdmin.nonce);
-        formData.append('id', feedbackId);
-
-        try {
-            const response = await fetch(outerwhisperAdmin.ajaxurl, {
-                method: 'POST',
-                body: formData
-            });
-            const result = await response.json();
-            if (result.success) {
-                if (row) {
-                    row.style.transition = 'opacity 0.5s';
-                    row.style.opacity = '0';
-                    setTimeout(() => row.remove(), 500);
-                }
-            } else {
-                alert(result.data || __('admin.feedback.delete_error'));
-            }
-        } catch (error) {
-            console.error('Delete error:', error);
-            alert(__('admin.feedback.delete_network_error'));
-        }
-    }
 };
 
 const controller = {
     init: function() {
-        this.attachTableRowListeners();
-        this.setupFeedbackDeleteConfirmation();
         this.setupDeleteConfirmation();
-        this.setupTableDateFilters();
         this.setupPostboxToggles();
+        initAdminFeedbackList();
 
         if (document.getElementById('outerwhisper-feedback-trend-chart')) {
             api.getChartRecentFeedbacks().then(() => {
                 this.initTrendChart();
             }).catch(err => console.error(err));
-        }
-    },
-
-    setupTableDateFilters: function() {
-        const rangeSelect = document.getElementById('filter-range-select');
-        const customDateFields = rangeSelect ? rangeSelect.parentElement.querySelector('.custom-date-fields') : null;
-
-        if (rangeSelect && customDateFields) {
-            const toggleCustomDateFields = () => {
-                customDateFields.style.display = rangeSelect.value === 'custom' ? 'inline-block' : 'none';
-            };
-            toggleCustomDateFields();
-            rangeSelect.addEventListener('change', toggleCustomDateFields);
         }
     },
 
@@ -164,27 +103,6 @@ const controller = {
         });
     },
 
-    attachTableRowListeners: function() {
-        document.addEventListener('click', function(e) {
-            const tr = e.target.closest('.outerwhisper-form-feedback-list .wp-list-table tbody tr');
-            if (!tr) return;
-
-            if (e.target.closest('.row-actions') || e.target.closest('input[type="checkbox"]')) {
-                if (!e.target.classList.contains('outerwhisper-view-feedback')) {
-                    return;
-                }
-            }
-
-            const idCell = tr.querySelector('.column-id');
-            if (idCell) {
-                const match = idCell.textContent.match(/#(\d+)/);
-                if (match) {
-                    api.fetchAndShowFormFeedbackDetails(match[1]);
-                }
-            }
-        });
-    },
-
     setupDeleteConfirmation: function() {
         document.addEventListener('click', function(e) {
             const deleteLink = e.target.closest('.outerwhisper-delete-form-js');
@@ -196,25 +114,6 @@ const controller = {
             if (!confirm(message)) {
                 e.preventDefault();
             }
-        });
-    },
-
-    setupFeedbackDeleteConfirmation: function() {
-        document.addEventListener('click', function(e) {
-            const deleteLink = e.target.closest('.outerwhisper-delete-form-feedback');
-            if (!deleteLink) return;
-
-            e.preventDefault();
-
-            const feedbackId = deleteLink.getAttribute('data-id');
-            const message = __('admin.feedback.delete_confirm', { id: feedbackId });
-
-            if (!confirm(message)) {
-                return;
-            }
-
-            const row = deleteLink.closest('tr');
-            api.deleteFeedback(feedbackId, row);
         });
     },
 
@@ -244,241 +143,6 @@ const controller = {
                 btn.innerHTML = preservedHtml;
             }
         }, 1500);
-    },
-
-    showOverlay: function(data) {
-        let backdrop = document.getElementById('outerwhisper-modal-backdrop');
-        let container = document.getElementById('outerwhisper-modal-container');
-        const template = document.getElementById('outerwhisper-feedback-details-modal');
-
-        if (!backdrop || !container || !template) return;
-
-        const feedback = data.feedback;
-        const steps = data.steps;
-        const userValues = data.user_values;
-        const accentColor = data.accent_color;
-        let pagePath = feedback.tracking_page_url || '-';
-
-        try {
-            const url = new URL(feedback.tracking_page_url);
-            pagePath = url.pathname + url.search + url.hash;
-        } catch (e) {
-        }
-
-        const modalContent = template.content.cloneNode(true);
-
-        const idTitle = modalContent.getElementById('outerwhisper-modal-feedback-id-title');
-        if (idTitle) {
-            idTitle.textContent = idTitle.textContent.replace('{{id}}', feedback.id);
-        }
-
-        const dateText = modalContent.getElementById('outerwhisper-modal-date-text');
-        if (dateText) {
-            dateText.textContent = feedback.created;
-        }
-
-        const rawTracking = JSON.parse(feedback.tracking_data || '{}');
-
-        const trackUserAgent = modalContent.getElementById('outerwhisper-track-useragent');
-        if (trackUserAgent) {
-            trackUserAgent.textContent = rawTracking.userAgent || '-';
-        }
-
-        const inputSourceUrl = modalContent.getElementById('outerwhisper-input-source-url');
-        const btnCopyUrl = modalContent.getElementById('outerwhisper-btn-copy-url');
-        const btnOpenUrl = modalContent.getElementById('outerwhisper-btn-open-url');
-
-        if (inputSourceUrl) {
-            inputSourceUrl.value = pagePath;
-            inputSourceUrl.title = pagePath;
-
-            if (pagePath === '-') {
-                if (btnCopyUrl) btnCopyUrl.style.display = 'none';
-                if (btnOpenUrl) btnOpenUrl.style.display = 'none';
-            }
-        }
-
-        if (btnCopyUrl && inputSourceUrl && pagePath !== '-') {
-            btnCopyUrl.onclick = () => {
-                const urlVal = feedback.tracking_page_url;
-                if (urlVal && urlVal !== '-') {
-                    navigator.clipboard.writeText(urlVal).then(() => {
-                        const originalIcon = btnCopyUrl.innerHTML;
-                        btnCopyUrl.innerHTML = '<i class="fas fa-check" style="color: #00a32a;"></i>';
-                        setTimeout(() => {
-                            btnCopyUrl.innerHTML = originalIcon;
-                        }, 1500);
-                    });
-                }
-            };
-        }
-
-        if (btnOpenUrl && inputSourceUrl && pagePath !== '-') {
-            btnOpenUrl.onclick = () => {
-                const urlVal = feedback.tracking_page_url;
-                if (urlVal && urlVal !== '-') {
-                    try {
-                        window.open(urlVal, '_blank');
-                    } catch (e) {
-                        console.error(__('admin.feedback.url_open_error'), e);
-                    }
-                }
-            };
-        }
-
-        const btnRawToggle = modalContent.getElementById('outerwhisper-btn-raw-toggle');
-        const rawBlock = modalContent.getElementById('outerwhisper-raw-json-block');
-        const rawChevron = modalContent.getElementById('outerwhisper-raw-chevron');
-        if (btnRawToggle && rawBlock) {
-            rawBlock.textContent = JSON.stringify(rawTracking, null, 2);
-            btnRawToggle.onclick = () => {
-                const isHidden = rawBlock.classList.contains('hidden');
-                if (isHidden) {
-                    rawBlock.classList.remove('hidden');
-                    if (rawChevron) rawChevron.className = 'fas fa-chevron-up';
-                } else {
-                    rawBlock.classList.add('hidden');
-                    if (rawChevron) rawChevron.className = 'fas fa-chevron-down';
-                }
-            };
-        }
-
-        const statusButtons = modalContent.querySelectorAll('#outerwhisper-modal-status-control .outerwhisper-status-btn');
-        const currentStatus = feedback.status || 'unread';
-        let isStatusAnimating = false;
-
-        statusButtons.forEach(btn => {
-            const btnStatus = btn.getAttribute('data-status');
-            if (btnStatus === currentStatus) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-
-            btn.onclick = () => {
-                if (isStatusAnimating) return;
-                if (btn.classList.contains('active')) return;
-
-                isStatusAnimating = true;
-
-                const icon = btn.querySelector('i');
-                const originalIconClass = icon ? icon.className : '';
-
-                if (icon) {
-                    icon.className = 'fas fa-spinner fa-spin';
-                }
-
-                const formData = new FormData();
-                formData.append('action', 'outerwhisper_update_form_feedback_status');
-                formData.append('nonce', outerwhisperAdmin.nonce);
-                formData.append('feedback_id', feedback.id);
-                formData.append('status', btnStatus);
-
-                fetch(outerwhisperAdmin.ajaxurl, {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(result => {
-                        setTimeout(() => {
-                            if (result.success) {
-                                statusButtons.forEach(b => {
-                                    b.classList.remove('active');
-                                    const otherIcon = b.querySelector('i');
-                                    if (otherIcon) {
-                                        otherIcon.classList.remove('outerwhisper-fade-in');
-                                    }
-                                });
-
-                                btn.classList.add('active');
-                                feedback.status = btnStatus;
-
-                                const rows = document.querySelectorAll(`.wp-list-table tbody tr`);
-                                rows.forEach(r => {
-                                    if (r.querySelector('.column-id') && r.querySelector('.column-id').textContent.includes(`#${feedback.id}`)) {
-                                        const statusCol = r.querySelector('.column-status');
-                                        if (statusCol) {
-                                            let statusLabel = '';
-                                            switch (btnStatus) {
-                                                case 'read':
-                                                    statusLabel = __('admin.form_list.filter.status.read');
-                                                    break;
-                                                case 'archived':
-                                                    statusLabel = __('admin.form_list.filter.status.archived');
-                                                    break;
-                                                case 'unread':
-                                                default:
-                                                    statusLabel = __('admin.form_list.filter.status.unread');
-                                                    break;
-                                            }
-
-                                            statusCol.innerHTML = `<span class="outerwhisper-status-badge ${btnStatus}">${statusLabel.charAt(0).toUpperCase() + statusLabel.slice(1)}</span>`;
-                                        }
-                                    }
-                                });
-                            } else {
-                                alert(result.data || __('admin.feedback.status_update_error'));
-                            }
-
-                            if (icon) {
-                                icon.className = originalIconClass + ' outerwhisper-fade-in';
-                                setTimeout(() => {
-                                    icon.classList.remove('outerwhisper-fade-in');
-                                }, 350);
-                            }
-
-                            isStatusAnimating = false;
-                        }, 400);
-                    })
-                    .catch(error => {
-                        console.error('Error updating status:', error);
-                        if (icon) icon.className = originalIconClass;
-                        isStatusAnimating = false;
-                    });
-            };
-        });
-
-        container.innerHTML = '';
-        container.appendChild(modalContent);
-
-        container.classList.remove('hidden');
-        container.classList.add('outerwhisper-modal-large');
-        backdrop.classList.remove('hidden');
-
-        const renderContainer = document.getElementById('outerwhisper-admin-feedback-form-render');
-        if (renderContainer && window.OUTERWHISPERFrontend) {
-            const stateObj = {
-                settings: {
-                    styles: {
-                        accentColor: accentColor
-                    }
-                },
-                steps: steps
-            };
-
-            window.OUTERWHISPERFrontend.render(renderContainer, stateObj, {
-                isReadOnly: true,
-                answers: userValues
-            });
-        }
-
-        const closeModal = () => {
-            backdrop.classList.add('hidden');
-            container.classList.add('hidden');
-            container.innerHTML = '';
-        };
-
-        const closeButtons = [
-            document.getElementById('outerwhisper-modal-btn-close-modal'),
-            document.getElementById('outerwhisper-modal-btn-modal-done'),
-            backdrop
-        ];
-
-        closeButtons.forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', closeModal);
-            }
-        });
     }
 };
 
@@ -492,8 +156,9 @@ window.OUTERWHISPERAdmin = {
     init: () => controller.init(),
     state,
     api,
-    controller
+    controller,
+    feedbackList: adminFeedbackList
 };
 
-export { state, api, controller };
+export { state, api, controller, adminFeedbackList };
 export default window.OUTERWHISPERAdmin;
