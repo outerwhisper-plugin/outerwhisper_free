@@ -208,7 +208,7 @@ class FormFeedback extends Database {
             'outerwhisper_ff_status'                => $data['status'] ?? 'unread'
         ];
 
-        $formats = ['%d', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s'];
+        $formats = ['%d', '%s', '%s', '%f', '%s', '%s', '%s', '%s'];
 
         if (!empty($data['created'])) {
             $insert_data['outerwhisper_ff_created'] = $data['created'];
