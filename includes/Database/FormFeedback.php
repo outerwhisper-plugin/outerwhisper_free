@@ -177,6 +177,276 @@ class FormFeedback extends Database {
         return (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM %i {$where}", $this->table_name));
     }
 
+	public function get_top_forms($args = []) {
+		$wpdb = $this->wpdb;
+		$form_table = $this->wpdb->prefix . 'outerwhisper_form_data';
+
+		$limit = isset($args['limit']) ? max(1, (int) $args['limit']) : 5;
+		$offset = isset($args['offset']) ? max(0, (int) $args['offset']) : 0;
+
+		$where_clauses = ['1=1'];
+		$params = [$this->table_name, $form_table];
+
+		if (!empty($args['start_date'])) {
+			$where_clauses[] = 'ff.outerwhisper_ff_created >= %s';
+			$params[] = $args['start_date'];
+		}
+		if (!empty($args['end_date'])) {
+			$where_clauses[] = 'ff.outerwhisper_ff_created <= %s';
+			$params[] = $args['end_date'];
+		}
+
+		if (!empty($args['form_id']) && 'all' !== $args['form_id']) {
+			if (is_array($args['form_id'])) {
+				$ids = array_map('intval', $args['form_id']);
+				$placeholders = implode(',', array_fill(0, count($ids), '%d'));
+				if (!empty($placeholders)) {
+					$where_clauses[] = "ff.outerwhisper_ff_fd_id IN ($placeholders)";
+					$params = array_merge($params, $ids);
+				}
+			} else {
+				$where_clauses[] = 'ff.outerwhisper_ff_fd_id = %d';
+				$params[] = (int) $args['form_id'];
+			}
+		}
+
+		$where_sql = implode(' AND ', $where_clauses);
+		$params[] = $limit;
+		$params[] = $offset;
+
+		$sql = "SELECT 
+			fd.outerwhisper_fd_id AS form_id,
+			COALESCE(fd.outerwhisper_fd_name, '') AS form_name,
+			COUNT(ff.outerwhisper_ff_id) AS feedback_count,
+			AVG(ff.outerwhisper_ff_feedback_score) AS avg_score
+		FROM %i ff
+		INNER JOIN %i fd ON ff.outerwhisper_ff_fd_id = fd.outerwhisper_fd_id
+		WHERE {$where_sql}
+		GROUP BY fd.outerwhisper_fd_id, fd.outerwhisper_fd_name
+		ORDER BY feedback_count DESC, avg_score DESC
+		LIMIT %d OFFSET %d";
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$results = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$wpdb->prepare($sql, $params),
+			ARRAY_A
+		);
+
+		return $results ?: [];
+	}
+
+	public function get_top_pages($args = []) {
+		$wpdb = $this->wpdb;
+
+		$limit        = isset($args['limit']) ? max(1, (int) $args['limit']) : 5;
+		$offset       = isset($args['offset']) ? max(0, (int) $args['offset']) : 0;
+		$has_previous = !empty($args['has_previous']) && !empty($args['prev_start_date']) && !empty($args['prev_end_date']);
+
+		$where_clauses = [
+			'outerwhisper_ff_tracking_page_url IS NOT NULL',
+			"outerwhisper_ff_tracking_page_url != ''",
+		];
+		$params = [];
+
+		if ($has_previous) {
+			$where_clauses[] = 'outerwhisper_ff_created >= %s AND outerwhisper_ff_created <= %s';
+			$params[] = $args['prev_start_date'];
+			$params[] = $args['end_date'];
+		} elseif (!empty($args['start_date']) && !empty($args['end_date'])) {
+			$where_clauses[] = 'outerwhisper_ff_created >= %s AND outerwhisper_ff_created <= %s';
+			$params[] = $args['start_date'];
+			$params[] = $args['end_date'];
+		}
+
+		if (!empty($args['form_id']) && 'all' !== $args['form_id']) {
+			if (is_array($args['form_id'])) {
+				$ids = array_map('intval', $args['form_id']);
+				$placeholders = implode(',', array_fill(0, count($ids), '%d'));
+				if (!empty($placeholders)) {
+					$where_clauses[] = "outerwhisper_ff_fd_id IN ($placeholders)";
+					$params = array_merge($params, $ids);
+				}
+			} else {
+				$where_clauses[] = 'outerwhisper_ff_fd_id = %d';
+				$params[] = (int) $args['form_id'];
+			}
+		}
+
+		$where_sql = implode(' AND ', $where_clauses);
+
+		if ($has_previous) {
+			$sql = "SELECT 
+				outerwhisper_ff_tracking_page_url AS page_url,
+				COUNT(CASE WHEN outerwhisper_ff_created >= %s AND outerwhisper_ff_created <= %s THEN 1 END) AS feedback_count,
+				AVG(CASE WHEN outerwhisper_ff_created >= %s AND outerwhisper_ff_created <= %s THEN outerwhisper_ff_feedback_score END) AS avg_score,
+				AVG(CASE WHEN outerwhisper_ff_created >= %s AND outerwhisper_ff_created <= %s THEN outerwhisper_ff_feedback_score END) AS prev_avg_score
+			FROM %i
+			WHERE {$where_sql}
+			GROUP BY outerwhisper_ff_tracking_page_url
+			HAVING feedback_count > 0
+			ORDER BY avg_score DESC, feedback_count DESC
+			LIMIT %d OFFSET %d";
+
+			$query_params = array_merge(
+				[
+					$args['start_date'], $args['end_date'],
+					$args['start_date'], $args['end_date'],
+					$args['prev_start_date'], $args['prev_end_date'],
+					$this->table_name,
+				],
+				$params,
+				[$limit, $offset]
+			);
+		} else {
+			$sql = "SELECT 
+				outerwhisper_ff_tracking_page_url AS page_url,
+				COUNT(outerwhisper_ff_id) AS feedback_count,
+				AVG(outerwhisper_ff_feedback_score) AS avg_score,
+				NULL AS prev_avg_score
+			FROM %i
+			WHERE {$where_sql}
+			GROUP BY outerwhisper_ff_tracking_page_url
+			ORDER BY avg_score DESC, feedback_count DESC
+			LIMIT %d OFFSET %d";
+
+			$query_params = array_merge(
+				[$this->table_name],
+				$params,
+				[$limit, $offset]
+			);
+		}
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$results = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$wpdb->prepare($sql, $query_params),
+			ARRAY_A
+		);
+
+		return $results ?: [];
+	}
+
+	public function get_display_type_counts($args = []) {
+		$wpdb = $this->wpdb;
+
+		$where_clauses = ['1=1'];
+		$params = [$this->table_name];
+
+		if (!empty($args['start_date'])) {
+			$where_clauses[] = 'outerwhisper_ff_created >= %s';
+			$params[] = $args['start_date'];
+		}
+		if (!empty($args['end_date'])) {
+			$where_clauses[] = 'outerwhisper_ff_created <= %s';
+			$params[] = $args['end_date'];
+		}
+
+		if (!empty($args['form_id']) && 'all' !== $args['form_id']) {
+			if (is_array($args['form_id'])) {
+				$ids = array_map('intval', $args['form_id']);
+				$placeholders = implode(',', array_fill(0, count($ids), '%d'));
+				if (!empty($placeholders)) {
+					$where_clauses[] = "outerwhisper_ff_fd_id IN ($placeholders)";
+					$params = array_merge($params, $ids);
+				}
+			} else {
+				$where_clauses[] = 'outerwhisper_ff_fd_id = %d';
+				$params[] = (int) $args['form_id'];
+			}
+		}
+
+		$where_sql = implode(' AND ', $where_clauses);
+
+		$sql = "SELECT 
+			outerwhisper_ff_form_type AS form_type,
+			COUNT(outerwhisper_ff_id) AS feedback_count
+		FROM %i
+		WHERE {$where_sql}
+		GROUP BY outerwhisper_ff_form_type";
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$results = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$wpdb->prepare($sql, $params),
+			ARRAY_A
+		);
+
+		return $results ?: [];
+	}
+
+	public function get_trend_data($args = []) {
+		$wpdb = $this->wpdb;
+
+		$group_by = $args['group_by'] ?? 'day';
+		$where_clauses = ['1=1'];
+		$params = [$this->table_name];
+
+		if (!empty($args['start_date'])) {
+			$where_clauses[] = 'outerwhisper_ff_created >= %s';
+			$params[] = $args['start_date'];
+		}
+		if (!empty($args['end_date'])) {
+			$where_clauses[] = 'outerwhisper_ff_created <= %s';
+			$params[] = $args['end_date'];
+		}
+
+		if (!empty($args['form_id']) && 'all' !== $args['form_id']) {
+			if (is_array($args['form_id'])) {
+				$ids = array_map('intval', $args['form_id']);
+				$placeholders = implode(',', array_fill(0, count($ids), '%d'));
+				if (!empty($placeholders)) {
+					$where_clauses[] = "outerwhisper_ff_fd_id IN ($placeholders)";
+					$params = array_merge($params, $ids);
+				}
+			} else {
+				$where_clauses[] = 'outerwhisper_ff_fd_id = %d';
+				$params[] = (int) $args['form_id'];
+			}
+		}
+
+		$date_format = '%%Y-%%m-%%d';
+		if ($group_by === 'hour') {
+			$date_format = '%%Y-%%m-%%d %%H:00:00';
+		} elseif ($group_by === 'month') {
+			$date_format = '%%Y-%%m-01';
+		}
+
+		$where_sql = implode(' AND ', $where_clauses);
+
+		$sql = "SELECT 
+			DATE_FORMAT(outerwhisper_ff_created, '{$date_format}') AS bucket_date,
+			COUNT(outerwhisper_ff_id) AS feedback_count,
+			AVG(outerwhisper_ff_feedback_score) AS avg_score
+		FROM %i
+		WHERE {$where_sql}
+		GROUP BY bucket_date
+		ORDER BY bucket_date ASC";
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$results = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$wpdb->prepare($sql, $params),
+			ARRAY_A
+		);
+
+		return $results ?: [];
+	}
+
+	public function get_earliest_created_date(): ?string {
+		$wpdb = $this->wpdb;
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$result = $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT MIN(outerwhisper_ff_created) FROM %i WHERE outerwhisper_ff_created IS NOT NULL",
+				$this->table_name
+			)
+		);
+
+		return $result ?: null;
+	}
+
     private function getPreparedTrackingData($tracking_data) {
 		return [
 			'tracking_page_url' => $tracking_data['url'] ?? '',
@@ -199,13 +469,13 @@ class FormFeedback extends Database {
 
         $insert_data = [
             'outerwhisper_ff_fd_id'                 => (int) $data['form_id'],
-            'outerwhisper_ff_form_type'             => $data['form_type'] ?? 'shortcode',
+            'outerwhisper_ff_form_type'             => sanitize_text_field($data['form_type'] ?? 'shortcode'),
             'outerwhisper_ff_feedback_data'         => $feedback_data,
-			'outerwhisper_ff_feedback_score'        => $data['feedback_score'] ?? null,
+			'outerwhisper_ff_feedback_score'        => is_numeric($data['feedback_score']) ? sanitize_text_field($data['feedback_score']) : null,
             'outerwhisper_ff_tracking_data'         => $tracking_data_encoded,
             'outerwhisper_ff_tracking_page_url'     => $prepared_tracking['tracking_page_url'],
             'outerwhisper_ff_identifier'            => !empty($data['identifier']) ? $data['identifier'] : (!empty($data['outerwhisper_ff_identifier']) ? $data['outerwhisper_ff_identifier'] : uniqid('', true)),
-            'outerwhisper_ff_status'                => $data['status'] ?? 'unread'
+            'outerwhisper_ff_status'                => sanitize_text_field($data['status'] ?? 'unread')
         ];
 
         $formats = ['%d', '%s', '%s', '%f', '%s', '%s', '%s', '%s'];
@@ -215,7 +485,9 @@ class FormFeedback extends Database {
             $formats[] = '%s';
         }
 
-        return $this->wpdb->insert($this->table_name, $insert_data, $formats);
+        $result = $this->wpdb->insert($this->table_name, $insert_data, $formats);
+
+        return $result ? (int) $this->wpdb->insert_id : false;
     }
 
     public function update_status($id, $status) {
@@ -250,97 +522,6 @@ class FormFeedback extends Database {
 		);
 
         return $row ? new \OuterWhisper\Database\Entity\FormFeedback($row) : null;
-    }
-
-    public function get_stats($form_id = null) {
-		$wpdb = $this->wpdb;
-
-		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.DirectQuery
-		if (null !== $form_id && absint($form_id) > 0) {
-			$total = $wpdb->get_var(
-				$wpdb->prepare(
-					'SELECT COUNT(*) FROM %i WHERE outerwhisper_ff_fd_id = %d',
-				    $this->table_name,
-				    absint($form_id)
-				)
-			);
-
-			$today = $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT COUNT(*) FROM %i WHERE DATE(outerwhisper_ff_created) = CURDATE() AND outerwhisper_ff_fd_id = %d",
-				   $this->table_name,
-				   absint($form_id)
-				)
-			);
-
-			$status_results = $wpdb->get_results(
-				$wpdb->prepare(
-					"SELECT outerwhisper_ff_status as status, COUNT(*) as count FROM %i AND outerwhisper_ff_fd_id = %d GROUP BY outerwhisper_ff_status",
-					$this->table_name,
-					absint($form_id)
-				),
-				ARRAY_A
-			);
-
-			$type_results = $wpdb->get_results(
-				$wpdb->prepare(
-					"SELECT outerwhisper_ff_form_type as type, COUNT(*) as count FROM %i AND outerwhisper_ff_fd_id = %d GROUP BY outerwhisper_ff_form_type",
-					$this->table_name,
-					absint($form_id)
-				),
-				ARRAY_A
-			);
-		} else {
-			$total = $wpdb->get_var(
-				$wpdb->prepare(
-					'SELECT COUNT(*) FROM %i',
-				    $this->table_name
-				)
-			);
-
-			$today = $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT COUNT(*) FROM %i WHERE DATE(outerwhisper_ff_created) = CURDATE()",
-					$this->table_name
-				)
-			);
-
-			$status_results = $wpdb->get_results(
-				$wpdb->prepare(
-					"SELECT outerwhisper_ff_status as status, COUNT(*) as count FROM %i GROUP BY outerwhisper_ff_status",
-					$this->table_name
-				),
-				ARRAY_A
-			);
-
-			$type_results = $wpdb->get_results(
-				$wpdb->prepare(
-					"SELECT outerwhisper_ff_form_type as type, COUNT(*) as count FROM %i GROUP BY outerwhisper_ff_form_type",
-					$this->table_name
-				),
-				ARRAY_A
-			);
-		}
-		// phpcs:enable WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.DirectQuery
-
-        $statuses = [];
-        foreach ($status_results as $row) {
-            $statuses[$row['status']] = (int) $row['count'];
-        }
-
-        $types = [];
-        foreach ($type_results as $row) {
-            $types[$row['type']] = [
-                'total' => (int) $row['count']
-            ];
-        }
-
-        return [
-            'total' => (int) $total,
-            'today' => (int) $today,
-            'statuses' => $statuses,
-            'types' => $types
-        ];
     }
 
     public function get_distinct_page_urls(): array {

@@ -6,6 +6,7 @@ use OuterWhisper\Database\FormFeedback;
 use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormFeedbackHelper;
 use OuterWhisper\Helper\FormHelper;
+use OuterWhisper\Helper\StatisticService;
 use WP_List_Table;
 
 if (!defined('ABSPATH')) {
@@ -151,7 +152,7 @@ class FormFeedbackListTable extends WP_List_Table {
 		}
 
 		if ($changed) {
-			FeedbackStatsService::clear_cache();
+			StatisticService::clear_statistic_cache();
 
 			$redirect_url = remove_query_arg(
 				[
@@ -327,8 +328,19 @@ class FormFeedbackListTable extends WP_List_Table {
 	public function column_answer($item): string {
 		$feedback = $item['feedback_entity'];
 		$data = $feedback->getDecodedFeedbackData();
-		$firstAnswer = $data['first_answer'] ?? '-';
-		$firstAnswerFieldType = $data['first_answer_field_type'] ?? '';
+
+		$firstAnswer = '-';
+		$firstAnswerFieldType = '';
+		if (isset($data['first_rating_answer']) && is_numeric($data['first_rating_answer'])) {
+			$firstAnswer = $data['first_rating_answer'];
+			$firstAnswerFieldType = $data['first_rating_answer_field_type'] ?? '';
+		} elseif (!empty($data['first_free_text_answer'])) {
+			$firstAnswer = $data['first_free_text_answer'];
+			$firstAnswerFieldType = $data['first_free_text_answer_field_type'] ?? '';
+		} elseif (isset($data['first_answer']) && $data['first_answer'] !== '') {
+			$firstAnswer = $data['first_answer'];
+			$firstAnswerFieldType = $data['first_answer_field_type'] ?? '';
+		}
 
 		return $this->formFeedbackHelper->prepareFirstAnswerPreview($firstAnswer, $firstAnswerFieldType, 'table-row');
 	}

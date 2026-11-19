@@ -35,6 +35,14 @@ class ConfigHelper {
 			['textarea']
 		);
 
+		$data['rating'] = [
+			'rating',
+		];
+
+		$data['freeText'] = [
+			'textarea'
+		];
+
 		return $data;
 	}
 
@@ -76,34 +84,34 @@ class ConfigHelper {
                 'baseHeight' => 150,
                 'labelHeight' => 18,
             ],
-            'dropdown' => [
+			'dropdown' => [
 				'name' =>  esc_html__('fields.dropdown.name', 'outerwhisper'),
 			  	'icon' => 'fa-chevron-down',
 			  	'defaultLabel' => esc_html__('fields.choices_list.default_label', 'outerwhisper'),
-			  	'supportedSettings' => ['label', 'hideLabel', 'required', 'alignment', 'choicesList', 'alignment'],
+			  	'supportedSettings' => ['label', 'hideLabel', 'required', 'fontSize', 'alignment', 'choicesList', 'alignment'],
 			  	'userinput' => true,
 			  	'baseHeight' => 43,
 			  	'labelHeight' => 19
 			],
-            'chips' => [
-				'name' => esc_html__('fields.chips.name', 'outerwhisper'),
-	            'icon' => 'fa-tags',
-	            'defaultLabel' => esc_html__('fields.choices_list.default_label', 'outerwhisper'),
-	            'supportedSettings' => ['label', 'hideLabel', 'alignment', 'icon', 'iconPosition', 'fontSize', 'lineHeight', 'borderRadius', 'customColors', 'choicesList', 'required'],
-	            'customColorTypes' => ['bgColor', 'textColor', 'borderColor', 'hoverBgColor', 'hoverTextColor', 'hoverBorderColor'],
-	            'userinput' => true,
-	            'baseHeight' => 46,
-	            'labelHeight' => 24
+			'chips' => [
+			  'name' => esc_html__('fields.chips.name', 'outerwhisper'),
+			  'icon' => 'fa-tags',
+			  'defaultLabel' => esc_html__('fields.choices_list.default_label', 'outerwhisper'),
+			  'supportedSettings' => ['label', 'hideLabel', 'alignment', 'icon', 'iconPosition', 'fontSize', 'lineHeight', 'borderRadius', 'customColors', 'choicesList', 'required'],
+			  'customColorTypes' => ['bgColor', 'textColor', 'borderColor', 'hoverBgColor', 'hoverTextColor', 'hoverBorderColor'],
+			  'userinput' => true,
+			  'baseHeight' => 46,
+			  'labelHeight' => 24
 			],
-            'radio' => [
+			'radio' => [
 				'name' => esc_html__('fields.radio.name', 'outerwhisper'),
-	            'icon' => 'fa-circle-dot',
-	            'defaultLabel' => esc_html__('fields.choices_list.default_label', 'outerwhisper'),
-	            'supportedSettings' => ['label', 'hideLabel', 'required', 'choicesList', 'fontSize', 'lineHeight', 'customColors'],
-	            'customColorTypes' => ['bgColor', 'textColor'],
-	            'userinput' => true,
-	            'baseHeight' => 80,
-	            'labelHeight' => 24
+			    'icon' => 'fa-circle-dot',
+			    'defaultLabel' => esc_html__('fields.choices_list.default_label', 'outerwhisper'),
+			    'supportedSettings' => ['label', 'hideLabel', 'required', 'choicesList', 'alignment','fontSize', 'lineHeight', 'customColors'],
+			  	'customColorTypes' => ['bgColor', 'textColor'],
+			    'userinput' => true,
+			    'baseHeight' => 80,
+			    'labelHeight' => 24
 			],
 			'name' => [
 			  'name' => esc_html__('fields.name.name', 'outerwhisper'),

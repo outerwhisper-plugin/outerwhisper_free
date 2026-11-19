@@ -5,11 +5,12 @@ namespace OuterWhisper\Page;
 use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormFeedbackHelper;
 use OuterWhisper\Lists\FormFeedbackListTable;
+use OuterWhisper\Page\Page;
 
 /**
- * Feedbacks Page class.
+ * FeedbackList Page class.
  */
-class Feedbacks extends Page {
+class FeedbackList extends Page {
 
     /**
      * @return string
@@ -55,41 +56,4 @@ class Feedbacks extends Page {
 			[$table, 'process_bulk_action']
 		);
 	}
-
-    /**
-     * Extracts and normalizes filters from the request.
-     *
-     * @return array
-     */
-    protected function extract_filters(): array {
-        // phpcs:disable WordPress.Security.NonceVerification.Recommended
-		$period = !empty($_GET['period']) ? sanitize_text_field(wp_unslash($_GET['period'])) : '30d';
-		$status = !empty($_GET['status']) ? sanitize_text_field(wp_unslash($_GET['status'])) : '';
-		$display_type = !empty($_GET['display_type']) ? sanitize_text_field(wp_unslash($_GET['display_type'])) : '';
-		$form_id = !empty($_GET['form_id']) ? sanitize_text_field(wp_unslash($_GET['form_id'])) : '';
-		$orderby = !empty($_GET['orderby']) ? sanitize_sql_orderby(wp_unslash($_GET['orderby'])) : 'created';
-		$order = !empty($_GET['order']) ? sanitize_text_field(wp_unslash($_GET['order'])) : 'desc';
-        // phpcs:enable WordPress.Security.NonceVerification.Recommended
-
-        if ('all' === $status) {
-            $status = '';
-        }
-
-        if ('all' === $display_type) {
-			$display_type = '';
-        }
-
-        if ('all' === $form_id) {
-            $form_id = '';
-        }
-
-        return [
-            'period'    => $period,
-            'status'    => $status,
-            'display_type' => $display_type,
-            'form_id'   => $form_id,
-            'orderby'   => $orderby,
-            'order'     => $order,
-        ];
-    }
 }

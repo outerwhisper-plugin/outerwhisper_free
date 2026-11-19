@@ -10,6 +10,12 @@ class FormHelper {
 
     protected const LIVE_VERSION = 'live';
 
+	protected ConfigHelper $configHelper;
+
+	public function __construct() {
+		$this->configHelper = new ConfigHelper();
+	}
+
     public function getVersionForUser() {
         $version = self::LIVE_VERSION;
         if (current_user_can('manage_options')) {

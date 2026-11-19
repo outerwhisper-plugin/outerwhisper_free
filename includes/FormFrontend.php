@@ -4,11 +4,13 @@ namespace OuterWhisper;
 
 use OuterWhisper\Database\Form as FormDB;
 use OuterWhisper\Database\FormFeedback;
+use OuterWhisper\Database\FormFeedbackAnswer;
+use OuterWhisper\Helper\ConfigHelper;
 use OuterWhisper\Helper\FeedbackScoreHelper;
-use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormHelper;
 use OuterWhisper\Helper\IndexBuilder;
 use OuterWhisper\Helper\LanguageHelper;
+use OuterWhisper\Helper\StatisticService;
 
 class FormFrontend {
 
@@ -477,10 +479,17 @@ class FormFrontend {
             }
         }
 
-		$firstAnswer  = '';
-		$firstAnswerFieldType = '';
+		$configHelper = new ConfigHelper();
+		$formFieldsData = $configHelper->get_form_fields_data();
+
+		$firstRatingAnswer = '';
+		$firstRatingAnswerFieldType = '';
+		$firstFreeTextAnswer = '';
+		$firstFreeTextAnswerFieldType = '';
+
 		$firstLabelText = '';
 		$firstLabelTextFallback = '';
+        $answers_to_insert = [];
 
         // Map answers for easier lookup
         $answers_map = [];
@@ -497,9 +506,23 @@ class FormFrontend {
 					$answerValue = $answers_map[$element['id']];
                     $decodedFormVersionData['steps']['step1'][$key]['value'] = $answerValue;
 
-					if ($firstAnswer === '') {
-						$firstAnswer = $answerValue;
-						$firstAnswerFieldType = $element['type'];
+                    $is_numeric = in_array($element['type'], $formFieldsData['rating'], true) && is_numeric($answerValue);
+                    $answers_to_insert[] = [
+                        'outerwhisper_ffa_fd_id'      => $form_id,
+                        'outerwhisper_ffa_field_id'   => $element['id'],
+                        'outerwhisper_ffa_field_type' => $element['type'],
+                        'outerwhisper_ffa_num_value'  => $is_numeric ? (float) $answerValue : null,
+                        'outerwhisper_ffa_text_value' => !$is_numeric ? (is_array($answerValue) ? json_encode($answerValue) : (string) $answerValue) : null,
+                    ];
+
+					if (empty($firstFreeTextAnswer) && in_array($element['type'], $formFieldsData['freeText'], true)) {
+						$firstFreeTextAnswer = $answerValue;
+						$firstFreeTextAnswerFieldType = $element['type'];
+					}
+
+					if (empty($firstRatingAnswer) && in_array($element['type'], $formFieldsData['rating'], true)) {
+						$firstRatingAnswer = $answerValue;
+						$firstRatingAnswerFieldType = $element['type'];
 					}
 
 					if (empty($firstLabelText) && !empty($element['label'])) {
@@ -521,9 +544,23 @@ class FormFrontend {
 							$answerValue = $answers_map[$element['id']];
                             $elements[$key]['value'] = $answerValue;
 
-							if ($firstAnswer === '') {
-								$firstAnswer = $answerValue;
-								$firstAnswerFieldType = $element['type'];
+                            $is_numeric = in_array($element['type'], $formFieldsData['rating'], true) && is_numeric($answerValue);
+                            $answers_to_insert[] = [
+                                'outerwhisper_ffa_fd_id'      => $form_id,
+                                'outerwhisper_ffa_field_id'   => $element['id'],
+                                'outerwhisper_ffa_field_type' => $element['type'],
+                                'outerwhisper_ffa_num_value'  => $is_numeric ? (float) $answerValue : null,
+                                'outerwhisper_ffa_text_value' => !$is_numeric ? (is_array($answerValue) ? json_encode($answerValue) : (string) $answerValue) : null,
+                            ];
+
+							if (empty($firstFreeTextAnswer) && in_array($element['type'], $formFieldsData['freeText'], true)) {
+								$firstFreeTextAnswer = $answerValue;
+								$firstFreeTextAnswerFieldType = $element['type'];
+							}
+
+							if (empty($firstRatingAnswer) && in_array($element['type'], $formFieldsData['rating'], true)) {
+								$firstRatingAnswer = $answerValue;
+								$firstRatingAnswerFieldType = $element['type'];
 							}
 
 							if (empty($firstLabelText) && !empty($element['label'])) {
@@ -567,8 +604,10 @@ class FormFrontend {
             'feedback_data' => [
                 'title' => $decodedFormVersionData['settings']['main']['title'] ?? '',
                 'steps' => $decodedStepsData,
-				'first_answer' => $firstAnswer,
-				'first_answer_field_type' => $firstAnswerFieldType,
+                'first_rating_answer' => $firstRatingAnswer,
+                'first_rating_answer_field_type' => $firstRatingAnswerFieldType,
+                'first_free_text_answer' => $firstFreeTextAnswer,
+                'first_free_text_answer_field_type' => $firstFreeTextAnswerFieldType,
 				'first_label_text' => $firstLabelText,
                 'active_step2_trigger_id' => $active_step2_trigger_id,
             ],
@@ -577,7 +616,16 @@ class FormFrontend {
         ]);
 
         if ($success) {
-            FeedbackStatsService::clear_cache();
+            if (!empty($answers_to_insert)) {
+                $form_feedback_answer_db = new FormFeedbackAnswer();
+                foreach ($answers_to_insert as $index => $answer_data) {
+                    $answers_to_insert[$index]['outerwhisper_ffa_ff_id'] = (int) $success;
+                }
+                $form_feedback_answer_db->add_answers_batch($answers_to_insert);
+            }
+
+			StatisticService::clear_statistic_cache();
+
             $this->send_notification_email($decodedFormVersionData, $formType);
             wp_send_json_success(esc_html__('admin.notification.feedback_saved', 'outerwhisper'));
         } else {
@@ -642,6 +690,13 @@ class FormFrontend {
 					break;
 				case 'email':
 					$rowValue = $field['value']['main'] ?? '-';
+					break;
+				case 'rating':
+					if (is_numeric($rowValue) && (int) $rowValue === 1) {
+						$rowValue = $rowValue . esc_html__('admin.notification.rating_suffix.singular', 'outerwhisper');
+					} else {
+						$rowValue = $rowValue . esc_html__('admin.notification.rating_suffix_plural', 'outerwhisper');
+					}
 					break;
 			}
 

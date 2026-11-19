@@ -27,7 +27,7 @@ class Form extends Database {
             outerwhisper_fd_last_published TIMESTAMP NULL DEFAULT NULL,
             outerwhisper_fd_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
             outerwhisper_fd_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
-            PRIMARY KEY  (outerwhisper_fd_id),
+            PRIMARY KEY (outerwhisper_fd_id),
             INDEX outerwhisper_fd_status (outerwhisper_fd_status),
             INDEX outerwhisper_fd_updated (outerwhisper_fd_updated)
         ) $charset_collate ENGINE=InnoDB;";
@@ -177,6 +177,7 @@ class Form extends Database {
             $update_data['outerwhisper_fd_last_saved'] = current_time('mysql');
             $formats[] = '%s';
             $formats[] = '%s';
+			$formats[] = '%s';
         }
         
         // Name immer aktualisieren, um Synchronität mit JSON zu wahren

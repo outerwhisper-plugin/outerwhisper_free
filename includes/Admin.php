@@ -5,14 +5,14 @@ namespace OuterWhisper;
 use OuterWhisper\Database\Form;
 use OuterWhisper\Database\FormFeedback;
 use OuterWhisper\Helper\ConfigHelper;
+use OuterWhisper\Helper\StatisticService;
 use OuterWhisper\Helper\FeedbackStatsService;
 use OuterWhisper\Helper\FormFeedbackHelper;
 use OuterWhisper\Helper\IndexBuilder;
-use OuterWhisper\Lists\FormFeedbackListTable;
 use OuterWhisper\Page\About;
 use OuterWhisper\Page\Dashboard;
 use OuterWhisper\Page\Export;
-use OuterWhisper\Page\Feedbacks;
+use OuterWhisper\Page\FeedbackList;
 use OuterWhisper\Page\FormBuilder;
 use OuterWhisper\Page\Forms;
 
@@ -25,7 +25,6 @@ class Admin {
         
         // AJAX Handlers
         add_action('wp_ajax_outerwhisper_render_form_builder_templates', [$this, 'ajax_render_form_builder_templates']);
-        add_action('wp_ajax_outerwhisper_get_chart_recent_feedbacks', [$this, 'ajax_get_chart_recent_feedbacks']);
         add_action('wp_ajax_outerwhisper_save_form_data', [$this, 'ajax_save_form_data']);
         add_action('wp_ajax_outerwhisper_update_form_status', [$this, 'ajax_update_form_status']);
 		add_action('wp_ajax_outerwhisper_update_form_feedback_status', [$this, 'ajax_update_form_feedback_status']);
@@ -38,7 +37,7 @@ class Admin {
 			return;
 		}
 
-		$feedback_page = new Feedbacks();
+		$feedback_page = new FeedbackList();
 
 		$icon_svg = 'data:image/svg+xml;base64,' . base64_encode(
 			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#fff" d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z"/></svg>'
@@ -160,6 +159,8 @@ class Admin {
                 $this->enqueue_outerwhisper_admin_script('outerwhisper-admin-script', OUTERWHISPER_PLUGIN_URL . 'assets/js/dist/outerwhisper-admin.js', [], OUTERWHISPER_VERSION);
                 break;
             case ($hook === 'toplevel_page_outerwhisper-dashboard'):
+				wp_enqueue_style('outerwhisper-form-frontend-style', OUTERWHISPER_PLUGIN_URL . 'assets/css/dist/outerwhisper-form-frontend.css', [], OUTERWHISPER_VERSION);
+
                 wp_enqueue_script('outerwhisper-chart-js', OUTERWHISPER_PLUGIN_URL . 'assets/js/external/chart.min.js', [], '4.0.0');
 
                 $this->enqueue_outerwhisper_admin_script('outerwhisper-admin-script', OUTERWHISPER_PLUGIN_URL . 'assets/js/dist/outerwhisper-admin.js', [], OUTERWHISPER_VERSION);
@@ -331,7 +332,7 @@ class Admin {
         $success = $fb_db->update_status($feedback_id, $status);
 
         if ($success !== false) {
-			FeedbackStatsService::clear_cache();
+			StatisticService::clear_statistic_cache();
 
             wp_send_json_success(['message' => esc_html__('Feedback status updated successfully', 'outerwhisper')]);
         } else {
@@ -394,29 +395,6 @@ class Admin {
              'templates' => $rendered,
              'html'      => implode("\n\n", $rendered),
          ]);
-    }
-
-    public function ajax_get_chart_recent_feedbacks() {
-        check_ajax_referer('outerwhisper_admin_nonce', 'nonce');
-
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error(esc_html__('Permission denied', 'outerwhisper'));
-        }
-
-        $feedback_db = new FormFeedback();
-        $feedbacks = $feedback_db->get_feedbacks(['range' => 'last_30_days', 'limit' => 500]);
-
-        $formatted_feedback = [];
-        foreach ($feedbacks as $entity) {
-            $data = $entity->toArray();
-            // Map created to time for JS chart compatibility
-            $data['time'] = $data['created'];
-            $formatted_feedback[] = $data;
-        }
-
-        wp_send_json_success([
-            'feedback' => $formatted_feedback
-        ]);
     }
 
     public function ajax_get_form_feedback_by_id() {

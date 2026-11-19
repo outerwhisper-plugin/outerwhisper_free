@@ -40,7 +40,7 @@ if (!defined('OUTERWHISPER_PLUGIN_NAME_PREFIX')) {
 	define('OUTERWHISPER_PLUGIN_PATH', plugin_dir_path(__FILE__));
 	define('OUTERWHISPER_PLUGIN_URL', plugin_dir_url(__FILE__));
 	define('OUTERWHISPER_VERSION', '1.0.3');
-	define('OUTERWHISPER_DB_VERSION', '1.0.2');
+	define('OUTERWHISPER_DB_VERSION', '1.0.3');
 }
 
 // Autoloader (einfach gehalten für dieses Plugin)
