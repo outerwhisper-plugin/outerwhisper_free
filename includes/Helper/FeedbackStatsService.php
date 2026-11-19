@@ -6,9 +6,9 @@ use wpdb;
 
 defined('ABSPATH') || exit;
 
-class FeedbackStatsService {
+class FeedbackStatsService extends StatisticService {
 
-	public const CACHE_GROUP = 'outerwhisper_kpi';
+	public const CACHE_GROUP = 'outerwhisper_feedback_list_kpi';
 
 	protected wpdb $wpdb;
 	protected string $table_name;
@@ -125,66 +125,6 @@ class FeedbackStatsService {
 		wp_cache_set($cache_key, $kpis, self::CACHE_GROUP, 300);
 
 		return $kpis;
-	}
-
-	public static function clear_cache(): void {
-		if (function_exists('wp_cache_flush_group')) {
-			wp_cache_flush_group(self::CACHE_GROUP);
-		} else {
-			wp_cache_flush();
-		}
-	}
-
-	protected function resolve_period_dates(string $period): array {
-		$current_start  = '';
-		$current_end    = '';
-		$previous_start = '';
-		$previous_end   = '';
-
-		$now = new \DateTimeImmutable('now', wp_timezone());
-		$today = $now->setTime(0, 0, 0);
-
-		$has_previous = true;
-
-		switch ($period) {
-			case '7d':
-			case '30d':
-			case '90d':
-				$days = (int) $period;
-
-				$current_start  = $today->modify('-' . ($days - 1) . ' days');
-				$current_end    = $today->setTime(23, 59, 59);
-
-				$previous_start = $today->modify('-' . ($days * 2 - 1) . ' days');
-				$previous_end   = $today->modify('-' . $days . ' days')->setTime(23, 59, 59);
-				break;
-
-			case 'all':
-				$has_previous = false;
-				break;
-
-			default:
-				$current_start  = $today->modify('-29 days');
-				$current_end    = $today->setTime(23, 59, 59);
-				$previous_start = $today->modify('-59 days');
-				$previous_end   = $today->modify('-30 days')->setTime(23, 59, 59);
-				break;
-		}
-
-		if ($period !== 'all') {
-			$current_start  = $current_start->format('Y-m-d H:i:s');
-			$current_end    = $current_end->format('Y-m-d H:i:s');
-			$previous_start = $previous_start->format('Y-m-d H:i:s');
-			$previous_end   = $previous_end->format('Y-m-d H:i:s');
-		}
-
-		return [
-			'has_previous'   => $has_previous,
-			'current_start'  => $current_start,
-			'current_end'    => $current_end,
-			'previous_start' => $previous_start,
-			'previous_end'   => $previous_end,
-		];
 	}
 
 	protected function build_extra_where(array $filters): array {

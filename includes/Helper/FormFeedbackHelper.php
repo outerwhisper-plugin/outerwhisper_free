@@ -198,4 +198,85 @@ class FormFeedbackHelper {
             return true;
         }));
     }
+
+	/**
+	 * Extrahiert alle beantworteten Felder aus der Feedback-Datenstruktur für die Antwort-Tabelle.
+	 *
+	 * @param int   $feedback_id
+	 * @param array $feedback_data
+	 * @param int   $form_id
+	 * @return array
+	 */
+	public function extract_answers_from_feedback_data(int $feedback_id, array $feedback_data, int $form_id): array {
+		$answers = [];
+		if (empty($feedback_data['steps']) || !is_array($feedback_data['steps'])) {
+			return $answers;
+		}
+
+		$configHelper = new ConfigHelper();
+		$formFieldsData = $configHelper->get_form_fields_data();
+		$rating_types = $formFieldsData['rating'];
+
+		$steps = $feedback_data['steps'];
+		$all_fields = [];
+
+		// 1. Step 1 Felder
+		if (!empty($steps['step1']) && is_array($steps['step1'])) {
+			$all_fields = array_merge($all_fields, $steps['step1']);
+		}
+
+		// 2. Step 2 Felder (flaches Array oder nach trigger_id gruppiert)
+		if (!empty($steps['step2']) && is_array($steps['step2'])) {
+			foreach ($steps['step2'] as $fields_or_item) {
+				if (is_array($fields_or_item)) {
+					if (isset($fields_or_item[0]) || empty($fields_or_item['id'])) {
+						$all_fields = array_merge($all_fields, $fields_or_item);
+					} else {
+						$all_fields[] = $fields_or_item;
+					}
+				}
+			}
+		}
+
+		// 3. Antworten filtern & für wp_outerwhisper_form_feedback_answers aufbereiten
+		$ignored_types = ['headline', 'description', 'button'];
+
+		foreach ($all_fields as $field) {
+			if (!is_array($field)) {
+				continue;
+			}
+
+			$type = $field['type'] ?? '';
+
+			if (empty($type) || in_array($type, $ignored_types, true)) {
+				continue;
+			}
+
+			if (!array_key_exists('value', $field) && !array_key_exists('score', $field)) {
+				continue;
+			}
+
+			$field_id = isset($field['id']) ? sanitize_text_field((string) $field['id']) : '';
+			$value = $field['value'] ?? null;
+			$is_numeric = in_array($type, $rating_types, true) && is_numeric($value);
+
+			$num_value = $is_numeric ? (float) $value : null;
+			$text_value = null;
+
+			if (!$is_numeric && null !== $value) {
+				$text_value = is_array($value) ? wp_json_encode($value) : sanitize_text_field((string) $value);
+			}
+
+			$answers[] = [
+				'outerwhisper_ffa_ff_id'      => $feedback_id,
+				'outerwhisper_ffa_fd_id'      => $form_id,
+				'outerwhisper_ffa_field_id'   => $field_id,
+				'outerwhisper_ffa_field_type' => sanitize_text_field($type),
+				'outerwhisper_ffa_num_value'  => $num_value,
+				'outerwhisper_ffa_text_value' => $text_value,
+			];
+		}
+
+		return $answers;
+	}
 }

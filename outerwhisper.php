@@ -3,7 +3,7 @@
  * Plugin Name:       OuterWhisper - Interactive Feedback Form, Feedback Button, Survey, Rate Post & Collect User Feedback in Minutes
  * Plugin URI:        https://outerwhisper.de
  * Description:       Create dynamic user feedback forms or a feedback button in 2–3 minutes using our form builder and collect user feedback for your WordPress site.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            Kai Steudten
@@ -39,8 +39,8 @@ if (!defined('OUTERWHISPER_PLUGIN_NAME_PREFIX')) {
 	define('OUTERWHISPER_PLUGIN_NAME_PREFIX', 'OUTERWHISPER_');
 	define('OUTERWHISPER_PLUGIN_PATH', plugin_dir_path(__FILE__));
 	define('OUTERWHISPER_PLUGIN_URL', plugin_dir_url(__FILE__));
-	define('OUTERWHISPER_VERSION', '1.0.3');
-	define('OUTERWHISPER_DB_VERSION', '1.0.2');
+	define('OUTERWHISPER_VERSION', '1.0.4');
+	define('OUTERWHISPER_DB_VERSION', '1.0.3');
 }
 
 // Autoloader (einfach gehalten für dieses Plugin)

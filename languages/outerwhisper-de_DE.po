@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OuterWhisper 1.0.3\n"
+"Project-Id-Version: OuterWhisper 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: Junie\n"
 "Language-Team: German\n"
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-15 11:57+0000\n"
-"PO-Revision-Date: 2026-11-09T10:49:21+00:00\n"
+"PO-Revision-Date: 2026-11-19T09:30:46+00:00\n"
 "Language: de_DE\n"
 "X-Generator: Poedit 3.9\n"
 "X-Domain: outerwhisper\n"
@@ -33,109 +33,164 @@ msgstr ""
 msgid "Kai Steudten"
 msgstr ""
 
+#: includes/Admin.php:58
 #: includes/Admin.php:59
-#: includes/Admin.php:60
 msgid "admin.menu.dashboard"
 msgstr "Dashboard"
 
+#: includes/Admin.php:67
 #: includes/Admin.php:68
-#: includes/Admin.php:69
 msgid "admin.menu.all_forms"
 msgstr "Alle Formulare"
 
+#: includes/Admin.php:76
 #: includes/Admin.php:77
-#: includes/Admin.php:78
 msgid "admin.menu.add_form"
 msgstr "Formular hinzufügen"
 
+#: includes/Admin.php:85
 #: includes/Admin.php:86
-#: includes/Admin.php:87
 msgid "admin.menu.feedback_list"
 msgstr "Feedback-Liste"
 
+#: includes/Admin.php:98
 #: includes/Admin.php:99
-#: includes/Admin.php:100
 msgid "admin.menu.export"
 msgstr "Export"
 
+#: includes/Admin.php:107
 #: includes/Admin.php:108
-#: includes/Admin.php:109
 msgid "admin.menu.about"
 msgstr "Über OuterWhisper"
 
-#: includes/Admin.php:226
-#: includes/Admin.php:292
-#: includes/Admin.php:320
-#: includes/Admin.php:346
-#: includes/Admin.php:364
-#: includes/Admin.php:403
-#: includes/Admin.php:426
+#: includes/Admin.php:227
+#: includes/Admin.php:293
+#: includes/Admin.php:321
+#: includes/Admin.php:347
+#: includes/Admin.php:365
+#: includes/Admin.php:404
 msgid "Permission denied"
 msgstr ""
 
-#: includes/Admin.php:239
-#: includes/Admin.php:299
-#: includes/Admin.php:327
+#: includes/Admin.php:240
+#: includes/Admin.php:300
+#: includes/Admin.php:328
 msgid "Missing data"
 msgstr ""
 
-#: includes/Admin.php:248
+#: includes/Admin.php:249
 msgid "Invalid data"
 msgstr ""
 
-#: includes/Admin.php:261
+#: includes/Admin.php:262
 msgid "Invalid form configuration. Please check your form settings."
 msgstr ""
 
-#: includes/Admin.php:268
+#: includes/Admin.php:269
 #: includes/Database/Form.php:144
 msgid "admin.db.default_new_form_name"
 msgstr "Neues Formular"
 
-#: includes/Admin.php:278
+#: includes/Admin.php:279
 msgid "Form data saved successfully"
 msgstr ""
 
-#: includes/Admin.php:284
+#: includes/Admin.php:285
 msgid "Failed to save form data"
 msgstr ""
 
-#: includes/Admin.php:310
+#: includes/Admin.php:311
 msgid "Status updated successfully"
 msgstr ""
 
-#: includes/Admin.php:312
+#: includes/Admin.php:313
 msgid "Failed to update status"
 msgstr ""
 
-#: includes/Admin.php:336
+#: includes/Admin.php:337
 msgid "Feedback status updated successfully"
 msgstr ""
 
-#: includes/Admin.php:338
+#: includes/Admin.php:339
 msgid "Failed to update feedback status"
 msgstr ""
 
-#: includes/Admin.php:431
+#: includes/Admin.php:409
 msgid "ID missing"
 msgstr ""
 
-#: includes/Admin.php:437
+#: includes/Admin.php:415
 msgid "Feedback not found"
 msgstr ""
 
-#: includes/Admin.php:477
+#: includes/Admin.php:455
 msgid "admin.notice.thank_you"
 msgstr "Vielen Dank, dass Du %s verwendest."
 
+#: includes/Aggregator/DashboardAggregator.php:216
+#: includes/Helper/FormHelper.php:256
+msgid "admin.form_type.shortcode.name"
+msgstr "Shortcode"
+
+#: includes/Aggregator/DashboardAggregator.php:224
+#: includes/Helper/FormHelper.php:257
+msgid "admin.form_type.pre-content.name"
+msgstr "Pre-Content"
+
+#: includes/Aggregator/DashboardAggregator.php:232
+#: includes/Helper/FormHelper.php:258
+msgid "admin.form_type.post-content.name"
+msgstr "Post-Content"
+
+#: includes/Aggregator/DashboardAggregator.php:240
+#: includes/Helper/FormHelper.php:253
+msgid "admin.form_type.modal.name"
+msgstr "Overlay"
+
+#: includes/Aggregator/DashboardAggregator.php:248
+#: includes/Helper/FormHelper.php:254
+msgid "admin.form_type.slide-in.name"
+msgstr "Slide-In"
+
+#: includes/Aggregator/DashboardAggregator.php:256
+#: includes/Helper/FormHelper.php:255
+msgid "admin.form_type.feedback-button.name"
+msgstr "Feedback-Button"
+
+#: includes/Aggregator/DashboardAggregator.php:576
+msgid "admin.page.dashboard.distribution.stars.1"
+msgstr "1 Stern"
+
+#: includes/Aggregator/DashboardAggregator.php:577
+msgid "admin.page.dashboard.distribution.stars.2"
+msgstr "2 Sterne"
+
+#: includes/Aggregator/DashboardAggregator.php:578
+msgid "admin.page.dashboard.distribution.stars.3"
+msgstr "3 Sterne"
+
+#: includes/Aggregator/DashboardAggregator.php:579
+msgid "admin.page.dashboard.distribution.stars.4"
+msgstr "4 Sterne"
+
+#: includes/Aggregator/DashboardAggregator.php:580
+msgid "admin.page.dashboard.distribution.stars.5"
+msgstr "5 Sterne"
+
+#: includes/Aggregator/DashboardAggregator.php:601
+msgid "admin.page.dashboard.distribution.answer"
+msgid_plural "admin.page.dashboard.distribution.answers"
+msgstr[0] "%s Antwort"
+msgstr[1] "%s Antworten"
+
 #: includes/Database/Form.php:18
-#: includes/FormFrontend.php:180
-#: includes/Helper/ConfigHelper.php:172
+#: includes/FormFrontend.php:182
+#: includes/Helper/ConfigHelper.php:180
 msgid "admin.db.default_form_name"
 msgstr "Feedbackformular"
 
-#: includes/Database/Form.php:276
-#: includes/Database/Form.php:282
+#: includes/Database/Form.php:277
+#: includes/Database/Form.php:283
 msgid "admin.form.duplicate_suffix"
 msgstr "Kopie"
 
@@ -172,10 +227,10 @@ msgstr "%s oder kontaktiere deinen Serveradministrator."
 msgid "admin.env_check.php.update_link.txt"
 msgstr "Erfahre mehr über die Aktualisierung von PHP"
 
-#: includes/FormFrontend.php:213
-#: includes/Helper/ConfigHelper.php:243
-#: includes/Helper/ConfigHelper.php:279
-#: includes/Helper/ConfigHelper.php:313
+#: includes/FormFrontend.php:215
+#: includes/Helper/ConfigHelper.php:251
+#: includes/Helper/ConfigHelper.php:287
+#: includes/Helper/ConfigHelper.php:321
 #: templates/frontend/outerwhisper-form-footer.php:39
 #: assets/js/dist/outerwhisper-form-builder.js:4413
 #: assets/js/dist/outerwhisper-form-builder.js:4430
@@ -184,84 +239,92 @@ msgstr "Erfahre mehr über die Aktualisierung von PHP"
 msgid "admin.frontend.default_footer_text"
 msgstr "Wir schätzen dein ehrliches Feedback!"
 
-#: includes/FormFrontend.php:582
+#: includes/FormFrontend.php:630
 msgid "admin.notification.feedback_saved"
 msgstr "Feedback gespeichert"
 
-#: includes/FormFrontend.php:584
+#: includes/FormFrontend.php:632
 msgid "admin.notification.database_error"
 msgstr "Datenbankfehler"
 
-#: includes/FormFrontend.php:603
+#: includes/FormFrontend.php:651
 msgid "admin.notification.subject"
 msgstr "Neuer Formulareintrag"
 
-#: includes/FormFrontend.php:617
+#: includes/FormFrontend.php:665
 msgid "admin.notification.email_body"
 msgstr "<p>Hier sind die übermittelten Formulardaten:</p><p>{feedback_values}</p><p>Gesendet am: {date} um {time}</p><p>Über die Seite: {page_url}</p>"
 
-#: includes/FormFrontend.php:653
+#: includes/FormFrontend.php:696
+msgid "admin.notification.rating_suffix.singular"
+msgstr " Stern"
+
+#: includes/FormFrontend.php:698
+msgid "admin.notification.rating_suffix_plural"
+msgstr " Sterne"
+
+#: includes/FormFrontend.php:708
 msgid "admin.notification.default_form_name"
 msgstr "Feedback-Formular"
 
-#: includes/FormFrontend.php:657
+#: includes/FormFrontend.php:712
 msgid "admin.notification.time_suffix"
 msgstr "Uhr"
 
-#: includes/Helper/ConfigHelper.php:44
+#: includes/Helper/ConfigHelper.php:52
 msgid "fields.headline.name"
 msgstr "Überschrift"
 
-#: includes/Helper/ConfigHelper.php:46
+#: includes/Helper/ConfigHelper.php:54
 msgid "fields.headline.default_label"
 msgstr "Deine Meinung zählt!"
 
-#: includes/Helper/ConfigHelper.php:53
+#: includes/Helper/ConfigHelper.php:61
 msgid "fields.description.name"
 msgstr "Beschreibung"
 
-#: includes/Helper/ConfigHelper.php:55
+#: includes/Helper/ConfigHelper.php:63
 msgid "fields.description.default_label"
 msgstr "Bitte nimm dir eine Minute Zeit, um dieses kurze Feedback auszufüllen."
 
-#: includes/Helper/ConfigHelper.php:62
+#: includes/Helper/ConfigHelper.php:70
 msgid "fields.button.name"
 msgstr "Button"
 
-#: includes/Helper/ConfigHelper.php:64
+#: includes/Helper/ConfigHelper.php:72
 msgid "fields.button.default_label"
 msgstr "Feedback senden"
 
-#: includes/Helper/ConfigHelper.php:71
+#: includes/Helper/ConfigHelper.php:79
 msgid "fields.textarea.name"
 msgstr "Textabsatz (Mehrzeilig)"
 
-#: includes/Helper/ConfigHelper.php:73
+#: includes/Helper/ConfigHelper.php:81
 msgid "fields.textarea.default_label"
 msgstr "Deine Nachricht"
 
-#: includes/Helper/ConfigHelper.php:80
+#: includes/Helper/ConfigHelper.php:88
 #: templates/admin/form-builder/fields.php:69
 msgid "fields.dropdown.name"
 msgstr "Dropdown"
 
-#: includes/Helper/ConfigHelper.php:82
-#: includes/Helper/ConfigHelper.php:91
-#: includes/Helper/ConfigHelper.php:101
+#: includes/Helper/ConfigHelper.php:90
+#: includes/Helper/ConfigHelper.php:99
+#: includes/Helper/ConfigHelper.php:109
 msgid "fields.choices_list.default_label"
 msgstr "Wobei können wir dir helfen?"
 
-#: includes/Helper/ConfigHelper.php:89
+#: includes/Helper/ConfigHelper.php:97
 #: templates/admin/form-builder/fields.php:74
 msgid "fields.chips.name"
 msgstr "Chips"
 
-#: includes/Helper/ConfigHelper.php:99
+#: includes/Helper/ConfigHelper.php:107
 #: templates/admin/form-builder/fields.php:79
 msgid "fields.radio.name"
 msgstr "Radio-Button"
 
-#: includes/Helper/ConfigHelper.php:109
+#: includes/Helper/ConfigHelper.php:117
 #: templates/admin/form-builder/fields.php:84
 #: assets/js/dist/outerwhisper-form-builder.js:1529
 #: assets/js/dist/outerwhisper-form-builder.js:1577
@@ -272,304 +335,304 @@ msgstr "Radio-Button"
 msgid "fields.name.name"
 msgstr "Name"
 
-#: includes/Helper/ConfigHelper.php:111
+#: includes/Helper/ConfigHelper.php:119
 msgid "fields.name.default_label"
 msgstr "Name"
 
-#: includes/Helper/ConfigHelper.php:118
+#: includes/Helper/ConfigHelper.php:126
 #: templates/admin/form-builder/fields.php:89
 msgid "fields.email.name"
 msgstr "E-Mail"
 
-#: includes/Helper/ConfigHelper.php:120
+#: includes/Helper/ConfigHelper.php:128
 msgid "fields.email.default_label"
 msgstr "E-Mail"
 
-#: includes/Helper/ConfigHelper.php:127
+#: includes/Helper/ConfigHelper.php:135
 msgid "fields.rating.name"
 msgstr "Sternebewertung"
 
-#: includes/Helper/ConfigHelper.php:129
+#: includes/Helper/ConfigHelper.php:137
 msgid "fields.rating.default_label"
 msgstr "Wie bewertest du unsere Seite?"
 
-#: includes/Helper/ConfigHelper.php:163
+#: includes/Helper/ConfigHelper.php:171
 msgid "admin.config.default_email"
 msgstr "E-Mail Addresse"
 
-#: includes/Helper/ConfigHelper.php:329
+#: includes/Helper/ConfigHelper.php:337
 #: assets/js/dist/outerwhisper-form-frontend.js:2976
 #: assets/js/dist/outerwhisper-form-frontend.js:3123
 #: assets/js/dist/outerwhisper-form-frontend.js:3139
 msgid "confirmation.message.default"
 msgstr "<p>Danke für dein Feedback! Es hilft dabei, uns stetig zu verbessern.</p>"
 
-#: includes/Helper/ConfigHelper.php:335
+#: includes/Helper/ConfigHelper.php:343
 msgid "notification.subject.default"
 msgstr "Neues Feedback erhalten"
 
-#: includes/Helper/ConfigHelper.php:429
+#: includes/Helper/ConfigHelper.php:437
 msgid "admin.form_template.bug.title"
 msgstr "Fehler melden"
 
-#: includes/Helper/ConfigHelper.php:433
+#: includes/Helper/ConfigHelper.php:441
 msgid "admin.form_template.website.title"
 msgstr "Artikel-Zufriedenheit (mit Schritt 2)"
 
-#: includes/Helper/ConfigHelper.php:437
+#: includes/Helper/ConfigHelper.php:445
 msgid "admin.form_template.template-4.title"
 msgstr "Artikel-Zufriedenheit (ohne Schritt 2)"
 
-#: includes/Helper/ConfigHelper.php:441
-#: includes/Helper/FormHelper.php:122
+#: includes/Helper/ConfigHelper.php:449
+#: includes/Helper/FormHelper.php:128
 msgid "admin.initial_form.in_content.title"
 msgstr "Inhaltsfeedback"
 
-#: includes/Helper/ConfigHelper.php:445
-#: includes/Helper/FormHelper.php:134
+#: includes/Helper/ConfigHelper.php:453
+#: includes/Helper/FormHelper.php:140
 msgid "admin.initial_form.feedback_button.title"
 msgstr "Feedback-Button Formular"
 
-#: includes/Helper/ConfigHelper.php:449
-#: includes/Helper/FormHelper.php:155
+#: includes/Helper/ConfigHelper.php:457
+#: includes/Helper/FormHelper.php:161
 msgid "admin.initial_form.exit_intent.title"
 msgstr "Exit-Intent Formular"
 
-#: includes/Helper/ConfigHelper.php:453
+#: includes/Helper/ConfigHelper.php:461
 msgid "admin.form_template.blank.title"
 msgstr "Leeres Formular"
 
-#: includes/Helper/ConfigHelper.php:471
-#: includes/Helper/ConfigHelper.php:595
+#: includes/Helper/ConfigHelper.php:479
+#: includes/Helper/ConfigHelper.php:603
 msgid "admin.default.rating.label"
 msgstr "Wie zufrieden bist du mit unserem Service?"
 
-#: includes/Helper/ConfigHelper.php:478
+#: includes/Helper/ConfigHelper.php:486
 msgid "admin.default.step1.headline.label"
 msgstr "Wie zufrieden bist du mit dem Inhalt?"
 
-#: includes/Helper/ConfigHelper.php:479
+#: includes/Helper/ConfigHelper.php:487
 msgid "admin.default.step1.description.label"
 msgstr "Hilf uns dabei, besser zu werden."
 
-#: includes/Helper/ConfigHelper.php:484
+#: includes/Helper/ConfigHelper.php:492
 msgid "admin.default.step2.headline.label"
 msgstr "Verrate uns mehr?"
 
-#: includes/Helper/ConfigHelper.php:485
+#: includes/Helper/ConfigHelper.php:493
 msgid "admin.default.step2.description.label"
 msgstr "Was hat dir besonders gefallen oder was können wir optimieren?"
 
-#: includes/Helper/ConfigHelper.php:486
+#: includes/Helper/ConfigHelper.php:494
 msgid "admin.default.step2.textarea.label"
 msgstr "Was können wir besser machen?"
 
-#: includes/Helper/ConfigHelper.php:486
+#: includes/Helper/ConfigHelper.php:494
 msgid "admin.default.step2.textarea.placeholder"
 msgstr "Schreibe hier dein Feedback..."
 
-#: includes/Helper/ConfigHelper.php:487
+#: includes/Helper/ConfigHelper.php:495
 msgid "admin.default.step2.button.back.label"
 msgstr "Zurück"
 
-#: includes/Helper/ConfigHelper.php:488
+#: includes/Helper/ConfigHelper.php:496
 msgid "admin.default.step2.button.submit.label"
 msgstr "Absenden"
 
-#: includes/Helper/ConfigHelper.php:498
+#: includes/Helper/ConfigHelper.php:506
 msgid "admin.feedback_button.btn_improve.label"
 msgstr "Bewerte deine Erfahrungen"
 
-#: includes/Helper/ConfigHelper.php:515
+#: includes/Helper/ConfigHelper.php:523
 msgid "admin.feedback_button.btn_missing.label"
 msgstr "Was fehlt dir auf der Seite?"
 
-#: includes/Helper/ConfigHelper.php:532
+#: includes/Helper/ConfigHelper.php:540
 msgid "admin.feedback_button.btn_idea.label"
 msgstr "Hast du eine Idee?"
 
-#: includes/Helper/ConfigHelper.php:549
+#: includes/Helper/ConfigHelper.php:557
 msgid "admin.feedback_button.btn_problem.label"
 msgstr "Melde ein Problem"
 
-#: includes/Helper/ConfigHelper.php:566
+#: includes/Helper/ConfigHelper.php:574
 msgid "admin.feedback_button.btn_other.label"
 msgstr "Sonstiges Feedback"
 
-#: includes/Helper/ConfigHelper.php:585
+#: includes/Helper/ConfigHelper.php:593
 msgid "admin.feedback_button.step1.headline.label"
 msgstr "Wie können wir uns verbessern?"
 
-#: includes/Helper/ConfigHelper.php:594
+#: includes/Helper/ConfigHelper.php:602
 msgid "admin.feedback_button.step2.improve.headline.label"
 msgstr "Wie zufrieden bist du mit uns?"
 
-#: includes/Helper/ConfigHelper.php:598
+#: includes/Helper/ConfigHelper.php:606
 msgid "admin.feedback_button.step2.missing.headline.label"
 msgstr "Welches Feature fehlt dir?"
 
-#: includes/Helper/ConfigHelper.php:599
+#: includes/Helper/ConfigHelper.php:607
 msgid "admin.feedback_button.step2.missing.description.label"
 msgstr "Teile uns mit, welches Feature oder welche Funktion du auf unserer Seite vermisst."
 
-#: includes/Helper/ConfigHelper.php:600
+#: includes/Helper/ConfigHelper.php:608
 msgid "admin.feedback_button.step2.missing.textarea.label"
 msgstr "Was können wir besser machen?"
 
-#: includes/Helper/ConfigHelper.php:600
+#: includes/Helper/ConfigHelper.php:608
 msgid "admin.feedback_button.step2.missing.textarea.placeholder"
 msgstr "z.B. eine spezielle Tabelle oder Benachrichtigungen.."
 
-#: includes/Helper/ConfigHelper.php:601
+#: includes/Helper/ConfigHelper.php:609
 msgid "admin.feedback_button.step2.missing.button.label"
 msgstr "Absenden"
 
-#: includes/Helper/ConfigHelper.php:604
+#: includes/Helper/ConfigHelper.php:612
 msgid "admin.feedback_button.step2.idea.headline.label"
 msgstr "Welche Funktion würdest du dir wünschen?"
 
-#: includes/Helper/ConfigHelper.php:605
+#: includes/Helper/ConfigHelper.php:613
 msgid "admin.feedback_button.step2.idea.description.label"
 msgstr "Beschreibe uns deine Idee so genau wie möglich."
 
-#: includes/Helper/ConfigHelper.php:606
+#: includes/Helper/ConfigHelper.php:614
 msgid "admin.feedback_button.step2.idea.textarea.label"
 msgstr "Was können wir besser machen?"
 
-#: includes/Helper/ConfigHelper.php:606
+#: includes/Helper/ConfigHelper.php:614
 msgid "admin.feedback_button.step2.idea.textarea.placeholder"
 msgstr "Ich würde mir wünschen, dass..."
 
-#: includes/Helper/ConfigHelper.php:607
+#: includes/Helper/ConfigHelper.php:615
 msgid "admin.feedback_button.step2.idea.button.label"
 msgstr "Absenden"
 
-#: includes/Helper/ConfigHelper.php:610
+#: includes/Helper/ConfigHelper.php:618
 msgid "admin.feedback_button.step2.problem.headline.label"
 msgstr "Was ist das Problem?"
 
-#: includes/Helper/ConfigHelper.php:611
+#: includes/Helper/ConfigHelper.php:619
 msgid "admin.feedback_button.step2.problem.description.label"
 msgstr "Gib uns bitte möglichst viele Details zum Problem."
 
-#: includes/Helper/ConfigHelper.php:612
+#: includes/Helper/ConfigHelper.php:620
 msgid "admin.feedback_button.step2.problem.textarea.label"
 msgstr "Was können wir besser machen?"
 
-#: includes/Helper/ConfigHelper.php:612
+#: includes/Helper/ConfigHelper.php:620
 msgid "admin.feedback_button.step2.problem.textarea.placeholder"
 msgstr "Ich habe versucht... und dann ist das passiert..."
 
-#: includes/Helper/ConfigHelper.php:613
+#: includes/Helper/ConfigHelper.php:621
 msgid "admin.feedback_button.step2.problem.button.label"
 msgstr "Absenden"
 
-#: includes/Helper/ConfigHelper.php:616
+#: includes/Helper/ConfigHelper.php:624
 msgid "admin.feedback_button.step2.other.headline.label"
 msgstr "Was möchtest du uns mitteilen?"
 
-#: includes/Helper/ConfigHelper.php:617
+#: includes/Helper/ConfigHelper.php:625
 msgid "admin.feedback_button.step2.other.description.label"
 msgstr "Wir freuen uns über jedes Feedback, das du uns gibst."
 
-#: includes/Helper/ConfigHelper.php:618
+#: includes/Helper/ConfigHelper.php:626
 msgid "admin.feedback_button.step2.other.textarea.label"
 msgstr "Was können wir besser machen?"
 
-#: includes/Helper/ConfigHelper.php:618
+#: includes/Helper/ConfigHelper.php:626
 msgid "admin.feedback_button.step2.other.textarea.placeholder"
 msgstr "Teile uns hier deine Gedanken mit..."
 
-#: includes/Helper/ConfigHelper.php:619
+#: includes/Helper/ConfigHelper.php:627
 msgid "admin.feedback_button.step2.other.button.label"
 msgstr "Absenden"
 
-#: includes/Helper/ConfigHelper.php:628
+#: includes/Helper/ConfigHelper.php:636
 msgid "admin.exit_intent.rating.label"
 msgstr "Wie zufrieden bist du mit unserem Service?"
 
-#: includes/Helper/ConfigHelper.php:643
+#: includes/Helper/ConfigHelper.php:651
 msgid "admin.exit_intent.headline.label"
 msgstr "Warte! Bevor du gehst..."
 
-#: includes/Helper/ConfigHelper.php:650
+#: includes/Helper/ConfigHelper.php:658
 msgid "admin.exit_intent.description.label"
 msgstr "Wie zufrieden warst du mit dem Inhalt unserer Seite?"
 
-#: includes/Helper/ConfigHelper.php:661
+#: includes/Helper/ConfigHelper.php:669
 msgid "admin.exit_intent.step2.headline.label"
 msgstr "Erzähle uns mehr"
 
-#: includes/Helper/ConfigHelper.php:667
+#: includes/Helper/ConfigHelper.php:675
 msgid "admin.exit_intent.step2.textarea.label"
 msgstr "Was können wir besser machen? (Optional)"
 
-#: includes/Helper/ConfigHelper.php:669
+#: includes/Helper/ConfigHelper.php:677
 msgid "admin.exit_intent.step2.textarea.placeholder"
 msgstr "Dein Feedback hilft uns sehr..."
 
-#: includes/Helper/ConfigHelper.php:675
+#: includes/Helper/ConfigHelper.php:683
 msgid "admin.exit_intent.step2.button.label"
 msgstr "Feedback absenden"
 
-#: includes/Helper/ConfigHelper.php:694
+#: includes/Helper/ConfigHelper.php:702
 msgid "admin.template2.headline.label"
 msgstr "Fehler melden"
 
-#: includes/Helper/ConfigHelper.php:695
+#: includes/Helper/ConfigHelper.php:703
 msgid "admin.template2.description.label"
 msgstr "Bitte beschreibe das Problem so detailliert wie möglich."
 
-#: includes/Helper/ConfigHelper.php:696
+#: includes/Helper/ConfigHelper.php:704
 msgid "admin.template2.textarea.label"
 msgstr "Fehlerbeschreibung:"
 
-#: includes/Helper/ConfigHelper.php:696
+#: includes/Helper/ConfigHelper.php:704
 msgid "admin.template2.textarea.placeholder"
 msgstr "Welcher Fehler ist aufgetreten und auf welcher Seite?"
 
-#: includes/Helper/ConfigHelper.php:697
+#: includes/Helper/ConfigHelper.php:705
 msgid "admin.template2.button.label"
 msgstr "Fehlerbericht senden"
 
-#: includes/Helper/ConfigHelper.php:706
+#: includes/Helper/ConfigHelper.php:714
 msgid "admin.template3.rating.label"
 msgstr "Wie bewertest du den Artikel?"
 
-#: includes/Helper/ConfigHelper.php:721
+#: includes/Helper/ConfigHelper.php:729
 msgid "admin.template3.step1.headline.label"
 msgstr "Artikelbewertung"
 
-#: includes/Helper/ConfigHelper.php:726
+#: includes/Helper/ConfigHelper.php:734
 msgid "admin.template3.step2.headline.label"
 msgstr "Welche Informationen haben dir gefehlt?"
 
-#: includes/Helper/ConfigHelper.php:727
+#: includes/Helper/ConfigHelper.php:735
 msgid "admin.template3.step2.textarea.label"
 msgstr "Welche Informationen suchst du?"
 
-#: includes/Helper/ConfigHelper.php:727
+#: includes/Helper/ConfigHelper.php:735
 msgid "admin.template3.step2.textarea.placeholder"
 msgstr "Welche Informationen suchst du?"
 
-#: includes/Helper/ConfigHelper.php:728
+#: includes/Helper/ConfigHelper.php:736
 msgid "admin.template3.step2.button.label"
 msgstr "Senden"
 
-#: includes/Helper/ConfigHelper.php:738
+#: includes/Helper/ConfigHelper.php:746
 msgid "admin.template4.rating.label"
 msgstr "Wie bewertest du den Artikel?"
 
-#: includes/Helper/ConfigHelper.php:753
+#: includes/Helper/ConfigHelper.php:761
 msgid "admin.template4.step1.headline.label"
 msgstr "Artikelbewertung"
 
-#: includes/Helper/ConfigHelper.php:784
+#: includes/Helper/ConfigHelper.php:792
 #: assets/js/dist/outerwhisper-form-builder.js:2059
 msgid "admin.conditions.options.posts"
 msgstr "Beiträge"
 
-#: includes/Helper/ConfigHelper.php:787
+#: includes/Helper/ConfigHelper.php:795
 #: assets/js/dist/outerwhisper-form-builder.js:2058
 msgid "admin.conditions.options.pages"
 msgstr "Seiten"
@@ -578,173 +641,149 @@ msgstr "Seiten"
 msgid "Invalid form configuration."
 msgstr ""
 
-#: includes/Helper/FormHelper.php:247
-msgid "admin.form_type.modal.name"
-msgstr "Overlay"
-
-#: includes/Helper/FormHelper.php:248
-msgid "admin.form_type.slide-in.name"
-msgstr "Slide-In"
-
-#: includes/Helper/FormHelper.php:249
-msgid "admin.form_type.feedback-button.name"
-msgstr "Feedback-Button"
-
-#: includes/Helper/FormHelper.php:250
-msgid "admin.form_type.shortcode.name"
-msgstr "Shortcode"
-
-#: includes/Helper/FormHelper.php:251
-msgid "admin.form_type.pre-content.name"
-msgstr "Pre-Content"
-
-#: includes/Helper/FormHelper.php:252
-msgid "admin.form_type.post-content.name"
-msgstr "Post-Content"
-
-#: includes/Lists/FormFeedbackListTable.php:39
+#: includes/Lists/FormFeedbackListTable.php:40
 msgid "admin.page.feedback_list.table.select_all"
 msgstr "Alle auswählen"
 
-#: includes/Lists/FormFeedbackListTable.php:40
+#: includes/Lists/FormFeedbackListTable.php:41
 msgid "admin.page.feedback_list.table.id"
 msgstr "ID"
 
-#: includes/Lists/FormFeedbackListTable.php:41
+#: includes/Lists/FormFeedbackListTable.php:42
 msgid "admin.page.feedback_list.table.status"
 msgstr "Status"
 
-#: includes/Lists/FormFeedbackListTable.php:42
+#: includes/Lists/FormFeedbackListTable.php:43
 msgid "admin.page.feedback_list.table.score"
 msgstr "Score"
 
-#: includes/Lists/FormFeedbackListTable.php:43
+#: includes/Lists/FormFeedbackListTable.php:44
 msgid "admin.page.feedback_list.table.form"
 msgstr "Formular"
 
-#: includes/Lists/FormFeedbackListTable.php:44
+#: includes/Lists/FormFeedbackListTable.php:45
 msgid "admin.page.feedback_list.table.page_url"
 msgstr "Seiten-URL"
 
-#: includes/Lists/FormFeedbackListTable.php:45
+#: includes/Lists/FormFeedbackListTable.php:46
 msgid "admin.page.feedback_list.table.answer"
 msgstr "Antwort (Vorschau)"
 
-#: includes/Lists/FormFeedbackListTable.php:46
+#: includes/Lists/FormFeedbackListTable.php:47
 msgid "admin.page.feedback_list.table.date"
 msgstr "Datum"
 
-#: includes/Lists/FormFeedbackListTable.php:47
+#: includes/Lists/FormFeedbackListTable.php:48
 msgid "admin.page.feedback_list.table.details"
 msgstr "Details"
 
-#: includes/Lists/FormFeedbackListTable.php:67
+#: includes/Lists/FormFeedbackListTable.php:68
 msgid "admin.page.feedback_list.bulk.mark_read"
 msgstr "Als gelesen markieren"
 
-#: includes/Lists/FormFeedbackListTable.php:68
+#: includes/Lists/FormFeedbackListTable.php:69
 msgid "admin.page.feedback_list.bulk.mark_unread"
 msgstr "Als ungelesen markieren"
 
-#: includes/Lists/FormFeedbackListTable.php:69
+#: includes/Lists/FormFeedbackListTable.php:70
 msgid "admin.page.feedback_list.bulk.archive"
 msgstr "Archivieren"
 
-#: includes/Lists/FormFeedbackListTable.php:70
+#: includes/Lists/FormFeedbackListTable.php:71
 msgid "admin.page.feedback_list.bulk.trash"
 msgstr "In den Papierkorb"
 
-#: includes/Lists/FormFeedbackListTable.php:204
+#: includes/Lists/FormFeedbackListTable.php:205
 msgid "admin.page.feedback_list.table.select_item"
 msgstr "Feedback #%d auswählen"
 
-#: includes/Lists/FormFeedbackListTable.php:224
-#: includes/Lists/FormFeedbackListTable.php:535
-#: includes/Lists/FormFeedbackListTable.php:594
+#: includes/Lists/FormFeedbackListTable.php:225
+#: includes/Lists/FormFeedbackListTable.php:547
+#: includes/Lists/FormFeedbackListTable.php:606
 #: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:81
 msgid "admin.page.feedback_list.status.read"
 msgstr "Gelesen"
 
-#: includes/Lists/FormFeedbackListTable.php:228
-#: includes/Lists/FormFeedbackListTable.php:536
-#: includes/Lists/FormFeedbackListTable.php:595
+#: includes/Lists/FormFeedbackListTable.php:229
+#: includes/Lists/FormFeedbackListTable.php:548
+#: includes/Lists/FormFeedbackListTable.php:607
 #: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:84
 msgid "admin.page.feedback_list.status.archived"
 msgstr "Archiviert"
 
-#: includes/Lists/FormFeedbackListTable.php:233
-#: includes/Lists/FormFeedbackListTable.php:534
-#: includes/Lists/FormFeedbackListTable.php:593
+#: includes/Lists/FormFeedbackListTable.php:234
+#: includes/Lists/FormFeedbackListTable.php:546
+#: includes/Lists/FormFeedbackListTable.php:605
 #: templates/admin/outerwhisper-form-feedback-list.php:129
 #: templates/admin/partial/outerwhisper-form-feedback-list-detail.php:78
 msgid "admin.page.feedback_list.status.unread"
 msgstr "Ungelesen"
 
-#: includes/Lists/FormFeedbackListTable.php:363
-#: assets/js/dist/outerwhisper-admin.js:353
+#: includes/Lists/FormFeedbackListTable.php:375
+#: assets/js/dist/outerwhisper-admin.js:312
 msgid "admin.page.feedback_list.table.no_items"
 msgstr "Keine Feedbacks gefunden."
 
-#: includes/Lists/FormFeedbackListTable.php:369
+#: includes/Lists/FormFeedbackListTable.php:381
 msgid "admin.page.feedback_list.no_permission"
 msgstr "Du hast keine Berechtigung, auf diese Seite zuzugreifen."
 
-#: includes/Lists/FormFeedbackListTable.php:501
-#: includes/Lists/FormFeedbackListTable.php:551
+#: includes/Lists/FormFeedbackListTable.php:513
+#: includes/Lists/FormFeedbackListTable.php:563
 msgid "admin.page.feedback_list.filter.period_7d"
 msgstr "Letzte 7 Tage"
 
-#: includes/Lists/FormFeedbackListTable.php:502
-#: includes/Lists/FormFeedbackListTable.php:552
+#: includes/Lists/FormFeedbackListTable.php:514
+#: includes/Lists/FormFeedbackListTable.php:564
 msgid "admin.page.feedback_list.filter.period_90d"
 msgstr "Letzte 90 Tage"
 
-#: includes/Lists/FormFeedbackListTable.php:503
-#: includes/Lists/FormFeedbackListTable.php:553
+#: includes/Lists/FormFeedbackListTable.php:515
+#: includes/Lists/FormFeedbackListTable.php:565
 msgid "admin.page.feedback_list.filter.period_all"
 msgstr "Gesamter Zeitraum"
 
-#: includes/Lists/FormFeedbackListTable.php:506
-#: includes/Lists/FormFeedbackListTable.php:547
+#: includes/Lists/FormFeedbackListTable.php:518
+#: includes/Lists/FormFeedbackListTable.php:559
 msgid "admin.page.feedback_list.filter.period"
 msgstr "Zeitraum"
 
-#: includes/Lists/FormFeedbackListTable.php:518
-#: includes/Lists/FormFeedbackListTable.php:559
+#: includes/Lists/FormFeedbackListTable.php:530
+#: includes/Lists/FormFeedbackListTable.php:571
 msgid "admin.page.feedback_list.filter.form"
 msgstr "Formular"
 
-#: includes/Lists/FormFeedbackListTable.php:527
-#: includes/Lists/FormFeedbackListTable.php:577
+#: includes/Lists/FormFeedbackListTable.php:539
+#: includes/Lists/FormFeedbackListTable.php:589
 msgid "admin.page.feedback_list.filter.display_type"
 msgstr "Anzeigetyp"
 
-#: includes/Lists/FormFeedbackListTable.php:540
-#: includes/Lists/FormFeedbackListTable.php:589
+#: includes/Lists/FormFeedbackListTable.php:552
+#: includes/Lists/FormFeedbackListTable.php:601
 msgid "admin.page.feedback_list.filter.status"
 msgstr "Status"
 
-#: includes/Lists/FormFeedbackListTable.php:550
+#: includes/Lists/FormFeedbackListTable.php:562
 msgid "admin.page.feedback_list.filter.period_30d"
 msgstr "Letzte 30 Tage"
 
-#: includes/Lists/FormFeedbackListTable.php:562
+#: includes/Lists/FormFeedbackListTable.php:574
 msgid "admin.page.feedback_list.filter.all_forms"
 msgstr "Alle Formulare"
 
-#: includes/Lists/FormFeedbackListTable.php:580
+#: includes/Lists/FormFeedbackListTable.php:592
 msgid "admin.page.feedback_list.filter.all_display_types"
 msgstr "Alle Anzeigetypen"
 
-#: includes/Lists/FormFeedbackListTable.php:592
+#: includes/Lists/FormFeedbackListTable.php:604
 msgid "admin.page.feedback_list.filter.all_statuses"
 msgstr "Alle Status"
 
-#: includes/Lists/FormFeedbackListTable.php:607
+#: includes/Lists/FormFeedbackListTable.php:619
 msgid "admin.page.feedback_list.filter.remove_filter"
 msgstr "Filter %s entfernen"
 
-#: includes/Lists/FormFeedbackListTable.php:614
+#: includes/Lists/FormFeedbackListTable.php:626
 msgid "admin.page.feedback_list.filter.reset_all"
 msgstr "Alle Filter zurücksetzen"
 
@@ -2281,65 +2320,216 @@ msgstr "Export"
 msgid "admin.horizontal_navigation.about"
 msgstr "Über OuterWhisper"
 
-#: templates/admin/outerwhisper-dashboard.php:13
-msgid "admin.page.dashboard.welcome"
-msgstr "Willkommen zurück!"
+#: templates/admin/outerwhisper-dashboard.php:48
+msgid "admin.page.dashboard.title"
+msgstr "Dashboard"
 
-#: templates/admin/outerwhisper-dashboard.php:14
-msgid "admin.page.dashboard.overview"
-msgstr "Hier ist ein Überblick über dein Feedback-Widget."
+#: templates/admin/outerwhisper-dashboard.php:49
+msgid "admin.page.dashboard.subtitle"
+msgstr "Ein Überblick über dein Feedback und die wichtigsten Kennzahlen."
 
-#: templates/admin/outerwhisper-dashboard.php:19
-msgid "admin.page.dashboard.summary"
-msgstr "Zusammenfassung"
+#: templates/admin/outerwhisper-dashboard.php:56
+msgid "admin.page.dashboard.filter.period"
+msgstr "Zeitraum"
 
-#: templates/admin/outerwhisper-dashboard.php:22
-msgid "admin.page.dashboard.total"
-msgstr "Gesamt"
-
-#: templates/admin/outerwhisper-dashboard.php:26
-msgid "admin.page.dashboard.today"
-msgstr "Heute"
-
-#: templates/admin/outerwhisper-dashboard.php:34
-msgid "admin.page.dashboard.distribution_by_type"
-msgstr "Verteilung nach Typ"
-
-#: templates/admin/outerwhisper-dashboard.php:38
-msgid "admin.page.dashboard.type.shortcode"
-msgstr "Shortcode:"
-
-#: templates/admin/outerwhisper-dashboard.php:42
-msgid "admin.page.dashboard.type.pre_content"
-msgstr "Pre-Content:"
-
-#: templates/admin/outerwhisper-dashboard.php:46
-msgid "admin.page.dashboard.type.post_content"
-msgstr "Post-Content:"
-
-#: templates/admin/outerwhisper-dashboard.php:50
-msgid "admin.page.dashboard.type.overlay"
-msgstr "Overlay:"
-
-#: templates/admin/outerwhisper-dashboard.php:54
-msgid "admin.page.dashboard.type.slide_in"
-msgstr "Slide-In:"
+#: templates/admin/outerwhisper-dashboard.php:57
+msgid "admin.page.dashboard.filter.select_period"
+msgstr "Zeitraum auswählen"
 
 #: templates/admin/outerwhisper-dashboard.php:58
-msgid "admin.page.dashboard.type.feedback_button"
-msgstr "Feedback-Button:"
+msgid "admin.page.dashboard.filter.period_7d"
+msgstr "Letzte 7 Tage"
 
-#: templates/admin/outerwhisper-dashboard.php:66
-msgid "admin.page.dashboard.recent_activities"
-msgstr "Letzte Aktivitäten"
+#: templates/admin/outerwhisper-dashboard.php:59
+msgid "admin.page.dashboard.filter.period_30d"
+msgstr "Letzte 30 Tage"
 
-#: templates/admin/outerwhisper-dashboard.php:73
-msgid "admin.page.dashboard.no_activities"
-msgstr "Keine Aktivitäten verfügbar."
+#: templates/admin/outerwhisper-dashboard.php:60
+msgid "admin.page.dashboard.filter.period_90d"
+msgstr "Letzte 90 Tage"
 
-#: templates/admin/outerwhisper-dashboard.php:98
-msgid "admin.page.dashboard.feedback_trend"
-msgstr "Feedback-Trend (letzte 30 Tage)"
+#: templates/admin/outerwhisper-dashboard.php:61
+msgid "admin.page.dashboard.filter.period_all"
+msgstr "Gesamter Zeitraum"
+
+#: templates/admin/outerwhisper-dashboard.php:67
+msgid "admin.page.dashboard.filter.form"
+msgstr "Formular"
+
+#: templates/admin/outerwhisper-dashboard.php:68
+msgid "admin.page.dashboard.filter.select_form"
+msgstr "Formular auswählen"
+
+#: templates/admin/outerwhisper-dashboard.php:69
+msgid "admin.page.dashboard.filter.all_forms"
+msgstr "Alle Formulare"
+
+#: templates/admin/outerwhisper-dashboard.php:85
+msgid "admin.page.dashboard.kpi.aria_label"
+msgstr "Wichtige Kennzahlen"
+
+#: templates/admin/outerwhisper-dashboard.php:91
+msgid "admin.page.dashboard.kpi.total_feedbacks"
+msgstr "Feedbacks gesamt"
+
+#: templates/admin/outerwhisper-dashboard.php:103
+#: templates/admin/outerwhisper-dashboard.php:134
+#: templates/admin/outerwhisper-dashboard.php:136
+#: templates/admin/outerwhisper-dashboard.php:180
+msgid "admin.page.dashboard.kpi.previous_period"
+msgstr "Vorheriger Zeitraum: %s"
+
+#: templates/admin/outerwhisper-dashboard.php:105
+#: templates/admin/outerwhisper-dashboard.php:138
+#: templates/admin/outerwhisper-dashboard.php:182
+msgid "admin.page.dashboard.kpi.all_time"
+msgstr "Gesamter Zeitraum"
+
+#: templates/admin/outerwhisper-dashboard.php:116
+msgid "admin.page.dashboard.kpi.average_score"
+msgstr "Durchschnitts-Score"
+
+#: templates/admin/outerwhisper-dashboard.php:149
+msgid "admin.page.dashboard.kpi.positive_rate"
+msgstr "Positivquote"
+
+#: templates/admin/outerwhisper-dashboard.php:159
+msgid "admin.page.dashboard.kpi.based_on_ratings"
+msgstr "Auf Basis von %s Bewertungen"
+
+#: templates/admin/outerwhisper-dashboard.php:168
+msgid "admin.page.dashboard.kpi.pages_with_feedback"
+msgstr "Seiten mit Feedback"
+
+#: templates/admin/outerwhisper-dashboard.php:192
+#: templates/admin/outerwhisper-dashboard.php:205
+msgid "admin.page.dashboard.trend.title"
+msgstr "Feedback-Entwicklung"
+
+#: templates/admin/outerwhisper-dashboard.php:196
+#: assets/js/dist/outerwhisper-admin.js:390
+#: assets/js/dist/outerwhisper-admin.js:442
+#: assets/js/dist/outerwhisper-admin.js:485
+msgid "admin.page.dashboard.trend.feedbacks"
+msgstr "Anzahl Feedbacks"
+
+#: templates/admin/outerwhisper-dashboard.php:200
+#: assets/js/dist/outerwhisper-admin.js:405
+msgid "admin.page.dashboard.trend.average_score"
+msgstr "Durchschnitts-Score"
+
+#: templates/admin/outerwhisper-dashboard.php:211
+msgid "admin.page.dashboard.distribution.title"
+msgstr "Verteilung nach Bewertung"
+
+#: templates/admin/outerwhisper-dashboard.php:215
+msgid "admin.page.dashboard.distribution.rating_types"
+msgstr "Bewertungstypen"
+
+#: templates/admin/outerwhisper-dashboard.php:216
+msgid "admin.page.dashboard.distribution.stars"
+msgstr "Sterne"
+
+#: templates/admin/outerwhisper-dashboard.php:242
+#: templates/admin/outerwhisper-dashboard.php:246
+msgid "admin.page.dashboard.display_type.title"
+msgstr "Feedbacks nach Anzeigetyp"
+
+#: templates/admin/outerwhisper-dashboard.php:249
+msgid "admin.page.dashboard.display_type.feedbacks"
+msgstr "Feedbacks"
+
+#: templates/admin/outerwhisper-dashboard.php:277
+msgid "admin.page.dashboard.top_pages.title"
+msgstr "Top 5 Seiten (nach Score)"
+
+#: templates/admin/outerwhisper-dashboard.php:283
+msgid "admin.page.dashboard.top_pages.page"
+msgstr "Seite"
+
+#: templates/admin/outerwhisper-dashboard.php:284
+msgid "admin.page.dashboard.top_pages.score"
+msgstr "Score"
+
+#: templates/admin/outerwhisper-dashboard.php:285
+msgid "admin.page.dashboard.top_pages.feedbacks"
+msgstr "Feedbacks"
+
+#: templates/admin/outerwhisper-dashboard.php:286
+msgid "admin.page.dashboard.top_pages.trend"
+msgstr "Trend"
+
+#: templates/admin/outerwhisper-dashboard.php:333
+msgid "admin.page.dashboard.top_pages.no_data"
+msgstr "Keine Seiten-Feedbacks im ausgewählten Zeitraum vorhanden."
+
+#: templates/admin/outerwhisper-dashboard.php:343
+msgid "admin.page.dashboard.top_pages.view_all"
+msgstr "Alle Seiten anzeigen"
+
+#: templates/admin/outerwhisper-dashboard.php:351
+msgid "admin.page.dashboard.top_forms.title"
+msgstr "Top 5 Formulare (nach Feedbacks)"
+
+#: templates/admin/outerwhisper-dashboard.php:357
+msgid "admin.page.dashboard.top_forms.form"
+msgstr "Formular"
+
+#: templates/admin/outerwhisper-dashboard.php:358
+msgid "admin.page.dashboard.top_forms.feedbacks"
+msgstr "Feedbacks"
+
+#: templates/admin/outerwhisper-dashboard.php:359
+msgid "admin.page.dashboard.top_forms.average_score"
+msgstr "Durchschnitts-Score"
+
+#: templates/admin/outerwhisper-dashboard.php:376
+msgid "admin.page.dashboard.top_forms.fallback_name"
+msgstr "Formular #%d"
+
+#: templates/admin/outerwhisper-dashboard.php:383
+msgid "admin.page.dashboard.top_forms.score_aria"
+msgstr "Score %s von 100"
+
+#: templates/admin/outerwhisper-dashboard.php:392
+msgid "admin.page.dashboard.top_forms.no_data"
+msgstr "Keine Formulare im ausgewählten Zeitraum vorhanden."
+
+#: templates/admin/outerwhisper-dashboard.php:402
+msgid "admin.page.dashboard.top_forms.view_all"
+msgstr "Alle Formulare anzeigen"
+
+#: templates/admin/outerwhisper-dashboard.php:411
+msgid "admin.page.dashboard.recent.title"
+msgstr "Neueste Feedbacks"
+
+#: templates/admin/outerwhisper-dashboard.php:417
+msgid "admin.page.dashboard.recent.date"
+msgstr "Datum"
+
+#: templates/admin/outerwhisper-dashboard.php:418
+msgid "admin.page.dashboard.recent.page"
+msgstr "Seite"
+
+#: templates/admin/outerwhisper-dashboard.php:419
+msgid "admin.page.dashboard.recent.form"
+msgstr "Formular"
+
+#: templates/admin/outerwhisper-dashboard.php:420
+msgid "admin.page.dashboard.recent.rating"
+msgstr "Bewertung"
+
+#: templates/admin/outerwhisper-dashboard.php:421
+msgid "admin.page.dashboard.recent.free_text"
+msgstr "Freitext"
+
+#: templates/admin/outerwhisper-dashboard.php:460
+msgid "admin.page.dashboard.recent.no_data"
+msgstr "Keine Feedbacks im ausgewählten Zeitraum vorhanden."
+
+#: templates/admin/outerwhisper-dashboard.php:470
+msgid "admin.page.dashboard.recent.view_all"
+msgstr "Alle Feedbacks anzeigen"
 
 #: templates/admin/outerwhisper-export.php:8
 msgid "admin.page.export.pro_notice.headline"
@@ -2907,47 +3097,52 @@ msgstr "Deine Pro Vorteile:"
 msgid "admin.builder.pro.cta_text"
 msgstr "Jetzt upgraden & freischalten"
 
-#: assets/js/dist/outerwhisper-admin.js:273
+#: assets/js/dist/outerwhisper-admin.js:232
 msgid "admin.form_list.filter.status.read"
 msgstr "Gelesen"
 
-#: assets/js/dist/outerwhisper-admin.js:276
+#: assets/js/dist/outerwhisper-admin.js:235
 msgid "admin.form_list.filter.status.archived"
 msgstr "Archiviert"
 
-#: assets/js/dist/outerwhisper-admin.js:280
+#: assets/js/dist/outerwhisper-admin.js:239
 msgid "admin.form_list.filter.status.unread"
 msgstr "Ungelesen"
 
-#: assets/js/dist/outerwhisper-admin.js:287
+#: assets/js/dist/outerwhisper-admin.js:246
 msgid "admin.feedback.status_update_error"
 msgstr "Fehler beim Aktualisieren des Status"
 
-#: assets/js/dist/outerwhisper-admin.js:309
+#: assets/js/dist/outerwhisper-admin.js:268
 msgid "admin.feedback.delete_confirm"
 msgstr "Möchtest du das Feedback #{id} wirklich unwiderruflich löschen?"
 
-#: assets/js/dist/outerwhisper-admin.js:358
-#: assets/js/dist/outerwhisper-admin.js:486
+#: assets/js/dist/outerwhisper-admin.js:317
+#: assets/js/dist/outerwhisper-admin.js:639
 msgid "admin.feedback.delete_error"
 msgstr "Fehler beim Löschen des Feedbacks"
 
-#: assets/js/dist/outerwhisper-admin.js:362
+#: assets/js/dist/outerwhisper-admin.js:321
 msgid "admin.feedback.delete_network_error"
 msgstr "Netzwerkfehler beim Löschen des Feedbacks"
 
-#: assets/js/dist/outerwhisper-admin.js:479
+#: assets/js/dist/outerwhisper-admin.js:440
+#: assets/js/dist/outerwhisper-admin.js:513
+msgid "admin.page.dashboard.trend.score"
+msgstr "Score"
+
+#: assets/js/dist/outerwhisper-admin.js:632
 #: assets/js/dist/outerwhisper-form-builder.js:933
 #: assets/js/dist/outerwhisper-form-builder.js:4350
 #: assets/js/dist/outerwhisper-form-frontend.js:1081
 msgid "fields.unnamed"
 msgstr "Unbenannt"
 
-#: assets/js/dist/outerwhisper-admin.js:480
+#: assets/js/dist/outerwhisper-admin.js:633
 msgid "admin.feedback.delete_form_confirm"
 msgstr "Möchtest du das Formular \"{name}\" wirklich unwiderruflich löschen? Dabei werden auch alle dazugehörigen Feedbacks gelöscht."
 
-#: assets/js/dist/outerwhisper-admin.js:491
+#: assets/js/dist/outerwhisper-admin.js:644
 msgid "admin.feedback.saving"
 msgstr "Speichern..."
 

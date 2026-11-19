@@ -72,16 +72,16 @@ class Form {
     }
 
     public function toArray(): array {
-        return [
-            'id'           => $this->id,
-            'name'         => $this->name,
-            'preview_data' => $this->getDecodedPreviewData(),
-            'live_data'    => $this->getDecodedLiveData(),
-            'status'           => $this->status,
-            'last_saved'     => $this->last_saved,
-            'last_published' => $this->last_published,
-            'created'        => $this->created,
-            'updated'      => $this->updated,
-        ];
+		return [
+			'id'             => $this->id,
+		    'name'           => $this->name,
+		    'preview_data'   => $this->getDecodedPreviewData(),
+		    'live_data'      => $this->getDecodedLiveData(),
+		    'status'         => $this->status,
+		    'last_saved'     => $this->last_saved,
+		    'last_published' => $this->last_published,
+		    'created'        => $this->created,
+		    'updated'        => $this->updated,
+		];
     }
 }
