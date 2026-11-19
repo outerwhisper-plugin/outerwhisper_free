@@ -27,6 +27,9 @@ abstract class Database {
             $formFeedback = new FormFeedback();
             $formFeedback->create_table();
 
+			$formFeedbackAnswer = new FormFeedbackAnswer();
+			$formFeedbackAnswer->create_table();
+
             // Initial-Formulare anlegen, falls noch keine existieren
             if ($form->get_form_count() === 0) {
                 $form->create_initial_forms();
@@ -59,10 +62,11 @@ abstract class Database {
 
         // Delete database tables
 		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->prefix . "outerwhisper_form_feedback_answers" );
         $wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->prefix . "outerwhisper_form_feedback" );
         $wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->prefix . "outerwhisper_form_data" );
 
-        // Delete outerwhisper options
+        // Delete OuterWhisper options
         $wpdb->query( "DELETE FROM `" . $wpdb->prefix . "options` WHERE `option_name` LIKE ('outerwhisper_%')" );
 
         // Delete transients

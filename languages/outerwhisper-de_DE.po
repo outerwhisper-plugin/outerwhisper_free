@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OuterWhisper 1.0.3\n"
+"Project-Id-Version: OuterWhisper 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: Junie\n"
 "Language-Team: German\n"
